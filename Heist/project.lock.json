@@ -240,6 +240,17 @@
           "lib/uap10.0/Syncfusion.Pdf.UWP.dll": {}
         }
       },
+      "Syncfusion.SfInput.UWP46/13.4.0.53": {
+        "dependencies": {
+          "Syncfusion.SfShared.UWP46": "[13.4.0.53, )"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.SfInput.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.SfInput.UWP.dll": {}
+        }
+      },
       "Syncfusion.SfPdfViewer.UWP46/13.4.0.53": {
         "dependencies": {
           "Syncfusion.Pdf.UWP46": "[13.4.0.53, )"
@@ -249,6 +260,14 @@
         },
         "runtime": {
           "lib/uap10.0/Syncfusion.SfPdfViewer.UWP.dll": {}
+        }
+      },
+      "Syncfusion.SfShared.UWP46/13.4.0.53": {
+        "compile": {
+          "lib/uap10.0/Syncfusion.SfShared.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.SfShared.UWP.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -1868,6 +1887,17 @@
           "lib/uap10.0/Syncfusion.Pdf.UWP.dll": {}
         }
       },
+      "Syncfusion.SfInput.UWP46/13.4.0.53": {
+        "dependencies": {
+          "Syncfusion.SfShared.UWP46": "[13.4.0.53, )"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.SfInput.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.SfInput.UWP.dll": {}
+        }
+      },
       "Syncfusion.SfPdfViewer.UWP46/13.4.0.53": {
         "dependencies": {
           "Syncfusion.Pdf.UWP46": "[13.4.0.53, )"
@@ -1877,6 +1907,14 @@
         },
         "runtime": {
           "lib/uap10.0/Syncfusion.SfPdfViewer.UWP.dll": {}
+        }
+      },
+      "Syncfusion.SfShared.UWP46/13.4.0.53": {
+        "compile": {
+          "lib/uap10.0/Syncfusion.SfShared.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.SfShared.UWP.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -3529,6 +3567,17 @@
           "lib/uap10.0/Syncfusion.Pdf.UWP.dll": {}
         }
       },
+      "Syncfusion.SfInput.UWP46/13.4.0.53": {
+        "dependencies": {
+          "Syncfusion.SfShared.UWP46": "[13.4.0.53, )"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.SfInput.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.SfInput.UWP.dll": {}
+        }
+      },
       "Syncfusion.SfPdfViewer.UWP46/13.4.0.53": {
         "dependencies": {
           "Syncfusion.Pdf.UWP46": "[13.4.0.53, )"
@@ -3538,6 +3587,14 @@
         },
         "runtime": {
           "lib/uap10.0/Syncfusion.SfPdfViewer.UWP.dll": {}
+        }
+      },
+      "Syncfusion.SfShared.UWP46/13.4.0.53": {
+        "compile": {
+          "lib/uap10.0/Syncfusion.SfShared.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.SfShared.UWP.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -5195,6 +5252,17 @@
           "lib/uap10.0/Syncfusion.Pdf.UWP.dll": {}
         }
       },
+      "Syncfusion.SfInput.UWP46/13.4.0.53": {
+        "dependencies": {
+          "Syncfusion.SfShared.UWP46": "[13.4.0.53, )"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.SfInput.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.SfInput.UWP.dll": {}
+        }
+      },
       "Syncfusion.SfPdfViewer.UWP46/13.4.0.53": {
         "dependencies": {
           "Syncfusion.Pdf.UWP46": "[13.4.0.53, )"
@@ -5204,6 +5272,14 @@
         },
         "runtime": {
           "lib/uap10.0/Syncfusion.SfPdfViewer.UWP.dll": {}
+        }
+      },
+      "Syncfusion.SfShared.UWP46/13.4.0.53": {
+        "compile": {
+          "lib/uap10.0/Syncfusion.SfShared.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.SfShared.UWP.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -6856,6 +6932,17 @@
           "lib/uap10.0/Syncfusion.Pdf.UWP.dll": {}
         }
       },
+      "Syncfusion.SfInput.UWP46/13.4.0.53": {
+        "dependencies": {
+          "Syncfusion.SfShared.UWP46": "[13.4.0.53, )"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.SfInput.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.SfInput.UWP.dll": {}
+        }
+      },
       "Syncfusion.SfPdfViewer.UWP46/13.4.0.53": {
         "dependencies": {
           "Syncfusion.Pdf.UWP46": "[13.4.0.53, )"
@@ -6865,6 +6952,14 @@
         },
         "runtime": {
           "lib/uap10.0/Syncfusion.SfPdfViewer.UWP.dll": {}
+        }
+      },
+      "Syncfusion.SfShared.UWP46/13.4.0.53": {
+        "compile": {
+          "lib/uap10.0/Syncfusion.SfShared.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.SfShared.UWP.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -8522,6 +8617,17 @@
           "lib/uap10.0/Syncfusion.Pdf.UWP.dll": {}
         }
       },
+      "Syncfusion.SfInput.UWP46/13.4.0.53": {
+        "dependencies": {
+          "Syncfusion.SfShared.UWP46": "[13.4.0.53, )"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.SfInput.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.SfInput.UWP.dll": {}
+        }
+      },
       "Syncfusion.SfPdfViewer.UWP46/13.4.0.53": {
         "dependencies": {
           "Syncfusion.Pdf.UWP46": "[13.4.0.53, )"
@@ -8531,6 +8637,14 @@
         },
         "runtime": {
           "lib/uap10.0/Syncfusion.SfPdfViewer.UWP.dll": {}
+        }
+      },
+      "Syncfusion.SfShared.UWP46/13.4.0.53": {
+        "compile": {
+          "lib/uap10.0/Syncfusion.SfShared.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.SfShared.UWP.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -10183,6 +10297,17 @@
           "lib/uap10.0/Syncfusion.Pdf.UWP.dll": {}
         }
       },
+      "Syncfusion.SfInput.UWP46/13.4.0.53": {
+        "dependencies": {
+          "Syncfusion.SfShared.UWP46": "[13.4.0.53, )"
+        },
+        "compile": {
+          "lib/uap10.0/Syncfusion.SfInput.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.SfInput.UWP.dll": {}
+        }
+      },
       "Syncfusion.SfPdfViewer.UWP46/13.4.0.53": {
         "dependencies": {
           "Syncfusion.Pdf.UWP46": "[13.4.0.53, )"
@@ -10192,6 +10317,14 @@
         },
         "runtime": {
           "lib/uap10.0/Syncfusion.SfPdfViewer.UWP.dll": {}
+        }
+      },
+      "Syncfusion.SfShared.UWP46/13.4.0.53": {
+        "compile": {
+          "lib/uap10.0/Syncfusion.SfShared.UWP.dll": {}
+        },
+        "runtime": {
+          "lib/uap10.0/Syncfusion.SfShared.UWP.dll": {}
         }
       },
       "System.AppContext/4.0.0": {
@@ -12283,6 +12416,29 @@
         "Syncfusion.Pdf.UWP46.nuspec"
       ]
     },
+    "Syncfusion.SfInput.UWP46/13.4.0.53": {
+      "sha512": "qJfzDY7qft4SUXIB8E5ttuU1GlX6FZYo9W/d3zcZ1tBILkz3ROxuahnHHG+jGz6KCV6bATG7hZrUhteQotPCvQ==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "lib/uap10.0/Syncfusion.SfInput.UWP.dll",
+        "lib/uap10.0/Syncfusion.SfInput.UWP.pri",
+        "lib/uap10.0/Syncfusion.SfInput.UWP.XML",
+        "lib/uap10.0/Syncfusion.SfInput.UWP/DeviceFamily-Mobile/Themes/InputStyles.xaml",
+        "lib/uap10.0/Syncfusion.SfInput.UWP/DeviceFamily-Mobile/Themes/InputStyles.xbf",
+        "lib/uap10.0/Syncfusion.SfInput.UWP/Properties/Syncfusion.SfInput.UWP.rd.xml",
+        "lib/uap10.0/Syncfusion.SfInput.UWP/Syncfusion.SfInput.UWP.XML",
+        "lib/uap10.0/Syncfusion.SfInput.UWP/Syncfusion.SfInput.UWP.xr.xml",
+        "lib/uap10.0/Syncfusion.SfInput.UWP/Syncfusion.SfShared.UWP.xml",
+        "lib/uap10.0/Syncfusion.SfInput.UWP/Themes/generic.xaml",
+        "lib/uap10.0/Syncfusion.SfInput.UWP/Themes/generic.xbf",
+        "lib/uap10.0/Syncfusion.SfInput.UWP/Themes/InputStyles.xaml",
+        "lib/uap10.0/Syncfusion.SfInput.UWP/Themes/InputStyles.xbf",
+        "package/services/metadata/core-properties/20fa78b21e1a47f39d2e1d09063f171d.psmdcp",
+        "Syncfusion.SfInput.UWP46.nuspec"
+      ]
+    },
     "Syncfusion.SfPdfViewer.UWP46/13.4.0.53": {
       "sha512": "LP1DRRHYhCsXgorZtnoB9gGDFcp07xsAEUzBJn99ZqFpZ90XbCAiQIceTAk/gxvlSYMJmH3uD9a+MaNhgr6knA==",
       "type": "Package",
@@ -12305,6 +12461,24 @@
         "lib/uap10.0/Syncfusion.SfPdfViewer.UWP/Themes/Generic.xbf",
         "package/services/metadata/core-properties/58738670214c4f79a23d7a5fc9ce28ae.psmdcp",
         "Syncfusion.SfPdfViewer.UWP46.nuspec"
+      ]
+    },
+    "Syncfusion.SfShared.UWP46/13.4.0.53": {
+      "sha512": "/xazZgI5+lH0uYYBvtHmPVzYwaUJk1EXxwabvep4vdpTAhoW38q65jByQIlD460834v5Hg5vceqiQxrjzpXLjw==",
+      "type": "Package",
+      "files": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "lib/uap10.0/Syncfusion.SfShared.UWP.dll",
+        "lib/uap10.0/Syncfusion.SfShared.UWP.pri",
+        "lib/uap10.0/Syncfusion.SfShared.UWP.XML",
+        "lib/uap10.0/Syncfusion.SfShared.UWP/Properties/Syncfusion.SfShared.UWP.rd.xml",
+        "lib/uap10.0/Syncfusion.SfShared.UWP/Syncfusion.SfShared.UWP.XML",
+        "lib/uap10.0/Syncfusion.SfShared.UWP/Syncfusion.SfShared.UWP.xr.xml",
+        "lib/uap10.0/Syncfusion.SfShared.UWP/Themes/generic.xaml",
+        "lib/uap10.0/Syncfusion.SfShared.UWP/Themes/generic.xbf",
+        "package/services/metadata/core-properties/6862b287e3ae4125a139805df9124ce9.psmdcp",
+        "Syncfusion.SfShared.UWP46.nuspec"
       ]
     },
     "System.AppContext/4.0.0": {
@@ -15010,6 +15184,7 @@
       "Microsoft.ApplicationInsights.WindowsApps >= 1.0.0",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
       "Syncfusion.Pdf.UWP46 >= 13.4.0.53",
+      "Syncfusion.SfInput.UWP46 >= 13.4.0.53",
       "Syncfusion.SfPdfViewer.UWP46 >= 13.4.0.53"
     ],
     "UAP,Version=v10.0": []

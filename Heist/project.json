@@ -5,6 +5,7 @@
     "Microsoft.ApplicationInsights.WindowsApps": "1.0.0",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
     "Syncfusion.Pdf.UWP46": "13.4.0.53",
+    "Syncfusion.SfInput.UWP46": "13.4.0.53",
     "Syncfusion.SfPdfViewer.UWP46": "13.4.0.53"
   },
   "frameworks": {
