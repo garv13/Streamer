@@ -232,7 +232,7 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Syncfusion.Pdf.UWP46/13.4.0.53": {
+      "Syncfusion.Pdf.UWP46/13.4.0.58": {
         "compile": {
           "lib/uap10.0/Syncfusion.Pdf.UWP.dll": {}
         },
@@ -240,9 +240,9 @@
           "lib/uap10.0/Syncfusion.Pdf.UWP.dll": {}
         }
       },
-      "Syncfusion.SfPdfViewer.UWP46/13.4.0.53": {
+      "Syncfusion.SfPdfViewer.UWP46/13.4.0.58": {
         "dependencies": {
-          "Syncfusion.Pdf.UWP46": "[13.4.0.53, )"
+          "Syncfusion.Pdf.UWP46": "[13.4.0.58, )"
         },
         "compile": {
           "lib/uap10.0/Syncfusion.SfPdfViewer.UWP.dll": {}
@@ -1860,7 +1860,7 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Syncfusion.Pdf.UWP46/13.4.0.53": {
+      "Syncfusion.Pdf.UWP46/13.4.0.58": {
         "compile": {
           "lib/uap10.0/Syncfusion.Pdf.UWP.dll": {}
         },
@@ -1868,9 +1868,9 @@
           "lib/uap10.0/Syncfusion.Pdf.UWP.dll": {}
         }
       },
-      "Syncfusion.SfPdfViewer.UWP46/13.4.0.53": {
+      "Syncfusion.SfPdfViewer.UWP46/13.4.0.58": {
         "dependencies": {
-          "Syncfusion.Pdf.UWP46": "[13.4.0.53, )"
+          "Syncfusion.Pdf.UWP46": "[13.4.0.58, )"
         },
         "compile": {
           "lib/uap10.0/Syncfusion.SfPdfViewer.UWP.dll": {}
@@ -3521,7 +3521,7 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Syncfusion.Pdf.UWP46/13.4.0.53": {
+      "Syncfusion.Pdf.UWP46/13.4.0.58": {
         "compile": {
           "lib/uap10.0/Syncfusion.Pdf.UWP.dll": {}
         },
@@ -3529,9 +3529,9 @@
           "lib/uap10.0/Syncfusion.Pdf.UWP.dll": {}
         }
       },
-      "Syncfusion.SfPdfViewer.UWP46/13.4.0.53": {
+      "Syncfusion.SfPdfViewer.UWP46/13.4.0.58": {
         "dependencies": {
-          "Syncfusion.Pdf.UWP46": "[13.4.0.53, )"
+          "Syncfusion.Pdf.UWP46": "[13.4.0.58, )"
         },
         "compile": {
           "lib/uap10.0/Syncfusion.SfPdfViewer.UWP.dll": {}
@@ -5187,7 +5187,7 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Syncfusion.Pdf.UWP46/13.4.0.53": {
+      "Syncfusion.Pdf.UWP46/13.4.0.58": {
         "compile": {
           "lib/uap10.0/Syncfusion.Pdf.UWP.dll": {}
         },
@@ -5195,9 +5195,9 @@
           "lib/uap10.0/Syncfusion.Pdf.UWP.dll": {}
         }
       },
-      "Syncfusion.SfPdfViewer.UWP46/13.4.0.53": {
+      "Syncfusion.SfPdfViewer.UWP46/13.4.0.58": {
         "dependencies": {
-          "Syncfusion.Pdf.UWP46": "[13.4.0.53, )"
+          "Syncfusion.Pdf.UWP46": "[13.4.0.58, )"
         },
         "compile": {
           "lib/uap10.0/Syncfusion.SfPdfViewer.UWP.dll": {}
@@ -6848,7 +6848,7 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Syncfusion.Pdf.UWP46/13.4.0.53": {
+      "Syncfusion.Pdf.UWP46/13.4.0.58": {
         "compile": {
           "lib/uap10.0/Syncfusion.Pdf.UWP.dll": {}
         },
@@ -6856,9 +6856,9 @@
           "lib/uap10.0/Syncfusion.Pdf.UWP.dll": {}
         }
       },
-      "Syncfusion.SfPdfViewer.UWP46/13.4.0.53": {
+      "Syncfusion.SfPdfViewer.UWP46/13.4.0.58": {
         "dependencies": {
-          "Syncfusion.Pdf.UWP46": "[13.4.0.53, )"
+          "Syncfusion.Pdf.UWP46": "[13.4.0.58, )"
         },
         "compile": {
           "lib/uap10.0/Syncfusion.SfPdfViewer.UWP.dll": {}
@@ -8514,7 +8514,7 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Syncfusion.Pdf.UWP46/13.4.0.53": {
+      "Syncfusion.Pdf.UWP46/13.4.0.58": {
         "compile": {
           "lib/uap10.0/Syncfusion.Pdf.UWP.dll": {}
         },
@@ -8522,9 +8522,9 @@
           "lib/uap10.0/Syncfusion.Pdf.UWP.dll": {}
         }
       },
-      "Syncfusion.SfPdfViewer.UWP46/13.4.0.53": {
+      "Syncfusion.SfPdfViewer.UWP46/13.4.0.58": {
         "dependencies": {
-          "Syncfusion.Pdf.UWP46": "[13.4.0.53, )"
+          "Syncfusion.Pdf.UWP46": "[13.4.0.58, )"
         },
         "compile": {
           "lib/uap10.0/Syncfusion.SfPdfViewer.UWP.dll": {}
@@ -10175,7 +10175,7 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "Syncfusion.Pdf.UWP46/13.4.0.53": {
+      "Syncfusion.Pdf.UWP46/13.4.0.58": {
         "compile": {
           "lib/uap10.0/Syncfusion.Pdf.UWP.dll": {}
         },
@@ -10183,9 +10183,9 @@
           "lib/uap10.0/Syncfusion.Pdf.UWP.dll": {}
         }
       },
-      "Syncfusion.SfPdfViewer.UWP46/13.4.0.53": {
+      "Syncfusion.SfPdfViewer.UWP46/13.4.0.58": {
         "dependencies": {
-          "Syncfusion.Pdf.UWP46": "[13.4.0.53, )"
+          "Syncfusion.Pdf.UWP46": "[13.4.0.58, )"
         },
         "compile": {
           "lib/uap10.0/Syncfusion.SfPdfViewer.UWP.dll": {}
@@ -12268,8 +12268,8 @@
         "ref/xamarinmac20/_._"
       ]
     },
-    "Syncfusion.Pdf.UWP46/13.4.0.53": {
-      "sha512": "VkKt5i+bKk1abCEUDFzQnGh+EcBt77dsJFxx0Lb78z5BSmJNZ6e88MhrEo/QZ0d8qFjREyAIfr3G6+yVETeJ/g==",
+    "Syncfusion.Pdf.UWP46/13.4.0.58": {
+      "sha512": "UOdpC26rzuWJk0E4R0gzi+8bkgC12j+E3F2BxubCFUZv4lW8YaIBejzGf9WU/qc1DfBGtKoSnstnzwwK/fBY3g==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -12279,12 +12279,12 @@
         "lib/uap10.0/Syncfusion.Pdf.UWP.XML",
         "lib/uap10.0/Syncfusion.Pdf.UWP/Properties/Syncfusion.Pdf.UWP_2015.rd.xml",
         "lib/uap10.0/Syncfusion.Pdf.UWP/Syncfusion.Pdf.UWP.XML",
-        "package/services/metadata/core-properties/a432e1ea93574df7869724e5214e1646.psmdcp",
+        "package/services/metadata/core-properties/4c6721dac2bd41cd912c13c2904f32c1.psmdcp",
         "Syncfusion.Pdf.UWP46.nuspec"
       ]
     },
-    "Syncfusion.SfPdfViewer.UWP46/13.4.0.53": {
-      "sha512": "LP1DRRHYhCsXgorZtnoB9gGDFcp07xsAEUzBJn99ZqFpZ90XbCAiQIceTAk/gxvlSYMJmH3uD9a+MaNhgr6knA==",
+    "Syncfusion.SfPdfViewer.UWP46/13.4.0.58": {
+      "sha512": "haEOPOCvJy9wYK7XSl30o3v2MRyNhSNs0SLFHVo3c5r5v7ReteZRCf34BPWRKX+dlspmVTrMtRLrpbyfSEJXKg==",
       "type": "Package",
       "files": [
         "[Content_Types].xml",
@@ -12292,8 +12292,11 @@
         "lib/uap10.0/Syncfusion.SfPdfViewer.UWP.dll",
         "lib/uap10.0/Syncfusion.SfPdfViewer.UWP.pri",
         "lib/uap10.0/Syncfusion.SfPdfViewer.UWP.xml",
+        "lib/uap10.0/Syncfusion.SfPdfViewer.UWP/Implementation/UI/PdfFlipView.xaml",
         "lib/uap10.0/Syncfusion.SfPdfViewer.UWP/Implementation/UI/PdfFlipView.xbf",
+        "lib/uap10.0/Syncfusion.SfPdfViewer.UWP/Implementation/UI/TextSelectionCopyButton.xaml",
         "lib/uap10.0/Syncfusion.SfPdfViewer.UWP/Implementation/UI/TextSelectionCopyButton.xbf",
+        "lib/uap10.0/Syncfusion.SfPdfViewer.UWP/Implementation/UI/ThumbnailView.xaml",
         "lib/uap10.0/Syncfusion.SfPdfViewer.UWP/Implementation/UI/ThumbnailView.xbf",
         "lib/uap10.0/Syncfusion.SfPdfViewer.UWP/Properties/Syncfusion.SfPDFViewer.UWP_2015.rd.xml",
         "lib/uap10.0/Syncfusion.SfPdfViewer.UWP/Syncfusion.Pdf.UWP.xml",
@@ -12303,7 +12306,7 @@
         "lib/uap10.0/Syncfusion.SfPdfViewer.UWP/Themes/Generic.Advanced.xbf",
         "lib/uap10.0/Syncfusion.SfPdfViewer.UWP/Themes/Generic.xaml",
         "lib/uap10.0/Syncfusion.SfPdfViewer.UWP/Themes/Generic.xbf",
-        "package/services/metadata/core-properties/58738670214c4f79a23d7a5fc9ce28ae.psmdcp",
+        "package/services/metadata/core-properties/7ebb81692fde4d8398b11a698f21ce42.psmdcp",
         "Syncfusion.SfPdfViewer.UWP46.nuspec"
       ]
     },
