@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:syncfusion="using:Syncfusion.Windows.PdfViewer"
+    xmlns:lol2="using:Syncfusion.Windows.PdfViewer"
      mc:Ignorable="d">
 
     <Page.Resources>
@@ -48,7 +49,7 @@
 
                 <Button x:ConnectionId='8' Name="BtnOpen"                       Content="Open"/>
                 <Grid x:ConnectionId='9' x:Name="lol" Visibility="Collapsed">
-                    <syncfusion:SfPdfViewerControl x:ConnectionId='11' Name="pdfViewer" PageView="SinglePageView" ViewMode="OnePage"></syncfusion:SfPdfViewerControl>
+                    <lol2:SfPdfViewerControl x:ConnectionId='11' Name="pdfViewer" PageView="SinglePageView" ViewMode="OnePage"></lol2:SfPdfViewerControl>
                 </Grid>
                 <Button x:ConnectionId='10' x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="244,238,0,0" VerticalAlignment="Top"                     />
             </Grid>

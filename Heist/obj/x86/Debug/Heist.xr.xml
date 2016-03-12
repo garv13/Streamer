@@ -107,11 +107,6 @@
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
-    <RootType FullName="Syncfusion.Windows.PdfViewer.SfPdfViewerControl">
-      <RootProperty Name="Name" />
-      <RootProperty Name="PageView" />
-      <RootProperty Name="ViewMode" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.GridView">
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
@@ -121,6 +116,11 @@
       <RootProperty Name="IsSwipeEnabled" />
       <RootProperty Name="IsItemClickEnabled" />
       <RootProperty Name="Visibility" />
+    </RootType>
+    <RootType FullName="Syncfusion.Windows.PdfViewer.SfPdfViewerControl">
+      <RootProperty Name="Name" />
+      <RootProperty Name="PageView" />
+      <RootProperty Name="ViewMode" />
     </RootType>
     <RootType FullName="Heist.Downloads" />
     <RootType FullName="Heist.MainPage" />

@@ -4,8 +4,8 @@
     "Microsoft.ApplicationInsights.PersistenceChannel": "1.0.0",
     "Microsoft.ApplicationInsights.WindowsApps": "1.0.0",
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
-    "Syncfusion.Pdf.UWP46": "13.4.0.58",
-    "Syncfusion.SfPdfViewer.UWP46": "13.4.0.58"
+    "Syncfusion.Pdf.UWP46": "13.4.0.53",
+    "Syncfusion.SfPdfViewer.UWP46": "13.4.0.53"
   },
   "frameworks": {
     "uap10.0": {}

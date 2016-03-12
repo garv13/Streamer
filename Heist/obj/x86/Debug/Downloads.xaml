@@ -60,10 +60,10 @@
         </SplitView.Pane>
 
         <SplitView.Content>
-            <Grid Visibility="Visible">
+            <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-                <Grid x:ConnectionId='9' x:Name="Books" Background="White">
-                    <GridView x:ConnectionId='15'                    
+
+                <GridView x:ConnectionId='9'                    
                         HorizontalAlignment="Stretch"
                         x:Name="event1"
                         VerticalAlignment="Stretch"
@@ -79,9 +79,9 @@
                         Visibility="Visible"
                       >
                     </GridView>
-                </Grid>
-                <Grid x:ConnectionId='10' x:Name="Chapters" Background="#2B1E15">
-                    <GridView x:ConnectionId='14'
+             
+                
+                    <GridView x:ConnectionId='10'
                         
                         HorizontalAlignment="Stretch"
                         x:Name="event2"
@@ -98,7 +98,7 @@
                         Visibility="Collapsed"
                       >
                     </GridView>
-                </Grid>
+                
                 <Grid x:ConnectionId='11' x:Name="PdfGrid" Visibility="Collapsed">
                     <syncfusion:SfPdfViewerControl x:ConnectionId='13' Name="pdfViewer" PageView="SinglePageView" ViewMode="OnePage"></syncfusion:SfPdfViewerControl>
                 </Grid>

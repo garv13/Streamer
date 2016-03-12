@@ -58,9 +58,9 @@ namespace Heist
                     gd.authName = null;
                     lg.Add(gd);
                 }
-                Books.Visibility = Visibility.Collapsed;
+               event1.Visibility = Visibility.Collapsed;
                 event2.ItemsSource = lg;
-                Chapters.Visibility = Visibility.Visible;
+                event2.Visibility = Visibility.Visible;
             }
         }
 
@@ -126,7 +126,7 @@ namespace Heist
             if (lg.Count != 0)
             {
                 event1.ItemsSource = lg;
-                Books.Visibility = Visibility.Visible;
+                //Books.Visibility = Visibility.Visible;
             }
             else
                 await (new MessageDialog("Nothing Purchased")).ShowAsync();
@@ -175,7 +175,7 @@ namespace Heist
            // Loads the PDF document.
              PdfLoadedDocument ldoc = new PdfLoadedDocument(buffer);
             pdfViewer.LoadDocument(ldoc);
-            Chapters.Visibility = Visibility.Collapsed;
+            //Chapters.Visibility = Visibility.Collapsed;
             PdfGrid.Visibility = Visibility.Visible;
         }
 
