@@ -435,3 +435,13 @@ C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Syncfusion.Pdf.UWP.
 C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Syncfusion.SfPdfViewer.UWP.pri.xml
 C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\ProjectArchitectures.txt
 C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Heist.csprojResolveAssemblyReference.cache
+C:\Users\garvj\Documents\Visual Studio 2015\Projects\Heist\Heist\bin\x86\Debug\Login.xbf
+C:\Users\garvj\Documents\Visual Studio 2015\Projects\Heist\Heist\bin\x86\Debug\SignUp.xbf
+C:\Users\garvj\Documents\Visual Studio 2015\Projects\Heist\Heist\obj\x86\Debug\Login.g.i.cs
+C:\Users\garvj\Documents\Visual Studio 2015\Projects\Heist\Heist\obj\x86\Debug\Login.g.cs
+C:\Users\garvj\Documents\Visual Studio 2015\Projects\Heist\Heist\obj\x86\Debug\SignUp.g.i.cs
+C:\Users\garvj\Documents\Visual Studio 2015\Projects\Heist\Heist\obj\x86\Debug\SignUp.g.cs
+C:\Users\garvj\Documents\Visual Studio 2015\Projects\Heist\Heist\obj\x86\Debug\Login.xaml
+C:\Users\garvj\Documents\Visual Studio 2015\Projects\Heist\Heist\obj\x86\Debug\SignUp.xaml
+C:\Users\garvj\Documents\Visual Studio 2015\Projects\Heist\Heist\obj\x86\Debug\Login.xbf
+C:\Users\garvj\Documents\Visual Studio 2015\Projects\Heist\Heist\obj\x86\Debug\SignUp.xbf

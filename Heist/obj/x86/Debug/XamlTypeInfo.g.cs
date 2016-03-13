@@ -156,7 +156,7 @@ namespace Heist.Heist_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[22];
+            _typeNameTable = new string[24];
             _typeNameTable[0] = "Heist.About";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
@@ -177,10 +177,12 @@ namespace Heist.Heist_XamlTypeInfo
             _typeNameTable[17] = "Windows.UI.Xaml.Visibility";
             _typeNameTable[18] = "System.Windows.Input.ICommand";
             _typeNameTable[19] = "Heist.Downloads";
-            _typeNameTable[20] = "Heist.MainPage";
-            _typeNameTable[21] = "Heist.MainPage1";
+            _typeNameTable[20] = "Heist.Login";
+            _typeNameTable[21] = "Heist.MainPage";
+            _typeNameTable[22] = "Heist.MainPage1";
+            _typeNameTable[23] = "Heist.SignUp";
 
-            _typeTable = new global::System.Type[22];
+            _typeTable = new global::System.Type[24];
             _typeTable[0] = typeof(global::Heist.About);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
@@ -201,8 +203,10 @@ namespace Heist.Heist_XamlTypeInfo
             _typeTable[17] = typeof(global::Windows.UI.Xaml.Visibility);
             _typeTable[18] = typeof(global::System.Windows.Input.ICommand);
             _typeTable[19] = typeof(global::Heist.Downloads);
-            _typeTable[20] = typeof(global::Heist.MainPage);
-            _typeTable[21] = typeof(global::Heist.MainPage1);
+            _typeTable[20] = typeof(global::Heist.Login);
+            _typeTable[21] = typeof(global::Heist.MainPage);
+            _typeTable[22] = typeof(global::Heist.MainPage1);
+            _typeTable[23] = typeof(global::Heist.SignUp);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -242,8 +246,10 @@ namespace Heist.Heist_XamlTypeInfo
         private object Activate_11_PrinterSettings() { return new global::Syncfusion.Windows.PdfViewer.PrinterSettings(); }
         private object Activate_13_Dictionary() { return new global::System.Collections.Generic.Dictionary<global::System.Int32, global::System.Double>(); }
         private object Activate_19_Downloads() { return new global::Heist.Downloads(); }
-        private object Activate_20_MainPage() { return new global::Heist.MainPage(); }
-        private object Activate_21_MainPage1() { return new global::Heist.MainPage1(); }
+        private object Activate_20_Login() { return new global::Heist.Login(); }
+        private object Activate_21_MainPage() { return new global::Heist.MainPage(); }
+        private object Activate_22_MainPage1() { return new global::Heist.MainPage1(); }
+        private object Activate_23_SignUp() { return new global::Heist.SignUp(); }
         private void MapAdd_13_Dictionary(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Int32, global::System.Double>)instance;
@@ -413,16 +419,30 @@ namespace Heist.Heist_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 20:   //  Heist.MainPage
+            case 20:   //  Heist.Login
                 userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_20_MainPage;
+                userType.Activator = Activate_20_Login;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 21:   //  Heist.MainPage1
+            case 21:   //  Heist.MainPage
                 userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_21_MainPage1;
+                userType.Activator = Activate_21_MainPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 22:   //  Heist.MainPage1
+                userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_22_MainPage1;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 23:   //  Heist.SignUp
+                userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_23_SignUp;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
