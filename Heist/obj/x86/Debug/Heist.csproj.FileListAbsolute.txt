@@ -459,3 +459,15 @@ C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Login.xbf
 C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\SignUp.xbf
 C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Syncfusion.SfInput.UWP.pri.xml
 C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Syncfusion.SfShared.UWP.pri.xml
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Store.g.i.cs
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Store.g.cs
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Store.xaml
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Store.xbf
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\bin\x86\Debug\Store.xbf
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\bin\x86\Debug\System.Net.Http.Extensions.dll
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\bin\x86\Debug\System.Net.Http.Primitives.dll
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\bin\x86\Debug\Newtonsoft.Json.dll
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\bin\x86\Debug\Microsoft.WindowsAzure.Mobile.dll
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\bin\x86\Debug\Microsoft.WindowsAzure.Mobile.Ext.dll
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Microsoft.WindowsAzure.Mobile\en-US\Microsoft.WindowsAzure.MobileServices.Resources.resw
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Microsoft.WindowsAzure.Mobile.Ext.pri.xml

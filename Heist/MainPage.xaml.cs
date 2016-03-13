@@ -127,14 +127,7 @@ namespace Heist
 
         private async void MenuButton4_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                await Launcher.LaunchUriAsync(new Uri(string.Format("ms-windows-store:REVIEW?PFN={0}", Windows.ApplicationModel.Package.Current.Id.FamilyName)));
-            }
-            catch (Exception es)
-            {
-                await (new MessageDialog("Can't review now please try again later")).ShowAsync();
-            }
+            Frame.Navigate(typeof(Store));
         }
 
 

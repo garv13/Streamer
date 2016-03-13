@@ -3,6 +3,7 @@
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="authName" />
     <RootPropertyPathName Name="title" />
+    <RootPropertyPathName Name="BookNames" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
@@ -245,5 +246,13 @@
       <RootMethod Name="GetAccessibilityView" />
       <RootMethod Name="SetAccessibilityView" />
     </RootType>
+    <RootType FullName="Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="AutoCompleteSource" />
+      <RootProperty Name="AutoCompleteMode" />
+    </RootType>
+    <RootType FullName="Heist.Store" />
   </Roots.RootTypes>
 </Roots>
