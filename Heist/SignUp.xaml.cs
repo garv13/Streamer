@@ -34,23 +34,34 @@ namespace Heist
             User a = new User();
             int i = 1;
 
-            if (!Regex.Match(Name.Text, "^[A-Z][a-zA-Z]*$").Success)
+            if (!(Name.Text.All(char.IsLetter) && Name.Text.Length != 0))
+            {
+                i = 0;
+            }
+
+            if (!(Mobile.Text.All(char.IsDigit) && Mobile.Text.Length == 10))
+            {
+                i = 0;
+            }
+
+            if (!Regex.Match(Email.Text, @"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$").Success)
                 i = 0;
 
-            if (!Regex.Match(Mobile.Text, @"^[1-9]\d{2}-[1-9]\d{2}-\d{4}$").Success)
-                i = 0;
-            if (!Regex.Match(Email.Text, @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$").Success)
-                i = 0;
 
-            if (!Regex.Match(UserName.Text, @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$").Success)
+            if (!(UserName.Text.All(char.IsLetterOrDigit) && UserName.Text.Length != 0))
+            {
                 i = 0;
+            }
 
-            if (!Regex.Match(Password.Password, @"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$").Success)
-                i = 0;
+            if (Password.Password.Length < 8)
+            {
+                MessageDialog msgbox = new MessageDialog("Password length must be 8");
+                await msgbox.ShowAsync();
+            }
 
             if (i == 0)
             {
-                MessageDialog msgbox = new MessageDialog("Password or username incorrect");
+                MessageDialog msgbox = new MessageDialog("Enter Correct Information");
                 await msgbox.ShowAsync();
             }
 
@@ -64,6 +75,7 @@ namespace Heist
                 a.wallet = 0;
                 a.purchases = "";
                 await App.MobileService.GetTable<User>().InsertAsync(a);
+                Frame.Navigate(typeof(Login));
                 //add object a in cloud
             }
         }

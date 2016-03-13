@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\aksha\Documents\GitHub\Streamer\Heist\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-03-13T15:30:28.540</Modified>
+      <Modified>2016-03-13T18:46:01.158</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\aksha\Documents\GitHub\Streamer\Heist\bin\x86\Debug\Heist.exe">
       <PackagePath>entrypoint\Heist.exe</PackagePath>
-      <Modified>2016-03-13T15:30:27.404</Modified>
+      <Modified>2016-03-13T18:45:59.843</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aksha\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -578,11 +578,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aksha\Documents\GitHub\Streamer\Heist\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-03-13T15:30:27.916</Modified>
+      <Modified>2016-03-13T18:46:00.484</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aksha\Documents\GitHub\Streamer\Heist\bin\x86\Debug\Core\Heist.exe">
       <PackagePath>Heist.exe</PackagePath>
-      <Modified>2016-03-13T15:30:28.538</Modified>
+      <Modified>2016-03-13T18:46:01.156</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

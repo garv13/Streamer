@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -35,12 +36,16 @@ namespace Heist
         {
             items = await Table.Where(User
                             => User.username == UserName.Text).ToCollectionAsync();
-            if (items != null)
+            if (items.Count!=0)
             {
                 if (Password.Password == items[0].password)
                 {
                     MessageDialog msgbox = new MessageDialog("Welcome " + UserName.Text);
                     await msgbox.ShowAsync();
+                    StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                    StorageFile sampleFile =
+                        await folder.CreateFileAsync("sample.txt", CreationCollisionOption.ReplaceExisting);
+                    await Windows.Storage.FileIO.WriteTextAsync(sampleFile, UserName.Text);
                     Frame.Navigate(typeof(MainPage));
                 }
             }
