@@ -145,7 +145,7 @@ namespace Heist
             items2 = await Table2.Where(User
                            => User.username == testlol).ToCollectionAsync();
             User a = items2[0];
-            if (!a.purchases.Contains(rec.Id+"."+test3.Text ))
+            if (!a.purchases.Contains(rec.Id+"."+test3.Text )&& !a.purchases.Contains(rec.Id + ".full"))
             {
                 a.purchases += rec.Id + "." + test3.Text+",";
                 await Table2.UpdateAsync(a);

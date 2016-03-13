@@ -3,10 +3,10 @@
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="authName" />
     <RootPropertyPathName Name="title" />
-    <RootPropertyPathName Name="Id" />
     <RootPropertyPathName Name="Author" />
     <RootPropertyPathName Name="Title" />
     <RootPropertyPathName Name="Image" />
+    <RootPropertyPathName Name="Id" />
     <RootPropertyPathName Name="BookNames" />
     <RootPropertyPathName Name="Price" />
   </Roots.PropertyPathNames>
@@ -80,12 +80,12 @@
       <RootProperty Name="Foreground" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Visibility" />
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="FontFamily" />
       <RootProperty Name="Style" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Visibility" />
-      <RootProperty Name="Width" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding" />
     <RootType FullName="Windows.UI.Xaml.Controls.SplitView">
@@ -170,6 +170,22 @@
     <RootType FullName="Heist.Login" />
     <RootType FullName="Heist.MainPage" />
     <RootType FullName="Heist.MainPage1" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ProgressBar">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+    </RootType>
+    <RootType FullName="Heist.Purchased" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="ItemTemplate" />
+      <RootProperty Name="SelectionMode" />
+      <RootProperty Name="IsSwipeEnabled" />
+      <RootProperty Name="IsItemClickEnabled" />
+      <RootProperty Name="Visibility" />
+    </RootType>
+    <RootType FullName="Heist.Purchaseddetail" />
     <RootType FullName="Heist.SignUp" />
     <RootType FullName="Windows.UI.Xaml.Media.SolidColorBrush">
       <RootProperty Name="Color" />
@@ -256,10 +272,6 @@
       <RootMethod Name="GetAccessibilityView" />
       <RootMethod Name="SetAccessibilityView" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ProgressBar">
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
-    </RootType>
     <RootType FullName="Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt">
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
@@ -268,16 +280,6 @@
       <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Heist.Store" />
-    <RootType FullName="Windows.UI.Xaml.Controls.ListView">
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="ItemsSource" />
-      <RootProperty Name="ItemTemplate" />
-      <RootProperty Name="SelectionMode" />
-      <RootProperty Name="IsSwipeEnabled" />
-      <RootProperty Name="IsItemClickEnabled" />
-      <RootProperty Name="Visibility" />
-    </RootType>
     <RootType FullName="Heist.StoreDetail" />
   </Roots.RootTypes>
 </Roots>

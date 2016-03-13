@@ -156,7 +156,7 @@ namespace Heist.Heist_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[39];
+            _typeNameTable = new string[41];
             _typeNameTable[0] = "Heist.About";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
@@ -180,24 +180,26 @@ namespace Heist.Heist_XamlTypeInfo
             _typeNameTable[20] = "Heist.Login";
             _typeNameTable[21] = "Heist.MainPage";
             _typeNameTable[22] = "Heist.MainPage1";
-            _typeNameTable[23] = "Heist.SignUp";
-            _typeNameTable[24] = "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt";
-            _typeNameTable[25] = "Windows.UI.Xaml.Controls.TextBox";
-            _typeNameTable[26] = "System.Collections.IEnumerable";
-            _typeNameTable[27] = "Syncfusion.UI.Xaml.Controls.Input.AutoCompleteMode";
-            _typeNameTable[28] = "Windows.UI.Xaml.DataTemplate";
-            _typeNameTable[29] = "Windows.UI.Xaml.Controls.DataTemplateSelector";
-            _typeNameTable[30] = "Windows.UI.Xaml.Controls.ItemsPanelTemplate";
-            _typeNameTable[31] = "Windows.Foundation.Point";
-            _typeNameTable[32] = "String";
-            _typeNameTable[33] = "Syncfusion.UI.Xaml.Controls.Input.SuggestionBoxPlacement";
-            _typeNameTable[34] = "Syncfusion.UI.Xaml.Controls.Input.SuggestionMode";
-            _typeNameTable[35] = "TimeSpan";
-            _typeNameTable[36] = "Windows.UI.Xaml.Style";
-            _typeNameTable[37] = "Heist.Store";
-            _typeNameTable[38] = "Heist.StoreDetail";
+            _typeNameTable[23] = "Heist.Purchased";
+            _typeNameTable[24] = "Heist.Purchaseddetail";
+            _typeNameTable[25] = "Heist.SignUp";
+            _typeNameTable[26] = "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt";
+            _typeNameTable[27] = "Windows.UI.Xaml.Controls.TextBox";
+            _typeNameTable[28] = "System.Collections.IEnumerable";
+            _typeNameTable[29] = "Syncfusion.UI.Xaml.Controls.Input.AutoCompleteMode";
+            _typeNameTable[30] = "Windows.UI.Xaml.DataTemplate";
+            _typeNameTable[31] = "Windows.UI.Xaml.Controls.DataTemplateSelector";
+            _typeNameTable[32] = "Windows.UI.Xaml.Controls.ItemsPanelTemplate";
+            _typeNameTable[33] = "Windows.Foundation.Point";
+            _typeNameTable[34] = "String";
+            _typeNameTable[35] = "Syncfusion.UI.Xaml.Controls.Input.SuggestionBoxPlacement";
+            _typeNameTable[36] = "Syncfusion.UI.Xaml.Controls.Input.SuggestionMode";
+            _typeNameTable[37] = "TimeSpan";
+            _typeNameTable[38] = "Windows.UI.Xaml.Style";
+            _typeNameTable[39] = "Heist.Store";
+            _typeNameTable[40] = "Heist.StoreDetail";
 
-            _typeTable = new global::System.Type[39];
+            _typeTable = new global::System.Type[41];
             _typeTable[0] = typeof(global::Heist.About);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
@@ -221,22 +223,24 @@ namespace Heist.Heist_XamlTypeInfo
             _typeTable[20] = typeof(global::Heist.Login);
             _typeTable[21] = typeof(global::Heist.MainPage);
             _typeTable[22] = typeof(global::Heist.MainPage1);
-            _typeTable[23] = typeof(global::Heist.SignUp);
-            _typeTable[24] = typeof(global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt);
-            _typeTable[25] = typeof(global::Windows.UI.Xaml.Controls.TextBox);
-            _typeTable[26] = typeof(global::System.Collections.IEnumerable);
-            _typeTable[27] = typeof(global::Syncfusion.UI.Xaml.Controls.Input.AutoCompleteMode);
-            _typeTable[28] = typeof(global::Windows.UI.Xaml.DataTemplate);
-            _typeTable[29] = typeof(global::Windows.UI.Xaml.Controls.DataTemplateSelector);
-            _typeTable[30] = typeof(global::Windows.UI.Xaml.Controls.ItemsPanelTemplate);
-            _typeTable[31] = typeof(global::Windows.Foundation.Point);
-            _typeTable[32] = typeof(global::System.String);
-            _typeTable[33] = typeof(global::Syncfusion.UI.Xaml.Controls.Input.SuggestionBoxPlacement);
-            _typeTable[34] = typeof(global::Syncfusion.UI.Xaml.Controls.Input.SuggestionMode);
-            _typeTable[35] = typeof(global::System.TimeSpan);
-            _typeTable[36] = typeof(global::Windows.UI.Xaml.Style);
-            _typeTable[37] = typeof(global::Heist.Store);
-            _typeTable[38] = typeof(global::Heist.StoreDetail);
+            _typeTable[23] = typeof(global::Heist.Purchased);
+            _typeTable[24] = typeof(global::Heist.Purchaseddetail);
+            _typeTable[25] = typeof(global::Heist.SignUp);
+            _typeTable[26] = typeof(global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt);
+            _typeTable[27] = typeof(global::Windows.UI.Xaml.Controls.TextBox);
+            _typeTable[28] = typeof(global::System.Collections.IEnumerable);
+            _typeTable[29] = typeof(global::Syncfusion.UI.Xaml.Controls.Input.AutoCompleteMode);
+            _typeTable[30] = typeof(global::Windows.UI.Xaml.DataTemplate);
+            _typeTable[31] = typeof(global::Windows.UI.Xaml.Controls.DataTemplateSelector);
+            _typeTable[32] = typeof(global::Windows.UI.Xaml.Controls.ItemsPanelTemplate);
+            _typeTable[33] = typeof(global::Windows.Foundation.Point);
+            _typeTable[34] = typeof(global::System.String);
+            _typeTable[35] = typeof(global::Syncfusion.UI.Xaml.Controls.Input.SuggestionBoxPlacement);
+            _typeTable[36] = typeof(global::Syncfusion.UI.Xaml.Controls.Input.SuggestionMode);
+            _typeTable[37] = typeof(global::System.TimeSpan);
+            _typeTable[38] = typeof(global::Windows.UI.Xaml.Style);
+            _typeTable[39] = typeof(global::Heist.Store);
+            _typeTable[40] = typeof(global::Heist.StoreDetail);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -279,10 +283,12 @@ namespace Heist.Heist_XamlTypeInfo
         private object Activate_20_Login() { return new global::Heist.Login(); }
         private object Activate_21_MainPage() { return new global::Heist.MainPage(); }
         private object Activate_22_MainPage1() { return new global::Heist.MainPage1(); }
-        private object Activate_23_SignUp() { return new global::Heist.SignUp(); }
-        private object Activate_24_SfTextBoxExt() { return new global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt(); }
-        private object Activate_37_Store() { return new global::Heist.Store(); }
-        private object Activate_38_StoreDetail() { return new global::Heist.StoreDetail(); }
+        private object Activate_23_Purchased() { return new global::Heist.Purchased(); }
+        private object Activate_24_Purchaseddetail() { return new global::Heist.Purchaseddetail(); }
+        private object Activate_25_SignUp() { return new global::Heist.SignUp(); }
+        private object Activate_26_SfTextBoxExt() { return new global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt(); }
+        private object Activate_39_Store() { return new global::Heist.Store(); }
+        private object Activate_40_StoreDetail() { return new global::Heist.StoreDetail(); }
         private void MapAdd_13_Dictionary(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Int32, global::System.Double>)instance;
@@ -473,16 +479,30 @@ namespace Heist.Heist_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 23:   //  Heist.SignUp
+            case 23:   //  Heist.Purchased
                 userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_23_SignUp;
+                userType.Activator = Activate_23_Purchased;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 24:   //  Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt
+            case 24:   //  Heist.Purchaseddetail
+                userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_24_Purchaseddetail;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 25:   //  Heist.SignUp
+                userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_25_SignUp;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 26:   //  Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt
                 userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.TextBox"));
-                userType.Activator = Activate_24_SfTextBoxExt;
+                userType.Activator = Activate_26_SfTextBoxExt;
                 userType.AddMemberName("AutoCompleteSource");
                 userType.AddMemberName("AutoCompleteMode");
                 userType.AddMemberName("AllowPointerEvents");
@@ -510,17 +530,17 @@ namespace Heist.Heist_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 25:   //  Windows.UI.Xaml.Controls.TextBox
+            case 27:   //  Windows.UI.Xaml.Controls.TextBox
                 xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 26:   //  System.Collections.IEnumerable
+            case 28:   //  System.Collections.IEnumerable
                 userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, null);
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 27:   //  Syncfusion.UI.Xaml.Controls.Input.AutoCompleteMode
+            case 29:   //  Syncfusion.UI.Xaml.Controls.Input.AutoCompleteMode
                 userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("None", global::Syncfusion.UI.Xaml.Controls.Input.AutoCompleteMode.None);
                 userType.AddEnumValue("Append", global::Syncfusion.UI.Xaml.Controls.Input.AutoCompleteMode.Append);
@@ -529,27 +549,27 @@ namespace Heist.Heist_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 28:   //  Windows.UI.Xaml.DataTemplate
+            case 30:   //  Windows.UI.Xaml.DataTemplate
                 xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 29:   //  Windows.UI.Xaml.Controls.DataTemplateSelector
+            case 31:   //  Windows.UI.Xaml.Controls.DataTemplateSelector
                 xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 30:   //  Windows.UI.Xaml.Controls.ItemsPanelTemplate
+            case 32:   //  Windows.UI.Xaml.Controls.ItemsPanelTemplate
                 xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 31:   //  Windows.Foundation.Point
+            case 33:   //  Windows.Foundation.Point
                 xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 32:   //  String
+            case 34:   //  String
                 xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 33:   //  Syncfusion.UI.Xaml.Controls.Input.SuggestionBoxPlacement
+            case 35:   //  Syncfusion.UI.Xaml.Controls.Input.SuggestionBoxPlacement
                 userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("Top", global::Syncfusion.UI.Xaml.Controls.Input.SuggestionBoxPlacement.Top);
                 userType.AddEnumValue("Bottom", global::Syncfusion.UI.Xaml.Controls.Input.SuggestionBoxPlacement.Bottom);
@@ -557,7 +577,7 @@ namespace Heist.Heist_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 34:   //  Syncfusion.UI.Xaml.Controls.Input.SuggestionMode
+            case 36:   //  Syncfusion.UI.Xaml.Controls.Input.SuggestionMode
                 userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("None", global::Syncfusion.UI.Xaml.Controls.Input.SuggestionMode.None);
                 userType.AddEnumValue("StartsWith", global::Syncfusion.UI.Xaml.Controls.Input.SuggestionMode.StartsWith);
@@ -576,26 +596,26 @@ namespace Heist.Heist_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 35:   //  TimeSpan
+            case 37:   //  TimeSpan
                 userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 36:   //  Windows.UI.Xaml.Style
+            case 38:   //  Windows.UI.Xaml.Style
                 xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 37:   //  Heist.Store
+            case 39:   //  Heist.Store
                 userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_37_Store;
+                userType.Activator = Activate_39_Store;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 38:   //  Heist.StoreDetail
+            case 40:   //  Heist.StoreDetail
                 userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_38_StoreDetail;
+                userType.Activator = Activate_40_StoreDetail;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

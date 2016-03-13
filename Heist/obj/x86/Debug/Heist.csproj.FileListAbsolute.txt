@@ -476,3 +476,13 @@ C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\StoreDetail.g.cs
 C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\StoreDetail.xaml
 C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\StoreDetail.xbf
 C:\Users\aksha\Documents\GitHub\Streamer\Heist\bin\x86\Debug\StoreDetail.xbf
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Purchased.g.i.cs
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Purchased.g.cs
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Purchased.xaml
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Purchased.xbf
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\bin\x86\Debug\Purchased.xbf
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Purchaseddetail.g.i.cs
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Purchaseddetail.g.cs
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Purchaseddetail.xaml
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Purchaseddetail.xbf
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\bin\x86\Debug\Purchaseddetail.xbf
