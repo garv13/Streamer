@@ -63,6 +63,7 @@ namespace Heist
                 a.username = UserName.Text;
                 a.wallet = 0;
                 a.purchases = "";
+                await App.MobileService.GetTable<User>().InsertAsync(a);
                 //add object a in cloud
             }
         }

@@ -103,6 +103,8 @@
     </Compile>
     <Compile Include="Auth.cs" />
     <Compile Include="Book.cs" />
+    <Compile Include="Chapter.cs" />
+    <Compile Include="ChapterView.cs" />
     <Compile Include="Downloads.xaml.cs">
       <DependentUpon>Downloads.xaml</DependentUpon>
     </Compile>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,10 +23,60 @@ namespace Heist
     /// </summary>
     public sealed partial class StoreDetail : Page
     {
+        private StoreListing rec;
+        private IMobileServiceTable<Chapter> Table = App.MobileService.GetTable<Chapter>();
+        private MobileServiceCollection<Chapter, Chapter> items;
+
+        private List<ChapterView> list;
         public StoreDetail()
         {
             this.InitializeComponent();
+            Loaded += StoreDetail_Loaded;
+            rec = new StoreListing();
+            rec.Title = "ajdgivfvw";
         }
+
+        private void StoreDetail_Loaded(object sender, RoutedEventArgs e)
+        {
+            while (rec.Title == "ajdgivfvw")
+            { }
+           
+            Cover.Source = rec.Image;
+            Title.Text = rec.Title;
+            Author.Text = rec.Author;
+            FullCost.Text = "Full Book Price: "+rec.Price;
+        }
+
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            
+            rec = e.Parameter as StoreListing;
+       
+            list = new List<ChapterView>();
+            ChapterView temp;
+            try
+            {
+                items = await Table.Where(Chapter
+                            => Chapter.bookid == rec.Id).ToCollectionAsync();
+               
+                foreach (Chapter lol in items)
+                {
+                    temp = new ChapterView();
+                    temp.Id = lol.Id;
+                    temp.Title = "Chapter No: " + (lol.sno+1).ToString();
+                    temp.Price = "Price: "+ lol.price.ToString();
+                    list.Add(temp);
+                }
+                StoreListView.ItemsSource = list;
+                
+            }
+            catch (Exception ex)
+            {
+                //TODO Something here
+            }
+        }
+
+
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
         {
             MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
@@ -46,7 +97,7 @@ namespace Heist
             //upgrade option 
         }
 
-        private async void MenuButton4_Click(object sender, RoutedEventArgs e)
+        private  void MenuButton4_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Store));
         }
@@ -60,6 +111,12 @@ namespace Heist
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //TODO Download full book and add entry to user purchases
+
+        }
+
+        private void Buy_Click(object sender, RoutedEventArgs e)
+        {
+            //take rec.id to send in post with header id
         }
     }
 }

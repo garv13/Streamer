@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,6 +24,8 @@ namespace Heist
     /// </summary>
     public sealed partial class Login : Page
     {
+        private IMobileServiceTable<User> Table = App.MobileService.GetTable<User>();
+        private MobileServiceCollection<User, User> items;
         public Login()
         {
             this.InitializeComponent();
@@ -30,11 +33,16 @@ namespace Heist
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (Password.Password == "lol")
+            items = await Table.Where(User
+                            => User.username == UserName.Text).ToCollectionAsync();
+            if (items != null)
             {
-                MessageDialog msgbox = new MessageDialog("Welcome " + UserName.Text);
-                await msgbox.ShowAsync();
-                Frame.Navigate(typeof(MainPage));
+                if (Password.Password == items[0].password)
+                {
+                    MessageDialog msgbox = new MessageDialog("Welcome " + UserName.Text);
+                    await msgbox.ShowAsync();
+                    Frame.Navigate(typeof(MainPage));
+                }
             }
             else
             {

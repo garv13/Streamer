@@ -56,6 +56,7 @@ namespace Heist
                     temp.Author = lol.Author;
                     temp.Image = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri(lol.ImageUri2));
                     temp.Id = lol.Id;
+                    temp.Price = lol.Price.ToString();
                     StoreList.Add(temp);
                 }
                 Box.AutoCompleteSource = BookNames;
@@ -127,6 +128,7 @@ namespace Heist
                     temp.Title = lol.Title;
                     temp.Author = lol.Author;
                     temp.Image = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri(lol.ImageUri2));
+                    temp.Price = lol.Price.ToString();
                     StoreList.Add(temp);
                 }
                 
@@ -147,6 +149,7 @@ namespace Heist
         private void StoreListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             StoreListing sent = e.ClickedItem as StoreListing;
+            //sent.Price = 50.ToString();
             Frame.Navigate(typeof(StoreDetail), sent);
         }
     }
