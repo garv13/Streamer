@@ -28,6 +28,7 @@ namespace Heist
         private IMobileServiceTable<Book> Table = App.MobileService.GetTable<Book>();
         private MobileServiceCollection<Book, Book> items;
         private List<string> BookNames;
+        private List<StoreListing> StoreList;
         public Store()
         {
             this.InitializeComponent();
@@ -36,17 +37,30 @@ namespace Heist
 
         private async void Store_Loaded(object sender, RoutedEventArgs e)
         {
+            Box.Visibility = Visibility.Collapsed;
+            StoreListView.Visibility = Visibility.Collapsed;
             BookNames = new List<string>();
+            StoreList = new List<StoreListing>();
+            LoadingBar.IsIndeterminate = true;
+            StoreListing temp;
             try
             {
                 items = await Table.Where(Book
                         => Book.IsReady == true).ToCollectionAsync();
                 foreach(Book lol in items)
                 {
+                    temp = new StoreListing();
                     BookNames.Add(lol.Title);
-
+                    temp.Title = lol.Title;
+                    temp.Author = lol.Author;
+                    temp.Image = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri(lol.ImageUri2));
+                    StoreList.Add(temp);
                 }
                 Box.AutoCompleteSource = BookNames;
+                StoreListView.ItemsSource = StoreList;
+                Box.Visibility = Visibility.Visible;
+                StoreListView.Visibility = Visibility.Visible;
+                LoadingBar.Visibility = Visibility.Collapsed;
             }
             catch (Exception ex)
             {

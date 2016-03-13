@@ -3,6 +3,9 @@
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="authName" />
     <RootPropertyPathName Name="title" />
+    <RootPropertyPathName Name="Author" />
+    <RootPropertyPathName Name="Title" />
+    <RootPropertyPathName Name="Image" />
     <RootPropertyPathName Name="BookNames" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
@@ -77,6 +80,7 @@
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="FontFamily" />
       <RootProperty Name="Style" />
+      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding" />
     <RootType FullName="Windows.UI.Xaml.Controls.SplitView">
@@ -245,6 +249,10 @@
     <RootType FullName="Windows.UI.Xaml.Automation.AutomationProperties">
       <RootMethod Name="GetAccessibilityView" />
       <RootMethod Name="SetAccessibilityView" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ProgressBar">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
     </RootType>
     <RootType FullName="Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt">
       <RootProperty Name="HorizontalAlignment" />
