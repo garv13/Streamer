@@ -8,29 +8,23 @@ namespace Heist
 {
     class Book
     {
-        public string title { get; set; }
-
-        public string authName { get; set; }
-
-        public bool purchased { get; set; }
-
-        public bool download { get; set; }
-
-        public long price { get; set; }
-
-        public List<chapters> lessons { get; set; }
-
-        public string imgUrl { get; set; }
-
-    }
-
-    class chapters
-    {
-        public string title { get; set; }
-
-        public string name { get; set; }
-
-        public long priceL { get; set; }
+        public string Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public int Price { get; set; }
+        public string Genre { get; set; }
+        public string Author { get; set; }
+        public string Publisher { get; set; }
+        public bool IsReady { get; set; }
+        public string PageNo { get; set; }
+        public string ChapterCost { get; set; }
+        public int Chapters { get; set; }
+        public string ResourceName { get; set; }
+        public string ImageUri { get; set; }     
+        public string ResourceName2 { get; set; }  
+        public string ImageUri2 { get; set; }
 
     }
+
+    
 }

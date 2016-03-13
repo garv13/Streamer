@@ -6,7 +6,8 @@
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
     "Syncfusion.Pdf.UWP46": "13.4.0.53",
     "Syncfusion.SfInput.UWP46": "13.4.0.53",
-    "Syncfusion.SfPdfViewer.UWP46": "13.4.0.53"
+    "Syncfusion.SfPdfViewer.UWP46": "13.4.0.53",
+    "WindowsAzure.MobileServices": "1.3.2"
   },
   "frameworks": {
     "uap10.0": {}

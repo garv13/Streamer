@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,17 @@ namespace Heist
     /// </summary>
     public sealed partial class Store : Page
     {
+        private IMobileServiceTable<Events> Table = App.MobileService.GetTable<Events>();
+        private MobileServiceCollection<Events, Events> items;
         public Store()
         {
             this.InitializeComponent();
+            Loaded += Store_Loaded;
+        }
+
+        private void Store_Loaded(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

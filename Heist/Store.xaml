@@ -5,6 +5,7 @@
     xmlns:local="using:Heist"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:editors="using:Syncfusion.UI.Xaml.Controls.Input"
     mc:Ignorable="d">
 
    
@@ -41,7 +42,7 @@
 
                 <RadioButton Tag="" Content="Home"
                  Style="{StaticResource SplitViewNavButtonStyle}"
-               IsChecked="True" Click="MenuButton1_Click" />
+               Click="MenuButton1_Click" />
 
                 <RadioButton x:Name="MenuButton2" Tag="" Style="{StaticResource SplitViewNavButtonStyle}" Content="Downloads"
                         Click="MenuButton2_Click"/>
@@ -50,7 +51,7 @@
                         Click="MenuButton3_Click"/>
 
                 <RadioButton x:Name="MenuButton4" Tag="" Content="Store"
-                        Style="{StaticResource SplitViewNavButtonStyle}" Click="MenuButton4_Click"/>
+                        IsChecked="True" Style="{StaticResource SplitViewNavButtonStyle}" Click="MenuButton4_Click"/>
 
                 <RadioButton x:Name="MenuButton5" Tag="" Content="About" Style="{StaticResource SplitViewNavButtonStyle}"
                          Click="MenuButton5_Click"/>
@@ -59,6 +60,35 @@
         </SplitView.Pane>
         <SplitView.Content>
             <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.9*"/>
+                </Grid.RowDefinitions>
+                <editors:SfTextBoxExt HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" 
+                            Width="400"
+                          AutoCompleteSource="{Binding BookList}"
+                             SearchItemPath="Title"
+                            AutoCompleteMode="Suggest" />
+                <GridView         
+                     Grid.Row="1"
+                        HorizontalAlignment="Stretch"
+                        x:Name="event1"
+                        VerticalAlignment="Stretch"
+                        ItemsSource="{Binding}"
+                        ItemTemplate="{StaticResource Standard3100x260ItemTemplate}"
+                        SelectionMode="None"          
+                        IsSwipeEnabled="false"
+                        IsItemClickEnabled="True"
+                        ScrollViewer.HorizontalScrollMode="Auto"
+                        ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                        ScrollViewer.VerticalScrollMode="Auto"
+                        ScrollViewer.VerticalScrollBarVisibility="Auto"
+                        Visibility="Visible"
+                      >
+                </GridView>
+
+
             </Grid>
         </SplitView.Content>
     </SplitView>
