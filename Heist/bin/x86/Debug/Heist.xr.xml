@@ -255,11 +255,11 @@
       <RootProperty Name="VerticalAlignment" />
     </RootType>
     <RootType FullName="Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt">
-      <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Width" />
+      <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="AutoCompleteSource" />
       <RootProperty Name="AutoCompleteMode" />
+      <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Heist.Store" />
   </Roots.RootTypes>

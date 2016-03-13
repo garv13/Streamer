@@ -66,21 +66,27 @@
                     <RowDefinition Height="0.1*"/>
                     <RowDefinition Height="0.9*"/>
                 </Grid.RowDefinitions>
-                <ProgressBar HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="LoadingBar" Grid.RowSpan="2"/>
-                <editors:SfTextBoxExt HorizontalAlignment="Center" 
-                            VerticalAlignment="Center" 
-                                      x:Name="Box"
-                            Width="400"
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.9*"/>
+                    <ColumnDefinition Width="0.1*"/>
+                </Grid.ColumnDefinitions>
+                <ProgressBar Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="LoadingBar" Grid.RowSpan="2"/>
+                <editors:SfTextBoxExt VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                                      x:Name="Box"   
+                                      
                           AutoCompleteSource="{Binding BookNames}"
                             
-                            AutoCompleteMode="Suggest" />
+                            AutoCompleteMode="Suggest" Margin="0,20" />
+                <Button  x:Name="SearchButton" Click="Button_Click" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,20">
+                    <Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="Assets/search-icon-hi.png"/>
+                </Button>
                 <GridView         
                      Grid.Row="1"
+                    Grid.ColumnSpan="2"
                         HorizontalAlignment="Stretch"
                         x:Name="StoreListView"
                         VerticalAlignment="Stretch"
-                        ItemsSource="{Binding}"
-                        ItemTemplate="{StaticResource Standard3100x260ItemTemplate}"
+                        ItemsSource="{Binding}"                        ItemTemplate="{StaticResource Standard3100x260ItemTemplate}"
                         SelectionMode="None"          
                         IsSwipeEnabled="false"
                         IsItemClickEnabled="True"

@@ -130,6 +130,7 @@
     <None Include="Heist_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\search-icon-hi.png" />
     <Content Include="pin_it-561331541025728857.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

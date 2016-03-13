@@ -38,6 +38,7 @@ namespace Heist
         private async void Store_Loaded(object sender, RoutedEventArgs e)
         {
             Box.Visibility = Visibility.Collapsed;
+            SearchButton.Visibility = Visibility.Collapsed;
             StoreListView.Visibility = Visibility.Collapsed;
             BookNames = new List<string>();
             StoreList = new List<StoreListing>();
@@ -60,7 +61,9 @@ namespace Heist
                 StoreListView.ItemsSource = StoreList;
                 Box.Visibility = Visibility.Visible;
                 StoreListView.Visibility = Visibility.Visible;
+                SearchButton.Visibility = Visibility.Visible;
                 LoadingBar.Visibility = Visibility.Collapsed;
+                
             }
             catch (Exception ex)
             {
@@ -104,9 +107,44 @@ namespace Heist
             Frame.Navigate(typeof(About));
         }
 
-        private async void Grid_Tapped(object sender, TappedRoutedEventArgs e)
+        private void Grid_Tapped(object sender, TappedRoutedEventArgs e)
         {
             
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            StoreListView.Visibility = Visibility.Collapsed;
+            SearchButton.Visibility = Visibility.Collapsed;
+            LoadingBar.Visibility = Visibility.Visible;
+            StoreList = new List<StoreListing>();
+            LoadingBar.IsIndeterminate = true;
+            StoreListing temp;
+            try
+            {
+                items = await Table.Where(Book
+                        => Book.Title.Contains(Box.Text)).ToCollectionAsync();
+                foreach (Book lol in items)
+                {
+                    temp = new StoreListing();
+                   
+                    temp.Title = lol.Title;
+                    temp.Author = lol.Author;
+                    temp.Image = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri(lol.ImageUri2));
+                    StoreList.Add(temp);
+                }
+                
+                StoreListView.ItemsSource = StoreList;
+                Box.Visibility = Visibility.Visible;
+                StoreListView.Visibility = Visibility.Visible;
+                SearchButton.Visibility = Visibility.Visible;
+                LoadingBar.Visibility = Visibility.Collapsed;
+
+            }
+            catch (Exception ex)
+            {
+                //TODO: Add some thing here
+            }
         }
     }
 }

@@ -369,11 +369,8 @@
     <AppxPackagedFile Include="C:\Users\aksha\Documents\GitHub\Streamer\Heist\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\aksha\Documents\GitHub\Streamer\Heist\pin_it-561331541025728857.jpg">
-      <PackagePath>pin_it-561331541025728857.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\aksha\Documents\GitHub\Streamer\Heist\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    <AppxPackagedFile Include="C:\Users\aksha\Documents\GitHub\Streamer\Heist\Assets\search-icon-hi.png">
+      <PackagePath>Assets\search-icon-hi.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aksha\Documents\GitHub\Streamer\Heist\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -401,6 +398,12 @@
     <AppxPackagedFile Include="C:\Users\aksha\Documents\GitHub\Streamer\Heist\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\aksha\Documents\GitHub\Streamer\Heist\pin_it-561331541025728857.jpg">
+      <PackagePath>pin_it-561331541025728857.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\aksha\Documents\GitHub\Streamer\Heist\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\aksha\Documents\GitHub\Streamer\Heist\bin\x86\Debug\Heist.xr.xml">
       <PackagePath>Heist.xr.xml</PackagePath>
