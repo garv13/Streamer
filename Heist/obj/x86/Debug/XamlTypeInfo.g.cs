@@ -156,7 +156,7 @@ namespace Heist.Heist_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[38];
+            _typeNameTable = new string[39];
             _typeNameTable[0] = "Heist.About";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
@@ -195,8 +195,9 @@ namespace Heist.Heist_XamlTypeInfo
             _typeNameTable[35] = "TimeSpan";
             _typeNameTable[36] = "Windows.UI.Xaml.Style";
             _typeNameTable[37] = "Heist.Store";
+            _typeNameTable[38] = "Heist.StoreDetail";
 
-            _typeTable = new global::System.Type[38];
+            _typeTable = new global::System.Type[39];
             _typeTable[0] = typeof(global::Heist.About);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
@@ -235,6 +236,7 @@ namespace Heist.Heist_XamlTypeInfo
             _typeTable[35] = typeof(global::System.TimeSpan);
             _typeTable[36] = typeof(global::Windows.UI.Xaml.Style);
             _typeTable[37] = typeof(global::Heist.Store);
+            _typeTable[38] = typeof(global::Heist.StoreDetail);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -280,6 +282,7 @@ namespace Heist.Heist_XamlTypeInfo
         private object Activate_23_SignUp() { return new global::Heist.SignUp(); }
         private object Activate_24_SfTextBoxExt() { return new global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt(); }
         private object Activate_37_Store() { return new global::Heist.Store(); }
+        private object Activate_38_StoreDetail() { return new global::Heist.StoreDetail(); }
         private void MapAdd_13_Dictionary(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Int32, global::System.Double>)instance;
@@ -586,6 +589,13 @@ namespace Heist.Heist_XamlTypeInfo
             case 37:   //  Heist.Store
                 userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_37_Store;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 38:   //  Heist.StoreDetail
+                userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_38_StoreDetail;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

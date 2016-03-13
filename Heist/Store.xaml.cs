@@ -55,6 +55,7 @@ namespace Heist
                     temp.Title = lol.Title;
                     temp.Author = lol.Author;
                     temp.Image = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri(lol.ImageUri2));
+                    temp.Id = lol.Id;
                     StoreList.Add(temp);
                 }
                 Box.AutoCompleteSource = BookNames;
@@ -92,20 +93,15 @@ namespace Heist
 
         private async void MenuButton4_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                await Launcher.LaunchUriAsync(new Uri(string.Format("ms-windows-store:REVIEW?PFN={0}", Windows.ApplicationModel.Package.Current.Id.FamilyName)));
-            }
-            catch (Exception es)
-            {
-                await (new MessageDialog("Can't review now please try again later")).ShowAsync();
-            }
+            Frame.Navigate(typeof(Store));
         }
+
 
         private void MenuButton5_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(About));
         }
+
 
         private void Grid_Tapped(object sender, TappedRoutedEventArgs e)
         {
@@ -127,7 +123,7 @@ namespace Heist
                 foreach (Book lol in items)
                 {
                     temp = new StoreListing();
-                   
+                    temp.Id = lol.Id;
                     temp.Title = lol.Title;
                     temp.Author = lol.Author;
                     temp.Image = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri(lol.ImageUri2));
@@ -145,6 +141,13 @@ namespace Heist
             {
                 //TODO: Add some thing here
             }
+        }
+
+        
+        private void StoreListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            StoreListing sent = e.ClickedItem as StoreListing;
+            Frame.Navigate(typeof(StoreDetail), sent);
         }
     }
 }

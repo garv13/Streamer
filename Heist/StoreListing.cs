@@ -12,5 +12,6 @@ namespace Heist
         public string Title { get; set; }
         public string Author { get; set; }
         public BitmapImage Image { get; set; }
+        public string Id { get; set; }
     }
 }

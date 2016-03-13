@@ -3,6 +3,7 @@
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="authName" />
     <RootPropertyPathName Name="title" />
+    <RootPropertyPathName Name="Id" />
     <RootPropertyPathName Name="Author" />
     <RootPropertyPathName Name="Title" />
     <RootPropertyPathName Name="Image" />
@@ -81,6 +82,7 @@
       <RootProperty Name="FontFamily" />
       <RootProperty Name="Style" />
       <RootProperty Name="Margin" />
+      <RootProperty Name="Visibility" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding" />
     <RootType FullName="Windows.UI.Xaml.Controls.SplitView">
@@ -126,6 +128,7 @@
       <RootProperty Name="IsSwipeEnabled" />
       <RootProperty Name="IsItemClickEnabled" />
       <RootProperty Name="Visibility" />
+      <RootEvent Name="ItemClick" />
     </RootType>
     <RootType FullName="Syncfusion.Windows.PdfViewer.SfPdfViewerControl">
       <RootProperty Name="Name" />
@@ -147,6 +150,7 @@
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Text" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.PasswordBox">
       <RootProperty Name="PlaceholderText" />
@@ -262,5 +266,6 @@
       <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Heist.Store" />
+    <RootType FullName="Heist.StoreDetail" />
   </Roots.RootTypes>
 </Roots>

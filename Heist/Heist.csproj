@@ -120,6 +120,9 @@
     <Compile Include="Store.xaml.cs">
       <DependentUpon>Store.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StoreDetail.xaml.cs">
+      <DependentUpon>StoreDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StoreListing.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
@@ -175,6 +178,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Store.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StoreDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

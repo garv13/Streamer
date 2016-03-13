@@ -471,3 +471,8 @@ C:\Users\aksha\Documents\GitHub\Streamer\Heist\bin\x86\Debug\Microsoft.WindowsAz
 C:\Users\aksha\Documents\GitHub\Streamer\Heist\bin\x86\Debug\Microsoft.WindowsAzure.Mobile.Ext.dll
 C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Microsoft.WindowsAzure.Mobile\en-US\Microsoft.WindowsAzure.MobileServices.Resources.resw
 C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Microsoft.WindowsAzure.Mobile.Ext.pri.xml
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\StoreDetail.g.i.cs
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\StoreDetail.g.cs
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\StoreDetail.xaml
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\StoreDetail.xbf
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\bin\x86\Debug\StoreDetail.xbf
