@@ -445,3 +445,17 @@ C:\Users\garvj\Documents\Visual Studio 2015\Projects\Heist\Heist\obj\x86\Debug\L
 C:\Users\garvj\Documents\Visual Studio 2015\Projects\Heist\Heist\obj\x86\Debug\SignUp.xaml
 C:\Users\garvj\Documents\Visual Studio 2015\Projects\Heist\Heist\obj\x86\Debug\Login.xbf
 C:\Users\garvj\Documents\Visual Studio 2015\Projects\Heist\Heist\obj\x86\Debug\SignUp.xbf
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\bin\x86\Debug\Login.xbf
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\bin\x86\Debug\SignUp.xbf
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\bin\x86\Debug\Syncfusion.SfInput.UWP.dll
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\bin\x86\Debug\Syncfusion.SfShared.UWP.dll
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Login.g.i.cs
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Login.g.cs
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\SignUp.g.i.cs
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\SignUp.g.cs
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Login.xaml
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\SignUp.xaml
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Login.xbf
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\SignUp.xbf
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Syncfusion.SfInput.UWP.pri.xml
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\obj\x86\Debug\Syncfusion.SfShared.UWP.pri.xml
