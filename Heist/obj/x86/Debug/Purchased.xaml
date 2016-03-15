@@ -48,11 +48,11 @@
                 <RadioButton x:ConnectionId='4' x:Name="MenuButton2" Tag="" Style="{StaticResource SplitViewNavButtonStyle}" Content="Downloads"
                                                  />
 
-                <RadioButton x:ConnectionId='5' x:Name="MenuButton3" Tag="" Content="Purchased" Style="{StaticResource SplitViewNavButtonStyle}"
+                <RadioButton x:ConnectionId='5' x:Name="MenuButton3" Tag="" IsChecked="True" Content="Purchased" Style="{StaticResource SplitViewNavButtonStyle}"
                                                  />
 
                 <RadioButton x:ConnectionId='6' x:Name="MenuButton4" Tag="" Content="Store"
-                        IsChecked="True" Style="{StaticResource SplitViewNavButtonStyle}"                          />
+                         Style="{StaticResource SplitViewNavButtonStyle}"                          />
 
                 <RadioButton x:ConnectionId='7' x:Name="MenuButton5" Tag="" Content="About" Style="{StaticResource SplitViewNavButtonStyle}"
                                                   />

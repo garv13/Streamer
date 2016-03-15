@@ -16,7 +16,7 @@
                 </ResourceDictionary.MergedDictionaries>
 
                 <DataTemplate x:Key="Standard3100x260ItemTemplate" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="400" Margin="10,10" Tapped="Grid_Tapped">
+                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="400" Margin="10,10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="0.3*"/>
                             <RowDefinition Height="0.3*"/>
@@ -79,7 +79,7 @@
                           AutoCompleteSource="{Binding BookNames}"
                             
                             AutoCompleteMode="Suggest" Margin="0,20" />
-                <Button x:Name="SearchButton" Click="Button_Click" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,20">
+                <Button x:Name="SearchButton" Click="Button_Click" Grid.Column="1" Background="White" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,20">
                     <Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="Assets/search-icon-hi.png"/>
                 </Button>
                 <GridView         
@@ -92,7 +92,7 @@
                         SelectionMode="None"          
                         IsSwipeEnabled="false"
                         IsItemClickEnabled="True"
-                   ItemClick="StoreListView_ItemClick"
+                        ItemClick="StoreListView_ItemClick"
                         ScrollViewer.HorizontalScrollMode="Auto"
                         ScrollViewer.HorizontalScrollBarVisibility="Auto"
                         ScrollViewer.VerticalScrollMode="Auto"

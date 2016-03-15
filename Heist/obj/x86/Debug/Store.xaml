@@ -16,7 +16,7 @@
                 </ResourceDictionary.MergedDictionaries>
 
                 <DataTemplate x:Key="Standard3100x260ItemTemplate" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                    <Grid x:ConnectionId='1' HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="400" Margin="10,10"                     >
+                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="400" Margin="10,10">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="0.3*"/>
                             <RowDefinition Height="0.3*"/>
@@ -37,27 +37,27 @@
             </ResourceDictionary>
         </Page.Resources>
 
-    <SplitView x:ConnectionId='2' x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" 
+    <SplitView x:ConnectionId='1' x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" 
                CompactPaneLength="50" OpenPaneLength="150" >
         <SplitView.Pane>
             <StackPanel >
-                <Button x:ConnectionId='3' x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
+                <Button x:ConnectionId='2' x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
                     Width="50" Height="50" Background="Transparent"                              />
 
-                <RadioButton x:ConnectionId='4' Tag="" Content="Home"
+                <RadioButton x:ConnectionId='3' Tag="" Content="Home"
                  Style="{StaticResource SplitViewNavButtonStyle}"
                                          />
 
-                <RadioButton x:ConnectionId='5' x:Name="MenuButton2" Tag="" Style="{StaticResource SplitViewNavButtonStyle}" Content="Downloads"
+                <RadioButton x:ConnectionId='4' x:Name="MenuButton2" Tag="" Style="{StaticResource SplitViewNavButtonStyle}" Content="Downloads"
                                                  />
 
-                <RadioButton x:ConnectionId='6' x:Name="MenuButton3" Tag="" Content="Purchased" Style="{StaticResource SplitViewNavButtonStyle}"
+                <RadioButton x:ConnectionId='5' x:Name="MenuButton3" Tag="" Content="Purchased" Style="{StaticResource SplitViewNavButtonStyle}"
                                                  />
 
-                <RadioButton x:ConnectionId='7' x:Name="MenuButton4" Tag="" Content="Store"
+                <RadioButton x:ConnectionId='6' x:Name="MenuButton4" Tag="" Content="Store"
                         IsChecked="True" Style="{StaticResource SplitViewNavButtonStyle}"                          />
 
-                <RadioButton x:ConnectionId='8' x:Name="MenuButton5" Tag="" Content="About" Style="{StaticResource SplitViewNavButtonStyle}"
+                <RadioButton x:ConnectionId='7' x:Name="MenuButton5" Tag="" Content="About" Style="{StaticResource SplitViewNavButtonStyle}"
                                                   />
 
             </StackPanel>
@@ -72,17 +72,17 @@
                     <ColumnDefinition Width="0.9*"/>
                     <ColumnDefinition Width="0.1*"/>
                 </Grid.ColumnDefinitions>
-                <ProgressBar x:ConnectionId='9' Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="LoadingBar" Grid.RowSpan="2"/>
-                <editors:SfTextBoxExt x:ConnectionId='10' VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                <ProgressBar x:ConnectionId='8' Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="LoadingBar" Grid.RowSpan="2"/>
+                <editors:SfTextBoxExt x:ConnectionId='9' VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                                       x:Name="Box"   
                                       
                           AutoCompleteSource="{Binding BookNames}"
                             
                             AutoCompleteMode="Suggest" Margin="0,20" />
-                <Button x:ConnectionId='11' x:Name="SearchButton"                      Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,20">
+                <Button x:ConnectionId='10' x:Name="SearchButton"                      Grid.Column="1" Background="White" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="0,20">
                     <Image HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="Assets/search-icon-hi.png"/>
                 </Button>
-                <GridView x:ConnectionId='12'         
+                <GridView x:ConnectionId='11'         
                      Grid.Row="1"
                     Grid.ColumnSpan="2"
                         HorizontalAlignment="Stretch"
@@ -92,7 +92,7 @@
                         SelectionMode="None"          
                         IsSwipeEnabled="false"
                         IsItemClickEnabled="True"
-                                                      
+                                                           
                         ScrollViewer.HorizontalScrollMode="Auto"
                         ScrollViewer.HorizontalScrollBarVisibility="Auto"
                         ScrollViewer.VerticalScrollMode="Auto"

@@ -3,10 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -34,32 +37,23 @@ namespace Heist
         public StoreDetail()
         {
             this.InitializeComponent();
-            Loaded += StoreDetail_Loaded;
-            rec = new StoreListing();
-            rec.Title = "ajdgivfvw";
            
         }
-
-        private void StoreDetail_Loaded(object sender, RoutedEventArgs e)
-        {
-
-            while (rec.Title == "ajdgivfvw")
-            { }
-           
-            Cover.Source = rec.Image;
-            Title.Text = rec.Title;
-            Author.Text = rec.Author;
-            FullCost.Text = "Full Book Price: "+rec.Price;
-        }
-
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
+            rec = new StoreListing();
+            rec = e.Parameter as StoreListing;
+            Title.Text = rec.Title;
+            Cover.Source = rec.Image;
+            FullCost.Text = rec.Price;
+            Author.Text = rec.Author;
+            FullCost.Text = "Full Book Price: " + rec.Price;
+
             StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
             StorageFile sampleFile = await folder.GetFileAsync("sample.txt");
-
+        
             testlol = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
-            rec = e.Parameter as StoreListing;
-       
+            
             list = new List<ChapterView>();
             ChapterView temp;
             try
@@ -76,11 +70,10 @@ namespace Heist
                     list.Add(temp);
                 }
                 StoreListView.ItemsSource = list;
-                
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                //TODO Something here
+                MessageDialog mess = new Windows.UI.Popups.MessageDialog("Sorry Can't load the chapters now :(:(");
             }
         }
 
@@ -102,7 +95,7 @@ namespace Heist
 
         private void MenuButton3_Click(object sender, RoutedEventArgs e)
         {
-            //upgrade option 
+            Frame.Navigate(typeof(Purchased));
         }
 
         private  void MenuButton4_Click(object sender, RoutedEventArgs e)
@@ -124,7 +117,7 @@ namespace Heist
             User a = items2[0];
             if (!a.purchases.Contains(rec.Id + ".full"))
             {
-                a.purchases += rec.Id + ".full";
+                a.purchases += rec.Id + ".full,";
                 await Table2.UpdateAsync(a);
                 Windows.UI.Popups.MessageDialog mess = new Windows.UI.Popups.MessageDialog("Purchase successfull! Download the file from My purchase section");
             }

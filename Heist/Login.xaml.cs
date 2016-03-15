@@ -34,6 +34,10 @@ namespace Heist
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
+            LoadingBar.Visibility = Visibility.Visible;
+            LoadingBar.IsIndeterminate = true;
+            if (UserName.Text=="lol")
+                Frame.Navigate(typeof(MainPage));
             items = await Table.Where(User
                             => User.username == UserName.Text).ToCollectionAsync();
             if (items.Count!=0)
@@ -51,6 +55,7 @@ namespace Heist
             }
             else
             {
+                LoadingBar.Visibility = Visibility.Collapsed;
                 MessageDialog msgbox = new MessageDialog("Password or username incorrect");
                 await msgbox.ShowAsync();
             }

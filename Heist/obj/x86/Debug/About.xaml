@@ -6,9 +6,50 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="SplitViewStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <SplitView x:ConnectionId='1' x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" 
+               CompactPaneLength="50" OpenPaneLength="150" >
+        <SplitView.Pane>
+            <StackPanel >
+                <Button x:ConnectionId='2' x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
+                    Width="50" Height="50" Background="Transparent"                              />
 
-    </Grid>
+                <RadioButton x:ConnectionId='3' Tag="" Content="Home"
+                 Style="{StaticResource SplitViewNavButtonStyle}"
+                                          />
+
+                <RadioButton x:ConnectionId='4' x:Name="MenuButton2" Tag="" Style="{StaticResource SplitViewNavButtonStyle}" Content="Downloads"
+                                                 />
+
+                <RadioButton x:ConnectionId='5' x:Name="MenuButton3" Tag="" Content="Purchased" Style="{StaticResource SplitViewNavButtonStyle}"
+                                                 />
+
+                <RadioButton x:ConnectionId='6' x:Name="MenuButton4" Tag="" Content="Store"
+                        Style="{StaticResource SplitViewNavButtonStyle}"                          />
+
+                <RadioButton x:ConnectionId='7' x:Name="MenuButton5" Tag="" Content="About" Style="{StaticResource SplitViewNavButtonStyle}"
+                       IsChecked="True"                           />
+
+            </StackPanel>
+        </SplitView.Pane>
+
+        <SplitView.Content>
+
+            <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.06*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="About" Foreground="White" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            </Grid>
+        </SplitView.Content>
+    </SplitView>
 </Page>
 

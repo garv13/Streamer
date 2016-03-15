@@ -26,5 +26,36 @@ namespace Heist
         {
             this.InitializeComponent();
         }
+
+        private void HamburgerButton_Click(object sender, RoutedEventArgs e)
+        {
+            MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
+        }
+
+        private void MenuButton1_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+        }
+
+        private void MenuButton2_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Downloads));
+        }
+
+        private void MenuButton3_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Purchased));
+        }
+
+        private void MenuButton4_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Store));
+        }
+
+
+        private void MenuButton5_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(About));
+        }
     }
 }

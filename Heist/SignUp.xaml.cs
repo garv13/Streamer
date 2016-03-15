@@ -31,6 +31,8 @@ namespace Heist
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
+            LoadingBar.Visibility = Visibility.Visible;
+            LoadingBar.IsIndeterminate = true;
             User a = new User();
             int i = 1;
 
@@ -75,9 +77,18 @@ namespace Heist
                 a.wallet = 0;
                 a.purchases = "";
                 await App.MobileService.GetTable<User>().InsertAsync(a);
+
+                MessageDialog msgbox = new MessageDialog("Register Successful");
+                await msgbox.ShowAsync();
+                LoadingBar.Visibility = Visibility.Collapsed;
                 Frame.Navigate(typeof(Login));
-                //add object a in cloud
+                
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Login));
         }
     }
 }

@@ -89,10 +89,10 @@ namespace Heist
 
         private void MenuButton3_Click(object sender, RoutedEventArgs e)
         {
-            //upgrade option 
+            Frame.Navigate(typeof(Purchased));
         }
 
-        private async void MenuButton4_Click(object sender, RoutedEventArgs e)
+        private void MenuButton4_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Store));
         }
@@ -103,11 +103,6 @@ namespace Heist
             Frame.Navigate(typeof(About));
         }
 
-
-        private void Grid_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            
-        }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {

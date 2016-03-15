@@ -3,10 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -34,26 +36,18 @@ namespace Heist
         public Purchaseddetail()
         {
             this.InitializeComponent();
-            Loaded += Purchaseddetail_Loaded;
-            rec = new PurchasedView();
-            rec.sel.Title = "ajdgivfvw";
         }
 
-        private void Purchaseddetail_Loaded(object sender, RoutedEventArgs e)
-        {
-            while (rec.sel.Title == "ajdgivfvw")
-            { }
-
-            Cover.Source = rec.sel.Image;
-            Title.Text = rec.sel.Title;
-            Author.Text = rec.sel.Author;
-            
-        }
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
-            
+            LoadingBar.Visibility = Visibility.Visible;
+            LoadingBar.IsIndeterminate = true;
+
             rec = e.Parameter as PurchasedView;
+            Cover.Source = rec.sel.Image;
+            Title.Text = rec.sel.Title;
+            Author.Text = rec.sel.Author;
             List<string> chaps = new List<string>();
             string[] lol = rec.purchases.Split(',');
             for (int i = 0; i < lol.Length; i++)
@@ -92,21 +86,68 @@ namespace Heist
                     temp.Price = "Price: " + lol2.price.ToString();
                     list.Add(temp);
                 }
+                LoadingBar.Visibility = Visibility.Collapsed;
                 StoreListView.ItemsSource = list;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                //TODO Something here
+                LoadingBar.Visibility = Visibility.Collapsed;
+                await (new MessageDialog("Can't get data now please try again later")).ShowAsync();
             }
         }
 
-        private void Buy_Click(object sender, RoutedEventArgs e)
+        private async void Buy_Click(object sender, RoutedEventArgs e)
         {
+            LoadingBar.Visibility = Visibility.Visible;
+            LoadingBar.IsIndeterminate = true;
+
             var test = sender as Button;
             var test2 = test.Parent as Grid;
             var test3 = test2.Children[2] as TextBlock;
-            //test3.text has id
+            var test4 = test2.Children[0] as TextBlock;
+            string nam = test4.Text.ElementAt<char>((test4.Text.Length) - 1).ToString();
+            string titl = Title.Text;
+            Uri url = new Uri("https://www.ebookstreamer.me/downloads");
+            HttpClient httpClient = new HttpClient();
+            var myClientHandler = new HttpClientHandler();
+            //myClientHandler.ClientCertificateOptions = ClientCertificateOption.Automatic;
+            HttpResponseMessage httpResponse = new HttpResponseMessage();
+            var content = new FormUrlEncodedContent(new[]
+             {
+                new KeyValuePair<string, string>("id", test3.Text)
+            });
+            httpResponse = await httpClient.PostAsync(url, content);
+            httpResponse.EnsureSuccessStatusCode();
+            Stream str = await httpResponse.Content.ReadAsStreamAsync();
+
+            byte[] pd = new byte[str.Length];
+            str.Read(pd, 0, pd.Length);
+            try
+            {
+                StorageFolder mainFol = await ApplicationData.Current.LocalFolder.CreateFolderAsync("My Books", CreationCollisionOption.OpenIfExists);
+                if (mainFol != null)
+                {
+                    StorageFolder folder = await mainFol.CreateFolderAsync(titl, CreationCollisionOption.OpenIfExists);
+                    if (folder != null)
+                    {
+                        StorageFile file = await folder.CreateFileAsync(nam + ".txt", CreationCollisionOption.ReplaceExisting);
+                        using (var fileStream = await file.OpenStreamForWriteAsync())
+                        {
+                            str.Seek(0, SeekOrigin.Begin);
+                            await str.CopyToAsync(fileStream);
+                        }
+                    }
+                }
+                LoadingBar.Visibility = Visibility.Collapsed;
+                await (new MessageDialog("Download Successful")).ShowAsync();
+                Frame.Navigate(typeof(MainPage));
+            }
+            catch(Exception)
+            {
+                LoadingBar.Visibility = Visibility.Collapsed;
+                await (new MessageDialog("Can't download now please try after sometime")).ShowAsync();
+            }
         }
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
         {
@@ -125,7 +166,7 @@ namespace Heist
 
         private void MenuButton3_Click(object sender, RoutedEventArgs e)
         {
-            //upgrade option 
+            Frame.Navigate(typeof(Purchased)); 
         }
 
         private void MenuButton4_Click(object sender, RoutedEventArgs e)

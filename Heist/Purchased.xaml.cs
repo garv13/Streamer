@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -46,37 +47,50 @@ namespace Heist
 
         private async void Purchased_Loaded(object sender, RoutedEventArgs e)
         {
-            StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            StorageFile sampleFile = await folder.GetFileAsync("sample.txt");
-            StoreListing st;
-            testlol = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
-            
-            items = await Table.Where(User
-                          => User.username == testlol).ToCollectionAsync();
-            test = items[0].purchases;
-            string[] test2 = test.Split(',');
-            for (int i = 0; i < test2.Length; i++)
+            LoadingBar.Visibility = Visibility.Visible;
+            LoadingBar.IsIndeterminate = true;
+            try
             {
-                string test3 = test2[i];
-                string[] test4 = test3.Split('.');
-                lis.Add(test4[0]);
-            }
-            items2 = await Table2.Where(Book
-                          => lis.Contains(Book.Id)).ToCollectionAsync();
-            StoreListing temp;
-            StoreList = new List<StoreListing>();
-            foreach (Book lol in items2)
-            {
-                temp = new StoreListing();          
-                temp.Title = lol.Title;
-                temp.Author = lol.Author;
-                temp.Image = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri(lol.ImageUri2));
-                temp.Id = lol.Id;
-                temp.Price = lol.Price.ToString();
-                StoreList.Add(temp);
-            }
-            StoreListView.ItemsSource = StoreList;
 
+
+                StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                StorageFile sampleFile = await folder.GetFileAsync("sample.txt");
+                StoreListing st;
+                testlol = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
+
+                items = await Table.Where(User
+                              => User.username == testlol).ToCollectionAsync();
+                test = items[0].purchases;
+                string[] test2 = test.Split(',');
+                for (int i = 0; i < test2.Length; i++)
+                {
+                    string test3 = test2[i];
+                    string[] test4 = test3.Split('.');
+                    lis.Add(test4[0]);
+                }
+                items2 = await Table2.Where(Book
+                              => lis.Contains(Book.Id)).ToCollectionAsync();
+                StoreListing temp;
+                StoreList = new List<StoreListing>();
+                foreach (Book lol in items2)
+                {
+                    temp = new StoreListing();
+                    temp.Title = lol.Title;
+                    temp.Author = lol.Author;
+                    temp.Image = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri(lol.ImageUri2));
+                    temp.Id = lol.Id;
+                    temp.Price = lol.Price.ToString();
+                    StoreList.Add(temp);
+                }
+                LoadingBar.Visibility = Visibility.Collapsed;
+
+                StoreListView.ItemsSource = StoreList;
+            }
+            catch(Exception)
+            {
+                LoadingBar.Visibility = Visibility.Collapsed;
+                await (new MessageDialog("Can't Update Now")).ShowAsync();
+            }
         }
 
         private void StoreListView_ItemClick(object sender, ItemClickEventArgs e)
@@ -105,10 +119,10 @@ namespace Heist
 
         private void MenuButton3_Click(object sender, RoutedEventArgs e)
         {
-            //upgrade option 
+            Frame.Navigate(typeof(Purchased));
         }
 
-        private async void MenuButton4_Click(object sender, RoutedEventArgs e)
+        private void MenuButton4_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Store));
         }
