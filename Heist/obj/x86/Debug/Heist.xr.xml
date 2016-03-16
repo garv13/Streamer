@@ -185,7 +185,6 @@
       <RootProperty Name="Visibility" />
     </RootType>
     <RootType FullName="Heist.MainPage" />
-    <RootType FullName="Heist.MainPage1" />
     <RootType FullName="Heist.Purchased" />
     <RootType FullName="Heist.Purchaseddetail" />
     <RootType FullName="Heist.SignUp" />

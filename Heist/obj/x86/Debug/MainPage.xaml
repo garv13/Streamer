@@ -64,7 +64,7 @@
                     <RowDefinition Height="0.06*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Downloaded Books" Foreground="White" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Text="Downloaded Books" Foreground="White" FontSize="20" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Center"/>
                 <Grid x:ConnectionId='9' x:Name="lol" Grid.Row="1" Visibility="Collapsed">
                     <lol2:SfPdfViewerControl x:ConnectionId='12' Name="pdfViewer" PageView="SinglePageView" ViewMode="OnePage"></lol2:SfPdfViewerControl>
                 </Grid>
@@ -79,7 +79,7 @@
                         SelectionMode="None"          
                         IsSwipeEnabled="false"
                         IsItemClickEnabled="False"
-                       
+                        Grid.Row="1"
                         ScrollViewer.HorizontalScrollMode="Auto"
                         ScrollViewer.HorizontalScrollBarVisibility="Auto"
                         ScrollViewer.VerticalScrollMode="Auto"

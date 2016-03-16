@@ -198,11 +198,6 @@ c:\users\garvj\documents\visual studio 2015\Projects\Heist\Heist\obj\x86\Debug\M
 c:\users\garvj\documents\visual studio 2015\Projects\Heist\Heist\obj\x86\Debug\Syncfusion.Pdf.UWP.pri.xml
 c:\users\garvj\documents\visual studio 2015\Projects\Heist\Heist\obj\x86\Debug\Syncfusion.SfPdfViewer.UWP.pri.xml
 c:\users\garvj\documents\visual studio 2015\Projects\Heist\Heist\obj\x86\Debug\ProjectArchitectures.txt
-c:\users\garvj\documents\visual studio 2015\Projects\Heist\Heist\bin\x86\Debug\MainPage1.xbf
-c:\users\garvj\documents\visual studio 2015\Projects\Heist\Heist\obj\x86\Debug\MainPage1.g.i.cs
-c:\users\garvj\documents\visual studio 2015\Projects\Heist\Heist\obj\x86\Debug\MainPage1.g.cs
-c:\users\garvj\documents\visual studio 2015\Projects\Heist\Heist\obj\x86\Debug\MainPage1.xaml
-c:\users\garvj\documents\visual studio 2015\Projects\Heist\Heist\obj\x86\Debug\MainPage1.xbf
 C:\Users\garvj\Documents\Visual Studio 2015\Projects\Heist\Heist\obj\x86\Debug\SplitViewStyles.xaml
 C:\Users\garvj\Documents\Visual Studio 2015\Projects\Heist\Heist\obj\x86\Debug\SplitViewStyles.xbf
 C:\Users\garvj\Documents\Visual Studio 2015\Projects\Heist\Heist\bin\x86\Debug\SplitViewStyles.xbf
@@ -517,3 +512,4 @@ C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\obj\x86\Debug\M
 C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\obj\x86\Debug\Syncfusion.SfInput.UWP.pri.xml
 C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\obj\x86\Debug\Syncfusion.SfShared.UWP.pri.xml
 C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\obj\x86\Debug\Microsoft.WindowsAzure.Mobile.Ext.pri.xml
+C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\obj\x86\Debug\Heist.csprojResolveAssemblyReference.cache

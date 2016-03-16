@@ -62,34 +62,40 @@
         <SplitView.Content>
             <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0.3*"/>
-                    <RowDefinition Height="0.7*"/>
-
+                    <RowDefinition Height="0.06*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.1*"/>
-                        <ColumnDefinition Width="0.3*"/>
-                        <ColumnDefinition Width="0.6*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="2">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="0.1*"/>
-                            <RowDefinition Height="0.3*"/>
-                            <RowDefinition Height="0.3*"/>
-                            <RowDefinition Height="0.3*"/>
-                            <RowDefinition Height="0.1*"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock x:Name="Title" Text="Title" FontSize="35" Grid.Row="1"/>
-                        <TextBlock x:Name="Author" Text="Author" FontSize="25" Grid.Row="2"/>
-                        
+                <TextBlock Text="Purchase Detail" Foreground="White" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.3*"/>
+                        <RowDefinition Height="0.7*"/>
+
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.1*"/>
+                            <ColumnDefinition Width="0.3*"/>
+                            <ColumnDefinition Width="0.6*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.1*"/>
+                                <RowDefinition Height="0.3*"/>
+                                <RowDefinition Height="0.3*"/>
+                                <RowDefinition Height="0.3*"/>
+                                <RowDefinition Height="0.1*"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock x:Name="Title" Text="Title" FontSize="35" Grid.Row="1"/>
+                            <TextBlock x:Name="Author" Text="Author" FontSize="25" Grid.Row="2"/>
+
+
+                        </Grid>
+                        <Image x:Name="Cover" Grid.Column="1" VerticalAlignment="Stretch" Stretch="Uniform"  HorizontalAlignment="Stretch" Margin="10"/>
 
                     </Grid>
-                    <Image x:Name="Cover" Grid.Column="1" VerticalAlignment="Stretch" Stretch="Uniform"  HorizontalAlignment="Stretch" Margin="10"/>
-                   
-                </Grid>
-                <ProgressBar Grid.Row="1" Visibility="Collapsed" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="LoadingBar"/>
-                <ListView         
+                    <ProgressBar Grid.Row="1" Visibility="Collapsed" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="LoadingBar"/>
+                    <ListView         
                         Grid.Row="1"
                         Grid.ColumnSpan="2"
                         HorizontalAlignment="Stretch"
@@ -107,7 +113,8 @@
                         ScrollViewer.VerticalScrollBarVisibility="Auto"
                         Visibility="Visible"
                       >
-                </ListView>
+                    </ListView>
+                </Grid>
             </Grid>
         </SplitView.Content>
     </SplitView>
