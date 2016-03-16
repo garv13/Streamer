@@ -36,8 +36,6 @@ namespace Heist
         {
             LoadingBar.Visibility = Visibility.Visible;
             LoadingBar.IsIndeterminate = true;
-            if (UserName.Text=="lol")
-                Frame.Navigate(typeof(MainPage));
             items = await Table.Where(User
                             => User.username == UserName.Text).ToCollectionAsync();
             if (items.Count!=0)
@@ -50,7 +48,7 @@ namespace Heist
                     StorageFile sampleFile =
                         await folder.CreateFileAsync("sample.txt", CreationCollisionOption.ReplaceExisting);
                     await Windows.Storage.FileIO.WriteTextAsync(sampleFile, UserName.Text);
-                    Frame.Navigate(typeof(MainPage));
+                    Frame.Navigate(typeof(Downloads));
                 }
             }
             else

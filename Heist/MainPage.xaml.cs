@@ -31,7 +31,7 @@ namespace Heist
         public MainPage()
         {
             this.InitializeComponent();
-            getdata();
+           // getdata();
         }
 
 
@@ -63,84 +63,84 @@ namespace Heist
             }
         }
 
-        private async void button_Click(object sender, RoutedEventArgs e)
-        {
-            Uri url = new Uri("https://www.ebookstreamer.me/downloads");
-            HttpClient httpClient = new HttpClient();
-            var myClientHandler = new HttpClientHandler();
-            myClientHandler.ClientCertificateOptions = ClientCertificateOption.Automatic;
-            HttpResponseMessage httpResponse = new HttpResponseMessage();
-            var content = new FormUrlEncodedContent(new[]
-             {
-                new KeyValuePair<string, string>("id", "F013D07A-CA56-47FE-A783-24E944AF1ED6")
-            });
-            httpResponse = await httpClient.PostAsync(url, content);
-            httpResponse.EnsureSuccessStatusCode();
-            Stream str = await httpResponse.Content.ReadAsStreamAsync();
+        //private async void button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Uri url = new Uri("https://www.ebookstreamer.me/downloads");
+        //    HttpClient httpClient = new HttpClient();
+        //    var myClientHandler = new HttpClientHandler();
+        //    myClientHandler.ClientCertificateOptions = ClientCertificateOption.Automatic;
+        //    HttpResponseMessage httpResponse = new HttpResponseMessage();
+        //    var content = new FormUrlEncodedContent(new[]
+        //     {
+        //        new KeyValuePair<string, string>("id", "F013D07A-CA56-47FE-A783-24E944AF1ED6")
+        //    });
+        //    httpResponse = await httpClient.PostAsync(url, content);
+        //    httpResponse.EnsureSuccessStatusCode();
+        //    Stream str = await httpResponse.Content.ReadAsStreamAsync();
 
-            byte[] pd = new byte[str.Length];
-            str.Read(pd, 0, pd.Length);
+        //    byte[] pd = new byte[str.Length];
+        //    str.Read(pd, 0, pd.Length);
 
-            PdfLoadedDocument ldoc = new PdfLoadedDocument(pd);
-            pdfViewer.LoadDocument(ldoc);
-            lol.Visibility = Visibility.Visible;
+        //    PdfLoadedDocument ldoc = new PdfLoadedDocument(pd);
+        //    pdfViewer.LoadDocument(ldoc);
+        //    lol.Visibility = Visibility.Visible;
 
-            StorageFolder folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("book name", CreationCollisionOption.OpenIfExists);
-            if (folder != null)
-            {
-                StorageFile file = await folder.CreateFileAsync("Chapter no.txt", CreationCollisionOption.OpenIfExists);
+        //    StorageFolder folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("book name", CreationCollisionOption.OpenIfExists);
+        //    if (folder != null)
+        //    {
+        //        StorageFile file = await folder.CreateFileAsync("Chapter no.txt", CreationCollisionOption.OpenIfExists);
 
-                using (var fileStream = await file.OpenStreamForWriteAsync())
-                {
-                    str.Seek(0, SeekOrigin.Begin);
-                    await str.CopyToAsync(fileStream);
-                }
-            }
+        //        using (var fileStream = await file.OpenStreamForWriteAsync())
+        //        {
+        //            str.Seek(0, SeekOrigin.Begin);
+        //            await str.CopyToAsync(fileStream);
+        //        }
+        //    }
 
-        }
+        //}
 
 
-        public async void getdata()
-        {
-            LoadingBar.IsIndeterminate = true;
-            List<BookView> bl = new List<BookView>();
-            try
-            {
-                StorageFolder folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("My Books", CreationCollisionOption.OpenIfExists);
-                if (folder != null)
-                {
-                    BookView b = new BookView();
-                    IReadOnlyList<StorageFolder> bookName = await folder.GetFoldersAsync(Windows.Storage.Search.CommonFolderQuery.DefaultQuery);
-                    foreach (StorageFolder s in bookName)
-                    {
+        //public async void getdata()
+        //{
+        //    LoadingBar.IsIndeterminate = true;
+        //    List<BookView> bl = new List<BookView>();
+        //    try
+        //    {
+        //        StorageFolder folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("My Books", CreationCollisionOption.OpenIfExists);
+        //        if (folder != null)
+        //        {
+        //            BookView b = new BookView();
+        //            IReadOnlyList<StorageFolder> bookName = await folder.GetFoldersAsync(Windows.Storage.Search.CommonFolderQuery.DefaultQuery);
+        //            foreach (StorageFolder s in bookName)
+        //            {
 
-                        IReadOnlyList<StorageFile> chapterName = await s.GetFilesAsync(Windows.Storage.Search.CommonFileQuery.DefaultQuery);
-                        foreach (StorageFile f in chapterName)
-                        {
-                            b = new BookView();
-                            b.bookName = s.Name;
-                            b.chapterName = "Chapter" + f.DisplayName;
-                            bl.Add(b);
-                        }
-                    }
-                }
-                LoadingBar.Visibility = Visibility.Collapsed;
-                if (bl.Count != 0)
-                {
+        //                IReadOnlyList<StorageFile> chapterName = await s.GetFilesAsync(Windows.Storage.Search.CommonFileQuery.DefaultQuery);
+        //                foreach (StorageFile f in chapterName)
+        //                {
+        //                    b = new BookView();
+        //                    b.bookName = s.Name;
+        //                    b.chapterName = "Chapter" + f.DisplayName;
+        //                    bl.Add(b);
+        //                }
+        //            }
+        //        }
+        //        LoadingBar.Visibility = Visibility.Collapsed;
+        //        if (bl.Count != 0)
+        //        {
                     
-                    PurchasedListView.ItemsSource = bl;
-                }
-                else
-                    await (new MessageDialog("Nothing Purchased")).ShowAsync();
+        //            PurchasedListView.ItemsSource = bl;
+        //        }
+        //        else
+        //            await (new MessageDialog("Nothing Purchased")).ShowAsync();
                 
-            }
+        //    }
 
-            catch (Exception)
-            {
-                LoadingBar.Visibility = Visibility.Collapsed;
-                await (new MessageDialog("Can't get data now please try again later Or go to downloaded section")).ShowAsync();
-            }
-        }
+        //    catch (Exception)
+        //    {
+        //        LoadingBar.Visibility = Visibility.Collapsed;
+        //        await (new MessageDialog("Can't get data now please try again later Or go to downloaded section")).ShowAsync();
+        //    }
+        //}
 
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)

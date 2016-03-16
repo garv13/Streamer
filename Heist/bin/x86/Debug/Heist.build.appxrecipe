@@ -399,9 +399,6 @@
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\pin_it-561331541025728857.jpg">
-      <PackagePath>pin_it-561331541025728857.jpg</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>

@@ -1,8 +1,10 @@
-﻿using Syncfusion.Pdf.Parsing;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using Syncfusion.Pdf.Parsing;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Drawing;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.Foundation;
@@ -17,6 +19,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Media.Imaging;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -30,37 +33,55 @@ namespace Heist
         public Downloads()
         {
             this.InitializeComponent();
-            //lol();
+            lol();
         }
+        private IMobileServiceTable<Book> Table2 = App.MobileService.GetTable<Book>();
+        private MobileServiceCollection<Book, Book> items2;
+        public BitmapImage Im { get; set; }
 
         StorageFolder openBook = null;
 
         async void lol()
         {
+            LoadingBar.IsIndeterminate = true;
             await load();
+            LoadingBar.Visibility = Visibility.Collapsed;
         }
         async Task retreive(string name)
         {
-            StorageFolder folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync(name, CreationCollisionOption.OpenIfExists);
-            if (folder != null)
+            try
             {
-                openBook = folder;
-                int count = 0;
-                List<GridClass> lg = new List<GridClass>();
-                GridClass gd = new GridClass();
-                IReadOnlyList<StorageFile> sf = await folder.GetFilesAsync();
+                StorageFolder mainFol = await ApplicationData.Current.LocalFolder.CreateFolderAsync("My Books", CreationCollisionOption.OpenIfExists);
 
-                foreach (StorageFile s in sf)
+                if (mainFol != null)
                 {
-                    count++;
-                    gd = new GridClass();
-                    gd.title = "Chapter No:" + count.ToString();
-                    gd.authName = null;
-                    lg.Add(gd);
+                    StorageFolder folder = await mainFol.CreateFolderAsync(name, CreationCollisionOption.OpenIfExists);
+                    openBook = folder;
+                    List<GridClass> lg = new List<GridClass>();
+                    GridClass gd = new GridClass();
+                    IReadOnlyList<StorageFile> sf = await folder.GetFilesAsync();
+
+                    items2 = await Table2.Where(Book
+                                => Book.Title == folder.Name).ToCollectionAsync();
+                    foreach (Book lol in items2)
+                        Im = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri(lol.ImageUri2));
+
+                    foreach (StorageFile s in sf)
+                    {
+                        gd = new GridClass();
+                        gd.title = "Chapter No:" + s.DisplayName;
+                        gd.Image = Im;
+                        gd.authName = null;
+                        lg.Add(gd);
+                    }
+                    event1.Visibility = Visibility.Collapsed;
+                    event2.ItemsSource = lg;
+                    event2.Visibility = Visibility.Visible;
                 }
-               event1.Visibility = Visibility.Collapsed;
-                event2.ItemsSource = lg;
-                event2.Visibility = Visibility.Visible;
+            }
+            catch(Exception)
+            {
+                await (new MessageDialog("ahhmm Something not so good Happened :(:(")).ShowAsync();
             }
         }
 
@@ -81,63 +102,68 @@ namespace Heist
 
         private void MenuButton3_Click(object sender, RoutedEventArgs e)
         {
-            //upgrade option 
+            Frame.Navigate(typeof(Purchased));
         }
 
-        private async void MenuButton4_Click(object sender, RoutedEventArgs e)
+        private void MenuButton4_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                await Launcher.LaunchUriAsync(new Uri(string.Format("ms-windows-store:REVIEW?PFN={0}", Windows.ApplicationModel.Package.Current.Id.FamilyName)));
-            }
-            catch (Exception es)
-            {
-                await (new MessageDialog("Can't review now please try again later")).ShowAsync();
-            }
+            Frame.Navigate(typeof(Store));
         }
+
 
         private void MenuButton5_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(About));
         }
-        
-       
+
+
         private async Task load()
         {
-            List<GridClass> lg = new List<GridClass>();
-            GridClass gd = new GridClass();
-            StorageFolder folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("AllBooks", CreationCollisionOption.OpenIfExists);
-            IReadOnlyList<StorageFolder> sf = await folder.GetFoldersAsync();
+            try
+            {
+                List<GridClass> lg = new List<GridClass>();
+                GridClass gd = new GridClass();
+                StorageFolder folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("My Books", CreationCollisionOption.OpenIfExists);
+                IReadOnlyList<StorageFolder> sf = await folder.GetFoldersAsync();
 
-            //foreach(StorageFolder s in sf)
-            // {
-            //      gd = new GridClass();
-            //      gd.title = s.Name;
-            //      gd.authName = "gr";
-            //      lg.Add(gd);
-            // }
-            for (int i = 0; i < 10; i++)
-            {
-                gd = new GridClass();
-                gd.title = "efkbj";
-                gd.authName = "gr";
-                lg.Add(gd);
+                foreach (StorageFolder s in sf)
+                {
+                    gd = new GridClass();
+                    items2 = await Table2.Where(Book
+                                 => Book.Title == s.Name).ToCollectionAsync();
+                    foreach (Book lol in items2)
+                    {
+                        gd.Image = new BitmapImage(new Uri(lol.ImageUri2));
+                        gd.title = s.Name;
+                        gd.authName = lol.Author;
+                        lg.Add(gd);
+                    }
+                }
+
+                if (lg.Count != 0)
+                {
+                    event1.ItemsSource = lg;
+
+                }
+                else
+                {
+                    LoadingBar.Visibility = Visibility.Collapsed;
+                    await (new MessageDialog("Nothing Purchased")).ShowAsync();
+                }
             }
-            if (lg.Count != 0)
+            catch(Exception)
             {
-                event1.ItemsSource = lg;
-                //Books.Visibility = Visibility.Visible;
+                LoadingBar.Visibility = Visibility.Collapsed;
+                await (new MessageDialog("Oops Something Bad Happened :(:(")).ShowAsync();
             }
-            else
-                await (new MessageDialog("Nothing Purchased")).ShowAsync();
         }
 
         private async void Grid_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            LoadingBar.IsIndeterminate = true;
+            LoadingBar.Visibility = Visibility.Visible;
             Grid g = new Grid();
             g = sender as Grid;
-
-            
             FrameworkElement auth = null;
             FrameworkElement titl = null;
             foreach (FrameworkElement child in g.Children)
@@ -155,33 +181,37 @@ namespace Heist
             }
             TextBlock t = auth as TextBlock;
             TextBlock t2 = titl as TextBlock;
-
+            
             string str = t.Text;
 
-            if (str != null)
+            if (str != "")
                 await retreive(t2.Text);
             else
-                await printPdf(t2.Text);
+                await printPdf(t2.Text.ElementAt<char>(t2.Text.Length-1).ToString()+".txt");
+            LoadingBar.Visibility = Visibility.Collapsed;
         }
 
         private async Task printPdf(string text)
         {
-            StorageFile file = await openBook.GetFileAsync(text);
-            var l = await file.OpenAsync(FileAccessMode.Read);
-            Stream str = l.AsStreamForRead();
-            byte[] buffer = new byte[str.Length];
-            str.Read(buffer, 0, buffer.Length);
+            try
+            {
+                StorageFile file = await openBook.GetFileAsync(text);
+                var l = await file.OpenAsync(FileAccessMode.Read);
+                Stream str = l.AsStreamForRead();
+                byte[] buffer = new byte[str.Length];
+                str.Read(buffer, 0, buffer.Length);
 
-           // Loads the PDF document.
-             PdfLoadedDocument ldoc = new PdfLoadedDocument(buffer);
-            pdfViewer.LoadDocument(ldoc);
-            //Chapters.Visibility = Visibility.Collapsed;
-            PdfGrid.Visibility = Visibility.Visible;
-        }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            lol();
+                // Loads the PDF document.
+                PdfLoadedDocument ldoc = new PdfLoadedDocument(buffer);
+                TitlBox.Text = "Chapter " + text.ElementAt<char>(0).ToString();
+                pdfViewer.LoadDocument(ldoc);
+                event2.Visibility = Visibility.Collapsed;
+                PdfGrid.Visibility = Visibility.Visible;
+            }
+            catch(Exception)
+            {
+                await (new MessageDialog("Can't open Pdf")).ShowAsync();
+            }
         }
     }
 }

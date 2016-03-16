@@ -141,7 +141,7 @@ namespace Heist
                 }
                 LoadingBar.Visibility = Visibility.Collapsed;
                 await (new MessageDialog("Download Successful")).ShowAsync();
-                Frame.Navigate(typeof(MainPage));
+                Frame.Navigate(typeof(Downloads));
             }
             catch(Exception)
             {

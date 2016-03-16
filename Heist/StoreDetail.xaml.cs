@@ -41,6 +41,8 @@ namespace Heist
         }
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
+            LoadingBar.IsIndeterminate = true;
+            LoadingBar.Visibility = Visibility.Visible;
             rec = new StoreListing();
             rec = e.Parameter as StoreListing;
             Title.Text = rec.Title;
@@ -69,11 +71,14 @@ namespace Heist
                     temp.Price = "Price: "+ lol.price.ToString();
                     list.Add(temp);
                 }
+                LoadingBar.Visibility = Visibility.Collapsed;
                 StoreListView.ItemsSource = list;
             }
             catch (Exception)
             {
+                LoadingBar.Visibility = Visibility.Collapsed;
                 MessageDialog mess = new Windows.UI.Popups.MessageDialog("Sorry Can't load the chapters now :(:(");
+                await mess.ShowAsync();
             }
         }
 
@@ -111,6 +116,8 @@ namespace Heist
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
+            LoadingBar.IsIndeterminate = true;
+            LoadingBar.Visibility = Visibility.Visible;
             //TODO Download full book and add entry to user purchases
             items2 = await Table2.Where(User
                             => User.username == testlol).ToCollectionAsync();
@@ -119,11 +126,15 @@ namespace Heist
             {
                 a.purchases += rec.Id + ".full,";
                 await Table2.UpdateAsync(a);
+                LoadingBar.Visibility = Visibility.Collapsed;
                 Windows.UI.Popups.MessageDialog mess = new Windows.UI.Popups.MessageDialog("Purchase successfull! Download the file from My purchase section");
+                await mess.ShowAsync();
             }
             else
             {
+                LoadingBar.Visibility = Visibility.Collapsed;
                 Windows.UI.Popups.MessageDialog mess = new Windows.UI.Popups.MessageDialog("You have already purchased this!");
+                await mess.ShowAsync();
             }
 
         }
@@ -131,7 +142,8 @@ namespace Heist
         private async void Buy_Click(object sender, RoutedEventArgs e)
         {
             //take rec.id to send in post with header id
-
+            LoadingBar.IsIndeterminate = true;
+            LoadingBar.Visibility = Visibility.Visible;
             var test = sender as Button;
             var test2 = test.Parent as Grid;
             var test3 = test2.Children[3] as TextBlock;
@@ -142,11 +154,16 @@ namespace Heist
             {
                 a.purchases += rec.Id + "." + test3.Text+",";
                 await Table2.UpdateAsync(a);
+                LoadingBar.Visibility = Visibility.Collapsed;
                 Windows.UI.Popups.MessageDialog mess = new Windows.UI.Popups.MessageDialog("Purchase successfull! Download the file from My purchase section");
+                await mess.ShowAsync();
+                Frame.Navigate(typeof(Purchased));
             }
             else
             {
+                LoadingBar.Visibility = Visibility.Collapsed;
                 Windows.UI.Popups.MessageDialog mess = new Windows.UI.Popups.MessageDialog("You have already purchased this!");
+                await mess.ShowAsync();
             }
 
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace Heist
 {
@@ -10,7 +11,7 @@ namespace Heist
     {
         public string title { get; set; }
         public string authName { get; set; }
-        public string imgUrl { get; set; }
+        public BitmapImage Image { get; set; }
 
     }
 }
