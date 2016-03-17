@@ -15,43 +15,30 @@
                 <ResourceDictionary Source="SplitViewStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
-            <DataTemplate x:Key="Standard3100x260ItemTemplate" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10" Width="auto">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.4*"/>
-                        <ColumnDefinition Width="0.4*"/>
-                        <ColumnDefinition Width="0.2*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock x:Name="Title" Text="{Binding bookName}" Width="auto"  FontSize="30" Foreground="White"  Grid.Column="0" TextWrapping="WrapWholeWords" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,0,0,0"/>
-                    <Button x:ConnectionId='1' x:Name="Open" Content="Open" Margin="10,0" FontSize="20" Foreground="White"                       Grid.Column="2"/>
-                    <TextBlock x:Name="id" Text="{Binding chapterName}" FontSize="25" Foreground="White" Grid.Column="1" TextWrapping="WrapWholeWords" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,0,0,0"/>
-                </Grid>
-            </DataTemplate>
         </ResourceDictionary>
     </Page.Resources>
 
-    <SplitView x:ConnectionId='2' x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" 
+    <SplitView x:ConnectionId='1' x:Name="MySplitView" DisplayMode="CompactOverlay"  IsPaneOpen="False" 
                CompactPaneLength="50" OpenPaneLength="150" >
         <SplitView.Pane>
             <StackPanel >
-                <Button x:ConnectionId='3' x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
+                <Button x:ConnectionId='2' x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
                     Width="50" Height="50" Background="Transparent"                              />
 
-                <RadioButton x:ConnectionId='4' Tag="" Content="Home"
+                <RadioButton x:ConnectionId='3' Tag="" Content="Home"
                  Style="{StaticResource SplitViewNavButtonStyle}"
                IsChecked="True"                           />
 
-                <RadioButton x:ConnectionId='5' x:Name="MenuButton2" Tag="" Style="{StaticResource SplitViewNavButtonStyle}" Content="Downloads"
+                <RadioButton x:ConnectionId='4' x:Name="MenuButton2" Tag="" Style="{StaticResource SplitViewNavButtonStyle}" Content="Downloads"
                                                  />
 
-                <RadioButton x:ConnectionId='6' x:Name="MenuButton3" Tag="" Content="Purchased" Style="{StaticResource SplitViewNavButtonStyle}"
+                <RadioButton x:ConnectionId='5' x:Name="MenuButton3" Tag="" Content="Purchased" Style="{StaticResource SplitViewNavButtonStyle}"
                                                  />
 
-                <RadioButton x:ConnectionId='7' x:Name="MenuButton4" Tag="" Content="Store"
+                <RadioButton x:ConnectionId='6' x:Name="MenuButton4" Tag="" Content="Store"
                         Style="{StaticResource SplitViewNavButtonStyle}"                          />
 
-                <RadioButton x:ConnectionId='8' x:Name="MenuButton5" Tag="" Content="About" Style="{StaticResource SplitViewNavButtonStyle}"
+                <RadioButton x:ConnectionId='7' x:Name="MenuButton5" Tag="" Content="About" Style="{StaticResource SplitViewNavButtonStyle}"
                                                   />
 
             </StackPanel>
@@ -62,31 +49,27 @@
             <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.06*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.94*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Main Page" Foreground="White" FontSize="20" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Center"/>
-                <Grid x:ConnectionId='9' x:Name="lol" Grid.Row="1" Visibility="Collapsed">
-                    <lol2:SfPdfViewerControl x:ConnectionId='12' Name="pdfViewer" PageView="SinglePageView" ViewMode="OnePage"></lol2:SfPdfViewerControl>
+                <ProgressBar x:ConnectionId='8' x:Name="Loading" Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Collapsed"/>
+                <Border Background="Black" Grid.Row="0">
+                    <TextBlock FontSize="36" Foreground="White"  Text="   Wallet"  />
+                </Border>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.1*"/>
+                        <RowDefinition Height="0.1*"/>
+                        <RowDefinition Height="0.4*"/>
+                        <RowDefinition Height="0.1*"/>
+                        <RowDefinition Height="0.4*"/>
+                        <RowDefinition Height="0.4*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="1" Text="Your Current balance is: " FontSize="40"/>
+                    <TextBlock x:ConnectionId='9' Grid.Row="2" x:Name="balance" Text="" FontSize="40"/>
+                    <TextBlock Grid.Row="3" Text="Add Money: " FontSize="38"/>
+                    <TextBox x:ConnectionId='10' PlaceholderText="Enter amount" Grid.Row="4" x:Name="Funds" Text="" FontSize="40"/>
+                    <Button x:ConnectionId='11' Grid.Row="5" Content="Add"                       HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" FontSize="40"/>
                 </Grid>
-                <ProgressBar x:ConnectionId='10' HorizontalAlignment="Stretch" VerticalAlignment="Center" Visibility="Collapsed" x:Name="LoadingBar"/>
-
-                <ListView x:ConnectionId='11'         
-                        HorizontalAlignment="Stretch"
-                        x:Name="PurchasedListView"
-                        VerticalAlignment="Stretch"
-                        ItemsSource="{Binding}"                       
-                        ItemTemplate="{StaticResource Standard3100x260ItemTemplate}"
-                        SelectionMode="None"          
-                        IsSwipeEnabled="false"
-                        IsItemClickEnabled="False"
-                        Grid.Row="1"
-                        ScrollViewer.HorizontalScrollMode="Auto"
-                        ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                        ScrollViewer.VerticalScrollMode="Auto"
-                        ScrollViewer.VerticalScrollBarVisibility="Auto"
-                        Visibility="Visible"
-                      >
-                </ListView>
             </Grid>
         </SplitView.Content>
     </SplitView>

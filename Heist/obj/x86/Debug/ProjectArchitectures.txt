@@ -1,1 +1,1 @@
-C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\Heist.csproj;x86
+C:\Users\aksha\Documents\GitHub\Streamer\Heist\Heist.csproj;x86

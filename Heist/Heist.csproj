@@ -102,6 +102,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Auth.cs" />
+    <Compile Include="Author.cs" />
     <Compile Include="Book.cs" />
     <Compile Include="BookView.cs" />
     <Compile Include="Chapter.cs" />

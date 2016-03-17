@@ -15,19 +15,6 @@
                 <ResourceDictionary Source="SplitViewStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
-            <DataTemplate x:Key="Standard3100x260ItemTemplate" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10" Width="auto">
-
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0.4*"/>
-                        <ColumnDefinition Width="0.4*"/>
-                        <ColumnDefinition Width="0.2*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock x:Name="Title" Text="{Binding bookName}" Width="auto"  FontSize="30" Foreground="White"  Grid.Column="0" TextWrapping="WrapWholeWords" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,0,0,0"/>
-                    <Button x:Name="Open" Content="Open" Margin="10,0" FontSize="20" Foreground="White" Click="BtnOpen_Click" Grid.Column="2"/>
-                    <TextBlock x:Name="id" Text="{Binding chapterName}" FontSize="25" Foreground="White" Grid.Column="1" TextWrapping="WrapWholeWords" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,0,0,0"/>
-                </Grid>
-            </DataTemplate>
         </ResourceDictionary>
     </Page.Resources>
 
@@ -62,31 +49,27 @@
             <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.06*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.94*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Text="Main Page" Foreground="White" FontSize="20" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Center"/>
-                <Grid x:Name="lol" Grid.Row="1" Visibility="Collapsed">
-                    <lol2:SfPdfViewerControl Name="pdfViewer" PageView="SinglePageView" ViewMode="OnePage"></lol2:SfPdfViewerControl>
+                <ProgressBar x:Name="Loading" Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Collapsed"/>
+                <Border Background="Black" Grid.Row="0">
+                    <TextBlock FontSize="36" Foreground="White"  Text="   Wallet"  />
+                </Border>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.1*"/>
+                        <RowDefinition Height="0.1*"/>
+                        <RowDefinition Height="0.4*"/>
+                        <RowDefinition Height="0.1*"/>
+                        <RowDefinition Height="0.4*"/>
+                        <RowDefinition Height="0.4*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="1" Text="Your Current balance is: " FontSize="40"/>
+                    <TextBlock Grid.Row="2" x:Name="balance" Text="" FontSize="40"/>
+                    <TextBlock Grid.Row="3" Text="Add Money: " FontSize="38"/>
+                    <TextBox PlaceholderText="Enter amount" Grid.Row="4" x:Name="Funds" Text="" FontSize="40"/>
+                    <Button Grid.Row="5" Content="Add" Click="Button_Click"  HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" FontSize="40"/>
                 </Grid>
-                <ProgressBar HorizontalAlignment="Stretch" VerticalAlignment="Center" Visibility="Collapsed" x:Name="LoadingBar"/>
-
-                <ListView         
-                        HorizontalAlignment="Stretch"
-                        x:Name="PurchasedListView"
-                        VerticalAlignment="Stretch"
-                        ItemsSource="{Binding}"                       
-                        ItemTemplate="{StaticResource Standard3100x260ItemTemplate}"
-                        SelectionMode="None"          
-                        IsSwipeEnabled="false"
-                        IsItemClickEnabled="False"
-                        Grid.Row="1"
-                        ScrollViewer.HorizontalScrollMode="Auto"
-                        ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                        ScrollViewer.VerticalScrollMode="Auto"
-                        ScrollViewer.VerticalScrollBarVisibility="Auto"
-                        Visibility="Visible"
-                      >
-                </ListView>
             </Grid>
         </SplitView.Content>
     </SplitView>
