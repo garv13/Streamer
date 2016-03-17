@@ -57,5 +57,10 @@ namespace Heist
         {
             Frame.Navigate(typeof(About));
         }
+
+        private void MenuButton6_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Login));
+        }
     }
 }

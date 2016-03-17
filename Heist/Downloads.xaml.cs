@@ -117,6 +117,11 @@ namespace Heist
         }
 
 
+        private void MenuButton6_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Login));
+        }
+
         private async Task load()
         {
             try

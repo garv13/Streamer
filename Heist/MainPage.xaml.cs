@@ -41,13 +41,24 @@ namespace Heist
 
         private async void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
-            StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            StorageFile sampleFile = await folder.GetFileAsync("sample.txt");
+            LoadingBar.Visibility = Visibility.Visible;
+            LoadingBar.IsIndeterminate = true;
+            try {
+                StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                StorageFile sampleFile = await folder.GetFileAsync("sample.txt");
 
-            testlol = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
-            items2 = await Table2.Where(User
-                           => User.username == testlol).ToCollectionAsync();
-            balance.Text = items2[0].wallet.ToString();
+                testlol = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
+                items2 = await Table2.Where(User
+                               => User.username == testlol).ToCollectionAsync();
+                balance.Text = items2[0].wallet.ToString();
+                LoadingBar.Visibility = Visibility.Collapsed;
+            }
+            catch(Exception)
+            {
+                LoadingBar.Visibility = Visibility.Collapsed;
+                MessageDialog msgbox = new MessageDialog("Can't update data");
+                await msgbox.ShowAsync();
+            }
         }
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
@@ -83,11 +94,37 @@ namespace Heist
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            items2 = await Table2.Where(User
-                           => User.username == testlol).ToCollectionAsync();
-            User a = items2[0];
-            a.wallet += int.Parse(Funds.Text);
-            await Table2.UpdateAsync(a);
+            LoadingBar.Visibility = Visibility.Visible;
+            LoadingBar.IsIndeterminate = true;
+            try
+            {
+                items2 = await Table2.Where(User
+                          => User.username == testlol).ToCollectionAsync();
+                User a = items2[0];
+                if (!(Funds.Text.All(char.IsDigit)))
+                {
+                    LoadingBar.Visibility = Visibility.Collapsed;
+                    MessageDialog msgbox = new MessageDialog("Enter correct amount");
+                    await msgbox.ShowAsync();
+                    return;
+                }
+
+                a.wallet += int.Parse(Funds.Text);
+                await Table2.UpdateAsync(a);
+                LoadingBar.Visibility = Visibility.Collapsed;
+            }
+            catch(Exception)
+            {
+                LoadingBar.Visibility = Visibility.Collapsed;
+                MessageDialog msgbox = new MessageDialog("Can't add money");
+                await msgbox.ShowAsync();
+            }
+           
+        }
+
+        private void MenuButton6_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Login));
         }
     }
 }

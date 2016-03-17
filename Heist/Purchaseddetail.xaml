@@ -41,10 +41,6 @@
                 <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
                     Width="50" Height="50" Background="Transparent" Click="HamburgerButton_Click"/>
 
-                <RadioButton Tag="" Content="Home"
-                 Style="{StaticResource SplitViewNavButtonStyle}"
-               Click="MenuButton1_Click" />
-
                 <RadioButton x:Name="MenuButton2" Tag="" Style="{StaticResource SplitViewNavButtonStyle}" Content="Downloads"
                         Click="MenuButton2_Click"/>
 
@@ -54,8 +50,15 @@
                 <RadioButton x:Name="MenuButton4" Tag="" Content="Store"
                          Style="{StaticResource SplitViewNavButtonStyle}" Click="MenuButton4_Click"/>
 
+
+                <RadioButton Tag="" Content="Wallet"  Style="{StaticResource SplitViewNavButtonStyle}"
+                Click="MenuButton1_Click" />
+
                 <RadioButton x:Name="MenuButton5" Tag="" Content="About" Style="{StaticResource SplitViewNavButtonStyle}"
                          Click="MenuButton5_Click"/>
+
+                <RadioButton x:Name="MenuButton6" Tag="" Content="SignOut"
+                        Style="{StaticResource SplitViewNavButtonStyle}" Click="MenuButton6_Click"/>
 
             </StackPanel>
         </SplitView.Pane>

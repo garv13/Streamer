@@ -40,21 +40,25 @@
                 <Button x:ConnectionId='3' x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
                     Width="50" Height="50" Background="Transparent"                              />
 
-                <RadioButton x:ConnectionId='4' Tag="" Content="Home"
-                 Style="{StaticResource SplitViewNavButtonStyle}"
-                                          />
-
-                <RadioButton x:ConnectionId='5' x:Name="MenuButton2" Tag="" Style="{StaticResource SplitViewNavButtonStyle}" IsChecked="True" Content="Downloads"
+              
+                <RadioButton x:ConnectionId='4' x:Name="MenuButton2" Tag="" Style="{StaticResource SplitViewNavButtonStyle}" IsChecked="True" Content="Downloads"
                                                  />
 
-                <RadioButton x:ConnectionId='6' x:Name="MenuButton3" Tag="" Content="Purchased" Style="{StaticResource SplitViewNavButtonStyle}"
+                <RadioButton x:ConnectionId='5' x:Name="MenuButton3" Tag="" Content="Purchased" Style="{StaticResource SplitViewNavButtonStyle}"
                                                  />
 
-                <RadioButton x:ConnectionId='7' x:Name="MenuButton4" Tag="" Content="Store"
+                <RadioButton x:ConnectionId='6' x:Name="MenuButton4" Tag="" Content="Store"
                         Style="{StaticResource SplitViewNavButtonStyle}"                          />
+                
+                <RadioButton x:ConnectionId='7' Tag="" Content="Wallet"  Style="{StaticResource SplitViewNavButtonStyle}"
+                                            />
+
 
                 <RadioButton x:ConnectionId='8' x:Name="MenuButton5" Tag="" Content="About" Style="{StaticResource SplitViewNavButtonStyle}"
                                                   />
+
+                <RadioButton x:ConnectionId='9' x:Name="MenuButton6" Tag="" Content="SignOut"
+                        Style="{StaticResource SplitViewNavButtonStyle}"                          />
 
             </StackPanel>
         </SplitView.Pane>
@@ -65,12 +69,12 @@
                     <RowDefinition Height="0.06*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <TextBlock x:ConnectionId='9' x:Name="TitlBox" Text="Downloaded Books" Foreground="White" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,5,0,0"/>
-                <ProgressBar x:ConnectionId='10' HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="2" x:Name="LoadingBar"/>
+                <TextBlock x:ConnectionId='10' x:Name="TitlBox" Text="Downloaded Books" Foreground="White" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,5,0,0"/>
+                <ProgressBar x:ConnectionId='11' HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="2" x:Name="LoadingBar"/>
 
                 <Grid Grid.Row="1"> 
 
-                    <GridView x:ConnectionId='11'                    
+                    <GridView x:ConnectionId='12'                    
                         HorizontalAlignment="Stretch"
                         x:Name="event1"
                         VerticalAlignment="Stretch"
@@ -88,7 +92,7 @@
                     </GridView>
 
 
-                    <GridView x:ConnectionId='12'
+                    <GridView x:ConnectionId='13'
                         
                         HorizontalAlignment="Stretch"
                         x:Name="event2"
@@ -106,8 +110,8 @@
                       >
                     </GridView>
 
-                    <Grid x:ConnectionId='13' x:Name="PdfGrid" Visibility="Collapsed">
-                        <syncfusion:SfPdfViewerControl x:ConnectionId='14' Name="pdfViewer" PageView="SinglePageView" ViewMode="OnePage"></syncfusion:SfPdfViewerControl>
+                    <Grid x:ConnectionId='14' x:Name="PdfGrid" Visibility="Collapsed">
+                        <syncfusion:SfPdfViewerControl x:ConnectionId='15' Name="pdfViewer" PageView="SinglePageView" ViewMode="OnePage"></syncfusion:SfPdfViewerControl>
                     </Grid>
                 </Grid>
             </Grid>

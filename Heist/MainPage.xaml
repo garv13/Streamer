@@ -25,21 +25,25 @@
                 <Button x:Name="HamburgerButton" FontFamily="Segoe MDL2 Assets" Content="&#xE700;"
                     Width="50" Height="50" Background="Transparent" Click="HamburgerButton_Click"/>
 
-                <RadioButton Tag="" Content="Home"
-                 Style="{StaticResource SplitViewNavButtonStyle}"
-               IsChecked="True" Click="MenuButton1_Click" />
-
                 <RadioButton x:Name="MenuButton2" Tag="" Style="{StaticResource SplitViewNavButtonStyle}" Content="Downloads"
                         Click="MenuButton2_Click"/>
 
                 <RadioButton x:Name="MenuButton3" Tag="" Content="Purchased" Style="{StaticResource SplitViewNavButtonStyle}"
                         Click="MenuButton3_Click"/>
 
+          
+
                 <RadioButton x:Name="MenuButton4" Tag="" Content="Store"
                         Style="{StaticResource SplitViewNavButtonStyle}" Click="MenuButton4_Click"/>
 
+                <RadioButton Tag="" Content="Wallet"  Style="{StaticResource SplitViewNavButtonStyle}"
+               IsChecked="True" Click="MenuButton1_Click" />
+                
                 <RadioButton x:Name="MenuButton5" Tag="" Content="About" Style="{StaticResource SplitViewNavButtonStyle}"
                          Click="MenuButton5_Click"/>
+
+                <RadioButton x:Name="MenuButton6" Tag="" Content="SignOut"
+                        Style="{StaticResource SplitViewNavButtonStyle}" Click="MenuButton6_Click"/>
 
             </StackPanel>
         </SplitView.Pane>
@@ -55,20 +59,21 @@
                 <Border Background="Black" Grid.Row="0">
                     <TextBlock FontSize="36" Foreground="White"  Text="   Wallet"  />
                 </Border>
-                <Grid Grid.Row="1">
+                <Grid Grid.Row="1" Margin="5,0,0,0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="0.1*"/>
                         <RowDefinition Height="0.1*"/>
-                        <RowDefinition Height="0.4*"/>
+                        <RowDefinition Height="0.2*"/>
                         <RowDefinition Height="0.1*"/>
-                        <RowDefinition Height="0.4*"/>
-                        <RowDefinition Height="0.4*"/>
+                        <RowDefinition Height="0.2*"/>
+                        <RowDefinition Height="0.2*"/>
                     </Grid.RowDefinitions>
+                    <ProgressBar Grid.RowSpan="6" HorizontalAlignment="Stretch" Visibility="Collapsed" VerticalAlignment="Center" x:Name="LoadingBar"/>
                     <TextBlock Grid.Row="1" Text="Your Current balance is: " FontSize="40"/>
                     <TextBlock Grid.Row="2" x:Name="balance" Text="" FontSize="40"/>
-                    <TextBlock Grid.Row="3" Text="Add Money: " FontSize="38"/>
-                    <TextBox PlaceholderText="Enter amount" Grid.Row="4" x:Name="Funds" Text="" FontSize="40"/>
-                    <Button Grid.Row="5" Content="Add" Click="Button_Click"  HorizontalAlignment="Stretch" Margin="10" VerticalAlignment="Stretch" FontSize="40"/>
+                    <TextBlock Grid.Row="3" Text="Add Money: " HorizontalAlignment="Center" FontSize="38"/>
+                    <TextBox PlaceholderText="Enter amount" Grid.Row="4" x:Name="Funds" Text="" InputScope="Digits" Background="Transparent" BorderThickness="0" FontSize="40"/>
+                    <Button Grid.Row="5" Content="Add" Click="Button_Click"  HorizontalAlignment="Center" Margin="10" FontSize="40"/>
                 </Grid>
             </Grid>
         </SplitView.Content>
