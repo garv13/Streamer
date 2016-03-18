@@ -33,56 +33,65 @@ namespace Heist
         {
             LoadingBar.Visibility = Visibility.Visible;
             LoadingBar.IsIndeterminate = true;
-            User a = new User();
-            int i = 1;
-
-            if (!(Name.Text.All(char.IsLetter) && Name.Text.Length != 0))
+            try
             {
-                i = 0;
+                User a = new User();
+                int i = 1;
+
+                if (!(Name.Text.All(char.IsLetter) && Name.Text.Length != 0))
+                {
+                    i = 0;
+                }
+
+                if (!(Mobile.Text.All(char.IsDigit) && Mobile.Text.Length == 10))
+                {
+                    i = 0;
+                }
+
+                if (!Regex.Match(Email.Text, @"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$").Success)
+                    i = 0;
+
+
+                if (!(UserName.Text.All(char.IsLetterOrDigit) && UserName.Text.Length != 0))
+                {
+                    i = 0;
+                }
+
+                if (Password.Password.Length < 8)
+                {
+                    MessageDialog msgbox = new MessageDialog("Password length must be 8");
+                    await msgbox.ShowAsync();
+                }
+
+                if (i == 0)
+                {
+                    MessageDialog msgbox = new MessageDialog("Enter Correct Information");
+                    await msgbox.ShowAsync();
+                }
+
+                else
+                {
+                    a.name = Name.Text;
+                    a.phone = Mobile.Text;
+                    a.email = Email.Text;
+                    a.password = Password.Password;
+                    a.username = UserName.Text;
+                    a.wallet = 0;
+                    a.purchases = "";
+                    await App.MobileService.GetTable<User>().InsertAsync(a);
+
+                    MessageDialog msgbox = new MessageDialog("Register Successful");
+                    await msgbox.ShowAsync();
+                    LoadingBar.Visibility = Visibility.Collapsed;
+                    Frame.Navigate(typeof(Login));
+
+                }
             }
-
-            if (!(Mobile.Text.All(char.IsDigit) && Mobile.Text.Length == 10))
+            catch(Exception)
             {
-                i = 0;
-            }
-
-            if (!Regex.Match(Email.Text, @"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$").Success)
-                i = 0;
-
-
-            if (!(UserName.Text.All(char.IsLetterOrDigit) && UserName.Text.Length != 0))
-            {
-                i = 0;
-            }
-
-            if (Password.Password.Length < 8)
-            {
-                MessageDialog msgbox = new MessageDialog("Password length must be 8");
-                await msgbox.ShowAsync();
-            }
-
-            if (i == 0)
-            {
-                MessageDialog msgbox = new MessageDialog("Enter Correct Information");
-                await msgbox.ShowAsync();
-            }
-
-            else
-            {
-                a.name = Name.Text;
-                a.phone = Mobile.Text;
-                a.email = Email.Text;
-                a.password = Password.Password;
-                a.username = UserName.Text;
-                a.wallet = 0;
-                a.purchases = "";
-                await App.MobileService.GetTable<User>().InsertAsync(a);
-
-                MessageDialog msgbox = new MessageDialog("Register Successful");
+                MessageDialog msgbox = new MessageDialog("Something is not right");
                 await msgbox.ShowAsync();
                 LoadingBar.Visibility = Visibility.Collapsed;
-                Frame.Navigate(typeof(Login));
-                
             }
         }
 

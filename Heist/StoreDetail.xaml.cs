@@ -53,34 +53,43 @@ namespace Heist
             Author.Text = rec.Author;
             FullCost.Text = "Full Book Price: " + rec.Price;
 
-            StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
-            StorageFile sampleFile = await folder.GetFileAsync("sample.txt");
-        
-            testlol = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
-            
-            list = new List<ChapterView>();
-            ChapterView temp;
             try
             {
-                items = await Table.Where(Chapter
-                            => Chapter.bookid == rec.Id).ToCollectionAsync();
-               
-                foreach (Chapter lol in items)
+                StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                StorageFile sampleFile = await folder.GetFileAsync("sample.txt");
+
+                testlol = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
+
+                list = new List<ChapterView>();
+                ChapterView temp;
+                try
                 {
-                    temp = new ChapterView();
-                    temp.Id = lol.Id;
-                    temp.Title = "Chapter No: " + (lol.sno+1).ToString();
-                    temp.Price = "Price: "+ lol.price.ToString();
-                    list.Add(temp);
+                    items = await Table.Where(Chapter
+                                => Chapter.bookid == rec.Id).ToCollectionAsync();
+
+                    foreach (Chapter lol in items)
+                    {
+                        temp = new ChapterView();
+                        temp.Id = lol.Id;
+                        temp.Title = "Chapter No: " + (lol.sno + 1).ToString();
+                        temp.Price = "Price: " + lol.price.ToString();
+                        list.Add(temp);
+                    }
+                    LoadingBar.Visibility = Visibility.Collapsed;
+                    StoreListView.ItemsSource = list;
                 }
-                LoadingBar.Visibility = Visibility.Collapsed;
-                StoreListView.ItemsSource = list;
+                catch (Exception)
+                {
+                    LoadingBar.Visibility = Visibility.Collapsed;
+                    MessageDialog mess = new Windows.UI.Popups.MessageDialog("Sorry Can't load the chapters now :(:(");
+                    await mess.ShowAsync();
+                }
             }
-            catch (Exception)
+            catch(Exception)
             {
+                MessageDialog msgbox = new MessageDialog("Something is not right try later");
+                await msgbox.ShowAsync();
                 LoadingBar.Visibility = Visibility.Collapsed;
-                MessageDialog mess = new Windows.UI.Popups.MessageDialog("Sorry Can't load the chapters now :(:(");
-                await mess.ShowAsync();
             }
         }
 
@@ -124,90 +133,107 @@ namespace Heist
         {
             LoadingBar.IsIndeterminate = true;
             LoadingBar.Visibility = Visibility.Visible;
-            //TODO Download full book and add entry to user purchases
-            items2 = await Table2.Where(User
-                            => User.username == testlol).ToCollectionAsync();
-            User a = items2[0];
-            if (!a.purchases.Contains(rec.Id + ".full"))
+
+            try
             {
-                if (a.wallet > int.Parse(rec.Price))
+                //TODO Download full book and add entry to user purchases
+                items2 = await Table2.Where(User
+                                => User.username == testlol).ToCollectionAsync();
+                User a = items2[0];
+                if (!a.purchases.Contains(rec.Id + ".full"))
                 {
-                    a.purchases += rec.Id + ".full,";
-                   a.wallet = a.wallet - int.Parse(rec.Price);
-                  await Table2.UpdateAsync(a);
-                    items3 = await Table3.Where(Author
-                            => Author.books.Contains(rec.Id)).ToCollectionAsync();
-                    Author b = items3[0];
-                    b.wallet += int.Parse(rec.Price);
-                    await Table3.UpdateAsync(b);
-                    LoadingBar.Visibility = Visibility.Collapsed;
-                    Windows.UI.Popups.MessageDialog mess = new Windows.UI.Popups.MessageDialog("Purchase successfull! Download the file from My purchase section");
-                    await mess.ShowAsync();
+                    if (a.wallet > int.Parse(rec.Price))
+                    {
+                        a.purchases += rec.Id + ".full,";
+                        a.wallet = a.wallet - int.Parse(rec.Price);
+                        await Table2.UpdateAsync(a);
+                        items3 = await Table3.Where(Author
+                                => Author.books.Contains(rec.Id)).ToCollectionAsync();
+                        Author b = items3[0];
+                        b.wallet += int.Parse(rec.Price);
+                        await Table3.UpdateAsync(b);
+                        LoadingBar.Visibility = Visibility.Collapsed;
+                        Windows.UI.Popups.MessageDialog mess = new Windows.UI.Popups.MessageDialog("Purchase successfull! Download the file from My purchase section");
+                        await mess.ShowAsync();
+                    }
+                    else
+                    {
+                        LoadingBar.Visibility = Visibility.Collapsed;
+                        Windows.UI.Popups.MessageDialog mess = new Windows.UI.Popups.MessageDialog("You have insufficient funds for this!");
+                        await mess.ShowAsync();
+                    }
                 }
                 else
                 {
                     LoadingBar.Visibility = Visibility.Collapsed;
-                    Windows.UI.Popups.MessageDialog mess = new Windows.UI.Popups.MessageDialog("You have insufficient funds for this!");
+                    Windows.UI.Popups.MessageDialog mess = new Windows.UI.Popups.MessageDialog("You have already purchased this!");
                     await mess.ShowAsync();
                 }
             }
-            else
+            catch(Exception)
             {
+                MessageDialog msgbox = new MessageDialog("Something is not right try againg later");
+                await msgbox.ShowAsync();
                 LoadingBar.Visibility = Visibility.Collapsed;
-                Windows.UI.Popups.MessageDialog mess = new Windows.UI.Popups.MessageDialog("You have already purchased this!");
-                await mess.ShowAsync();
             }
-
         }
 
         private async void Buy_Click(object sender, RoutedEventArgs e)
         {
             //take rec.id to send in post with header id
-            LoadingBar.IsIndeterminate = true;
-            LoadingBar.Visibility = Visibility.Visible;
-            var test = sender as Button;
-            var test2 = test.Parent as Grid;
-            var test3 = test2.Children[3] as TextBlock;
-            var test5 = test2.Children[1] as TextBlock;
-            string hello = test5.Text.Substring(7);
-            items2 = await Table2.Where(User
-                           => User.username == testlol).ToCollectionAsync();
-            User a = items2[0];
-            if (!a.purchases.Contains(rec.Id+"."+test3.Text )&& !a.purchases.Contains(rec.Id + ".full"))
+            try
             {
-                if (a.wallet > int.Parse(hello))
+                LoadingBar.IsIndeterminate = true;
+                LoadingBar.Visibility = Visibility.Visible;
+                var test = sender as Button;
+                var test2 = test.Parent as Grid;
+                var test3 = test2.Children[3] as TextBlock;
+                var test5 = test2.Children[1] as TextBlock;
+                string hello = test5.Text.Substring(7);
+                items2 = await Table2.Where(User
+                               => User.username == testlol).ToCollectionAsync();
+                User a = items2[0];
+                if (!a.purchases.Contains(rec.Id + "." + test3.Text) && !a.purchases.Contains(rec.Id + ".full"))
                 {
-                    a.purchases += rec.Id + "." + test3.Text + ",";
-                    a.wallet = a.wallet - int.Parse(hello);
-                    await Table2.UpdateAsync(a);
-                    items3 = await Table3.Where(Author
-                           => Author.books.Contains(rec.Id)).ToCollectionAsync();
-                    Author c = items3[0];
-                    c.wallet += int.Parse(hello);
-                    await Table3.UpdateAsync(c);
-                    items = await Table.Where(Chapter
-                                => Chapter.Id == test3.Text).ToCollectionAsync();
-                    Chapter b = items[0];
-                    b.downloads++;
-                    await Table.UpdateAsync(b);
-                    LoadingBar.Visibility = Visibility.Collapsed;
-                    Windows.UI.Popups.MessageDialog mess = new Windows.UI.Popups.MessageDialog("Purchase successfull! Download the file from My purchase section");
-                    await mess.ShowAsync();
-                    Frame.Navigate(typeof(Purchased));
+                    if (a.wallet > int.Parse(hello))
+                    {
+                        a.purchases += rec.Id + "." + test3.Text + ",";
+                        a.wallet = a.wallet - int.Parse(hello);
+                        await Table2.UpdateAsync(a);
+                        items3 = await Table3.Where(Author
+                               => Author.books.Contains(rec.Id)).ToCollectionAsync();
+                        Author c = items3[0];
+                        c.wallet += int.Parse(hello);
+                        await Table3.UpdateAsync(c);
+                        items = await Table.Where(Chapter
+                                    => Chapter.Id == test3.Text).ToCollectionAsync();
+                        Chapter b = items[0];
+                        b.downloads++;
+                        await Table.UpdateAsync(b);
+                        LoadingBar.Visibility = Visibility.Collapsed;
+                        Windows.UI.Popups.MessageDialog mess = new Windows.UI.Popups.MessageDialog("Purchase successfull! Download the file from My purchase section");
+                        await mess.ShowAsync();
+                        Frame.Navigate(typeof(Purchased));
+                    }
+                    else {
+                        LoadingBar.Visibility = Visibility.Collapsed;
+                        Windows.UI.Popups.MessageDialog mess = new Windows.UI.Popups.MessageDialog("You have insufficient funds for this!");
+                        await mess.ShowAsync();
+                    }
                 }
-                else {
+                else
+                {
                     LoadingBar.Visibility = Visibility.Collapsed;
-                    Windows.UI.Popups.MessageDialog mess = new Windows.UI.Popups.MessageDialog("You have insufficient funds for this!");
+                    Windows.UI.Popups.MessageDialog mess = new Windows.UI.Popups.MessageDialog("You have already purchased this!");
                     await mess.ShowAsync();
                 }
             }
-            else
+            catch(Exception)
             {
+                MessageDialog msgbox = new MessageDialog("Something is not right try again");
+                await msgbox.ShowAsync();
                 LoadingBar.Visibility = Visibility.Collapsed;
-                Windows.UI.Popups.MessageDialog mess = new Windows.UI.Popups.MessageDialog("You have already purchased this!");
-                await mess.ShowAsync();
             }
-
         }
     }
 }

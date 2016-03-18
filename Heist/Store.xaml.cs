@@ -67,9 +67,11 @@ namespace Heist
                 LoadingBar.Visibility = Visibility.Collapsed;
                 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                //TODO: Add some thing here
+                MessageDialog msgbox = new MessageDialog("Something is not right can't go forward now");
+                await msgbox.ShowAsync();
+                LoadingBar.Visibility = Visibility.Collapsed;
             }
         }
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
@@ -138,9 +140,11 @@ namespace Heist
                 LoadingBar.Visibility = Visibility.Collapsed;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                //TODO: Add some thing here
+                MessageDialog msgbox = new MessageDialog("Something is not right at this time");
+                await msgbox.ShowAsync();
+                LoadingBar.Visibility = Visibility.Collapsed;
             }
         }
 

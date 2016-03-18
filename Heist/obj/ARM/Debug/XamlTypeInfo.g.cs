@@ -156,49 +156,91 @@ namespace Heist.Heist_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[20];
-            _typeNameTable[0] = "Syncfusion.Windows.PdfViewer.SfPdfViewerControl";
-            _typeNameTable[1] = "Windows.UI.Xaml.Controls.Control";
-            _typeNameTable[2] = "Syncfusion.Windows.PdfViewer.PdfViewerPageView";
-            _typeNameTable[3] = "System.Enum";
-            _typeNameTable[4] = "System.ValueType";
-            _typeNameTable[5] = "Object";
-            _typeNameTable[6] = "Syncfusion.Windows.PdfViewer.PageViewMode";
-            _typeNameTable[7] = "Boolean";
-            _typeNameTable[8] = "Syncfusion.Windows.PdfViewer.PrinterSettings";
-            _typeNameTable[9] = "Single";
-            _typeNameTable[10] = "System.Collections.Generic.Dictionary`2<Int32, Double>";
-            _typeNameTable[11] = "Double";
-            _typeNameTable[12] = "Int32";
-            _typeNameTable[13] = "Windows.UI.Xaml.Controls.ProgressRing";
-            _typeNameTable[14] = "Windows.UI.Xaml.Visibility";
-            _typeNameTable[15] = "System.Windows.Input.ICommand";
-            _typeNameTable[16] = "Heist.MainPage";
-            _typeNameTable[17] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[18] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[19] = "Heist.MainPage1";
+            _typeNameTable = new string[41];
+            _typeNameTable[0] = "Heist.About";
+            _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[3] = "Syncfusion.Windows.PdfViewer.SfPdfViewerControl";
+            _typeNameTable[4] = "Windows.UI.Xaml.Controls.Control";
+            _typeNameTable[5] = "Syncfusion.Windows.PdfViewer.PdfViewerPageView";
+            _typeNameTable[6] = "System.Enum";
+            _typeNameTable[7] = "System.ValueType";
+            _typeNameTable[8] = "Object";
+            _typeNameTable[9] = "Syncfusion.Windows.PdfViewer.PageViewMode";
+            _typeNameTable[10] = "Boolean";
+            _typeNameTable[11] = "Syncfusion.Windows.PdfViewer.PrinterSettings";
+            _typeNameTable[12] = "Single";
+            _typeNameTable[13] = "System.Collections.Generic.Dictionary`2<Int32, Double>";
+            _typeNameTable[14] = "Double";
+            _typeNameTable[15] = "Int32";
+            _typeNameTable[16] = "Windows.UI.Xaml.Controls.ProgressRing";
+            _typeNameTable[17] = "Windows.UI.Xaml.Visibility";
+            _typeNameTable[18] = "System.Windows.Input.ICommand";
+            _typeNameTable[19] = "Heist.Downloads";
+            _typeNameTable[20] = "Windows.UI.Xaml.Media.Imaging.BitmapImage";
+            _typeNameTable[21] = "Heist.Login";
+            _typeNameTable[22] = "Heist.MainPage";
+            _typeNameTable[23] = "Heist.Purchased";
+            _typeNameTable[24] = "Heist.Purchaseddetail";
+            _typeNameTable[25] = "Heist.SignUp";
+            _typeNameTable[26] = "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt";
+            _typeNameTable[27] = "Windows.UI.Xaml.Controls.TextBox";
+            _typeNameTable[28] = "System.Collections.IEnumerable";
+            _typeNameTable[29] = "Syncfusion.UI.Xaml.Controls.Input.AutoCompleteMode";
+            _typeNameTable[30] = "Windows.UI.Xaml.DataTemplate";
+            _typeNameTable[31] = "Windows.UI.Xaml.Controls.DataTemplateSelector";
+            _typeNameTable[32] = "Windows.UI.Xaml.Controls.ItemsPanelTemplate";
+            _typeNameTable[33] = "Windows.Foundation.Point";
+            _typeNameTable[34] = "String";
+            _typeNameTable[35] = "Syncfusion.UI.Xaml.Controls.Input.SuggestionBoxPlacement";
+            _typeNameTable[36] = "Syncfusion.UI.Xaml.Controls.Input.SuggestionMode";
+            _typeNameTable[37] = "TimeSpan";
+            _typeNameTable[38] = "Windows.UI.Xaml.Style";
+            _typeNameTable[39] = "Heist.Store";
+            _typeNameTable[40] = "Heist.StoreDetail";
 
-            _typeTable = new global::System.Type[20];
-            _typeTable[0] = typeof(global::Syncfusion.Windows.PdfViewer.SfPdfViewerControl);
-            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Control);
-            _typeTable[2] = typeof(global::Syncfusion.Windows.PdfViewer.PdfViewerPageView);
-            _typeTable[3] = typeof(global::System.Enum);
-            _typeTable[4] = typeof(global::System.ValueType);
-            _typeTable[5] = typeof(global::System.Object);
-            _typeTable[6] = typeof(global::Syncfusion.Windows.PdfViewer.PageViewMode);
-            _typeTable[7] = typeof(global::System.Boolean);
-            _typeTable[8] = typeof(global::Syncfusion.Windows.PdfViewer.PrinterSettings);
-            _typeTable[9] = typeof(global::System.Single);
-            _typeTable[10] = typeof(global::System.Collections.Generic.Dictionary<global::System.Int32, global::System.Double>);
-            _typeTable[11] = typeof(global::System.Double);
-            _typeTable[12] = typeof(global::System.Int32);
-            _typeTable[13] = typeof(global::Windows.UI.Xaml.Controls.ProgressRing);
-            _typeTable[14] = typeof(global::Windows.UI.Xaml.Visibility);
-            _typeTable[15] = typeof(global::System.Windows.Input.ICommand);
-            _typeTable[16] = typeof(global::Heist.MainPage);
-            _typeTable[17] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[18] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[19] = typeof(global::Heist.MainPage1);
+            _typeTable = new global::System.Type[41];
+            _typeTable[0] = typeof(global::Heist.About);
+            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[3] = typeof(global::Syncfusion.Windows.PdfViewer.SfPdfViewerControl);
+            _typeTable[4] = typeof(global::Windows.UI.Xaml.Controls.Control);
+            _typeTable[5] = typeof(global::Syncfusion.Windows.PdfViewer.PdfViewerPageView);
+            _typeTable[6] = typeof(global::System.Enum);
+            _typeTable[7] = typeof(global::System.ValueType);
+            _typeTable[8] = typeof(global::System.Object);
+            _typeTable[9] = typeof(global::Syncfusion.Windows.PdfViewer.PageViewMode);
+            _typeTable[10] = typeof(global::System.Boolean);
+            _typeTable[11] = typeof(global::Syncfusion.Windows.PdfViewer.PrinterSettings);
+            _typeTable[12] = typeof(global::System.Single);
+            _typeTable[13] = typeof(global::System.Collections.Generic.Dictionary<global::System.Int32, global::System.Double>);
+            _typeTable[14] = typeof(global::System.Double);
+            _typeTable[15] = typeof(global::System.Int32);
+            _typeTable[16] = typeof(global::Windows.UI.Xaml.Controls.ProgressRing);
+            _typeTable[17] = typeof(global::Windows.UI.Xaml.Visibility);
+            _typeTable[18] = typeof(global::System.Windows.Input.ICommand);
+            _typeTable[19] = typeof(global::Heist.Downloads);
+            _typeTable[20] = typeof(global::Windows.UI.Xaml.Media.Imaging.BitmapImage);
+            _typeTable[21] = typeof(global::Heist.Login);
+            _typeTable[22] = typeof(global::Heist.MainPage);
+            _typeTable[23] = typeof(global::Heist.Purchased);
+            _typeTable[24] = typeof(global::Heist.Purchaseddetail);
+            _typeTable[25] = typeof(global::Heist.SignUp);
+            _typeTable[26] = typeof(global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt);
+            _typeTable[27] = typeof(global::Windows.UI.Xaml.Controls.TextBox);
+            _typeTable[28] = typeof(global::System.Collections.IEnumerable);
+            _typeTable[29] = typeof(global::Syncfusion.UI.Xaml.Controls.Input.AutoCompleteMode);
+            _typeTable[30] = typeof(global::Windows.UI.Xaml.DataTemplate);
+            _typeTable[31] = typeof(global::Windows.UI.Xaml.Controls.DataTemplateSelector);
+            _typeTable[32] = typeof(global::Windows.UI.Xaml.Controls.ItemsPanelTemplate);
+            _typeTable[33] = typeof(global::Windows.Foundation.Point);
+            _typeTable[34] = typeof(global::System.String);
+            _typeTable[35] = typeof(global::Syncfusion.UI.Xaml.Controls.Input.SuggestionBoxPlacement);
+            _typeTable[36] = typeof(global::Syncfusion.UI.Xaml.Controls.Input.SuggestionMode);
+            _typeTable[37] = typeof(global::System.TimeSpan);
+            _typeTable[38] = typeof(global::Windows.UI.Xaml.Style);
+            _typeTable[39] = typeof(global::Heist.Store);
+            _typeTable[40] = typeof(global::Heist.StoreDetail);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -233,12 +275,20 @@ namespace Heist.Heist_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_SfPdfViewerControl() { return new global::Syncfusion.Windows.PdfViewer.SfPdfViewerControl(); }
-        private object Activate_8_PrinterSettings() { return new global::Syncfusion.Windows.PdfViewer.PrinterSettings(); }
-        private object Activate_10_Dictionary() { return new global::System.Collections.Generic.Dictionary<global::System.Int32, global::System.Double>(); }
-        private object Activate_16_MainPage() { return new global::Heist.MainPage(); }
-        private object Activate_19_MainPage1() { return new global::Heist.MainPage1(); }
-        private void MapAdd_10_Dictionary(object instance, object key, object item)
+        private object Activate_0_About() { return new global::Heist.About(); }
+        private object Activate_3_SfPdfViewerControl() { return new global::Syncfusion.Windows.PdfViewer.SfPdfViewerControl(); }
+        private object Activate_11_PrinterSettings() { return new global::Syncfusion.Windows.PdfViewer.PrinterSettings(); }
+        private object Activate_13_Dictionary() { return new global::System.Collections.Generic.Dictionary<global::System.Int32, global::System.Double>(); }
+        private object Activate_19_Downloads() { return new global::Heist.Downloads(); }
+        private object Activate_21_Login() { return new global::Heist.Login(); }
+        private object Activate_22_MainPage() { return new global::Heist.MainPage(); }
+        private object Activate_23_Purchased() { return new global::Heist.Purchased(); }
+        private object Activate_24_Purchaseddetail() { return new global::Heist.Purchaseddetail(); }
+        private object Activate_25_SignUp() { return new global::Heist.SignUp(); }
+        private object Activate_26_SfTextBoxExt() { return new global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt(); }
+        private object Activate_39_Store() { return new global::Heist.Store(); }
+        private object Activate_40_StoreDetail() { return new global::Heist.StoreDetail(); }
+        private void MapAdd_13_Dictionary(object instance, object key, object item)
         {
             var collection = (global::System.Collections.Generic.IDictionary<global::System.Int32, global::System.Double>)instance;
             var newKey = (global::System.Int32)key;
@@ -256,9 +306,24 @@ namespace Heist.Heist_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  Syncfusion.Windows.PdfViewer.SfPdfViewerControl
+            case 0:   //  Heist.About
+                userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_0_About;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 1:   //  Windows.UI.Xaml.Controls.Page
+                xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 2:   //  Windows.UI.Xaml.Controls.UserControl
+                xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 3:   //  Syncfusion.Windows.PdfViewer.SfPdfViewerControl
                 userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Control"));
-                userType.Activator = Activate_0_SfPdfViewerControl;
+                userType.Activator = Activate_3_SfPdfViewerControl;
                 userType.AddMemberName("PageView");
                 userType.AddMemberName("ViewMode");
                 userType.AddMemberName("IsThumbnailViewEnabled");
@@ -308,11 +373,11 @@ namespace Heist.Heist_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 1:   //  Windows.UI.Xaml.Controls.Control
+            case 4:   //  Windows.UI.Xaml.Controls.Control
                 xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  Syncfusion.Windows.PdfViewer.PdfViewerPageView
+            case 5:   //  Syncfusion.Windows.PdfViewer.PdfViewerPageView
                 userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("ContinuousPageView", global::Syncfusion.Windows.PdfViewer.PdfViewerPageView.ContinuousPageView);
                 userType.AddEnumValue("SinglePageView", global::Syncfusion.Windows.PdfViewer.PdfViewerPageView.SinglePageView);
@@ -320,21 +385,21 @@ namespace Heist.Heist_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 3:   //  System.Enum
+            case 6:   //  System.Enum
                 userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
                 xamlType = userType;
                 break;
 
-            case 4:   //  System.ValueType
+            case 7:   //  System.ValueType
                 userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 xamlType = userType;
                 break;
 
-            case 5:   //  Object
+            case 8:   //  Object
                 xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 6:   //  Syncfusion.Windows.PdfViewer.PageViewMode
+            case 9:   //  Syncfusion.Windows.PdfViewer.PageViewMode
                 userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
                 userType.AddEnumValue("Normal", global::Syncfusion.Windows.PdfViewer.PageViewMode.Normal);
                 userType.AddEnumValue("OnePage", global::Syncfusion.Windows.PdfViewer.PageViewMode.OnePage);
@@ -342,67 +407,212 @@ namespace Heist.Heist_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 7:   //  Boolean
+            case 10:   //  Boolean
                 xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 8:   //  Syncfusion.Windows.PdfViewer.PrinterSettings
+            case 11:   //  Syncfusion.Windows.PdfViewer.PrinterSettings
                 userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 9:   //  Single
+            case 12:   //  Single
                 xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 10:   //  System.Collections.Generic.Dictionary`2<Int32, Double>
+            case 13:   //  System.Collections.Generic.Dictionary`2<Int32, Double>
                 userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.DictionaryAdd = MapAdd_10_Dictionary;
+                userType.DictionaryAdd = MapAdd_13_Dictionary;
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 11:   //  Double
+            case 14:   //  Double
                 xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 12:   //  Int32
+            case 15:   //  Int32
                 xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 13:   //  Windows.UI.Xaml.Controls.ProgressRing
+            case 16:   //  Windows.UI.Xaml.Controls.ProgressRing
                 xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 14:   //  Windows.UI.Xaml.Visibility
+            case 17:   //  Windows.UI.Xaml.Visibility
                 xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 15:   //  System.Windows.Input.ICommand
+            case 18:   //  System.Windows.Input.ICommand
                 userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, null);
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 16:   //  Heist.MainPage
+            case 19:   //  Heist.Downloads
                 userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_16_MainPage;
+                userType.Activator = Activate_19_Downloads;
+                userType.AddMemberName("Im");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 17:   //  Windows.UI.Xaml.Controls.Page
+            case 20:   //  Windows.UI.Xaml.Media.Imaging.BitmapImage
                 xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 18:   //  Windows.UI.Xaml.Controls.UserControl
-                xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 19:   //  Heist.MainPage1
+            case 21:   //  Heist.Login
                 userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_19_MainPage1;
+                userType.Activator = Activate_21_Login;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 22:   //  Heist.MainPage
+                userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_22_MainPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 23:   //  Heist.Purchased
+                userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_23_Purchased;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 24:   //  Heist.Purchaseddetail
+                userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_24_Purchaseddetail;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 25:   //  Heist.SignUp
+                userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_25_SignUp;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 26:   //  Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt
+                userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.TextBox"));
+                userType.Activator = Activate_26_SfTextBoxExt;
+                userType.AddMemberName("AutoCompleteSource");
+                userType.AddMemberName("AutoCompleteMode");
+                userType.AddMemberName("AllowPointerEvents");
+                userType.AddMemberName("AutoCompleteItemTemplate");
+                userType.AddMemberName("AutoCompleteItemTemplateSelector");
+                userType.AddMemberName("AutoCompleteItemsPanel");
+                userType.AddMemberName("IsSuggestionOpen");
+                userType.AddMemberName("SuggestionBoxPosition");
+                userType.AddMemberName("SearchItemPath");
+                userType.AddMemberName("Suggestions");
+                userType.AddMemberName("SuggestionIndex");
+                userType.AddMemberName("SuggestionBoxPlacement");
+                userType.AddMemberName("SuggestionMode");
+                userType.AddMemberName("IgnoreCase");
+                userType.AddMemberName("MinimumPrefixCharacters");
+                userType.AddMemberName("PopupDelay");
+                userType.AddMemberName("MaxDropDownHeight");
+                userType.AddMemberName("SuggestionBoxStyle");
+                userType.AddMemberName("Delimeter");
+                userType.AddMemberName("ShowSuggestionsOnFocus");
+                userType.AddMemberName("SelectedItem");
+                userType.AddMemberName("Watermark");
+                userType.AddMemberName("WatermarkTemplate");
+                userType.AddMemberName("WatermarkTemplateSelector");
+                xamlType = userType;
+                break;
+
+            case 27:   //  Windows.UI.Xaml.Controls.TextBox
+                xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 28:   //  System.Collections.IEnumerable
+                userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 29:   //  Syncfusion.UI.Xaml.Controls.Input.AutoCompleteMode
+                userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("None", global::Syncfusion.UI.Xaml.Controls.Input.AutoCompleteMode.None);
+                userType.AddEnumValue("Append", global::Syncfusion.UI.Xaml.Controls.Input.AutoCompleteMode.Append);
+                userType.AddEnumValue("Suggest", global::Syncfusion.UI.Xaml.Controls.Input.AutoCompleteMode.Suggest);
+                userType.AddEnumValue("SuggestAppend", global::Syncfusion.UI.Xaml.Controls.Input.AutoCompleteMode.SuggestAppend);
+                xamlType = userType;
+                break;
+
+            case 30:   //  Windows.UI.Xaml.DataTemplate
+                xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 31:   //  Windows.UI.Xaml.Controls.DataTemplateSelector
+                xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 32:   //  Windows.UI.Xaml.Controls.ItemsPanelTemplate
+                xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 33:   //  Windows.Foundation.Point
+                xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 34:   //  String
+                xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 35:   //  Syncfusion.UI.Xaml.Controls.Input.SuggestionBoxPlacement
+                userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("Top", global::Syncfusion.UI.Xaml.Controls.Input.SuggestionBoxPlacement.Top);
+                userType.AddEnumValue("Bottom", global::Syncfusion.UI.Xaml.Controls.Input.SuggestionBoxPlacement.Bottom);
+                userType.AddEnumValue("None", global::Syncfusion.UI.Xaml.Controls.Input.SuggestionBoxPlacement.None);
+                xamlType = userType;
+                break;
+
+            case 36:   //  Syncfusion.UI.Xaml.Controls.Input.SuggestionMode
+                userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.Enum"));
+                userType.AddEnumValue("None", global::Syncfusion.UI.Xaml.Controls.Input.SuggestionMode.None);
+                userType.AddEnumValue("StartsWith", global::Syncfusion.UI.Xaml.Controls.Input.SuggestionMode.StartsWith);
+                userType.AddEnumValue("StartsWithCaseSensitive", global::Syncfusion.UI.Xaml.Controls.Input.SuggestionMode.StartsWithCaseSensitive);
+                userType.AddEnumValue("StartsWithOrdinal", global::Syncfusion.UI.Xaml.Controls.Input.SuggestionMode.StartsWithOrdinal);
+                userType.AddEnumValue("StartsWithOrdinalCaseSensitive", global::Syncfusion.UI.Xaml.Controls.Input.SuggestionMode.StartsWithOrdinalCaseSensitive);
+                userType.AddEnumValue("Contains", global::Syncfusion.UI.Xaml.Controls.Input.SuggestionMode.Contains);
+                userType.AddEnumValue("ContainsCaseSensitive", global::Syncfusion.UI.Xaml.Controls.Input.SuggestionMode.ContainsCaseSensitive);
+                userType.AddEnumValue("ContainsOrdinal", global::Syncfusion.UI.Xaml.Controls.Input.SuggestionMode.ContainsOrdinal);
+                userType.AddEnumValue("ContainsOrdinalCaseSensitive", global::Syncfusion.UI.Xaml.Controls.Input.SuggestionMode.ContainsOrdinalCaseSensitive);
+                userType.AddEnumValue("Equals", global::Syncfusion.UI.Xaml.Controls.Input.SuggestionMode.Equals);
+                userType.AddEnumValue("EqualsCaseSensitive", global::Syncfusion.UI.Xaml.Controls.Input.SuggestionMode.EqualsCaseSensitive);
+                userType.AddEnumValue("EqualsOrdinal", global::Syncfusion.UI.Xaml.Controls.Input.SuggestionMode.EqualsOrdinal);
+                userType.AddEnumValue("EqualsOrdinalCaseSensitive", global::Syncfusion.UI.Xaml.Controls.Input.SuggestionMode.EqualsOrdinalCaseSensitive);
+                userType.AddEnumValue("Custom", global::Syncfusion.UI.Xaml.Controls.Input.SuggestionMode.Custom);
+                xamlType = userType;
+                break;
+
+            case 37:   //  TimeSpan
+                userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("System.ValueType"));
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 38:   //  Windows.UI.Xaml.Style
+                xamlType = new global::Heist.Heist_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 39:   //  Heist.Store
+                userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_39_Store;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 40:   //  Heist.StoreDetail
+                userType = new global::Heist.Heist_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_40_StoreDetail;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -419,7 +629,11 @@ namespace Heist.Heist_XamlTypeInfo
                 {
                     var otherProviders = new global::System.Collections.Generic.List<global::Windows.UI.Xaml.Markup.IXamlMetadataProvider>();
                     global::Windows.UI.Xaml.Markup.IXamlMetadataProvider provider;
+                    provider = new global::Syncfusion.UI.Xaml.Controls.Input.Syncfusion_SfInput_UWP_2015_XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
                     provider = new global::Syncfusion.PdfViewer.Syncfusion_SfPdfViewer_UWP_2015_XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
+                    otherProviders.Add(provider); 
+                    provider = new global::Syncfusion.UI.Xaml.Controls.Syncfusion_SfShared_UWP_2015_XamlTypeInfo.XamlMetaDataProvider() as global::Windows.UI.Xaml.Markup.IXamlMetadataProvider;
                     otherProviders.Add(provider); 
                     _otherProviders = otherProviders;
                 }
@@ -895,6 +1109,241 @@ namespace Heist.Heist_XamlTypeInfo
             var that = (global::Syncfusion.Windows.PdfViewer.SfPdfViewerControl)instance;
             that.PrintCommandParameter = (global::System.Object)Value;
         }
+        private object get_46_Downloads_Im(object instance)
+        {
+            var that = (global::Heist.Downloads)instance;
+            return that.Im;
+        }
+        private void set_46_Downloads_Im(object instance, object Value)
+        {
+            var that = (global::Heist.Downloads)instance;
+            that.Im = (global::Windows.UI.Xaml.Media.Imaging.BitmapImage)Value;
+        }
+        private object get_47_SfTextBoxExt_AutoCompleteSource(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.AutoCompleteSource;
+        }
+        private void set_47_SfTextBoxExt_AutoCompleteSource(object instance, object Value)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            that.AutoCompleteSource = (global::System.Collections.IEnumerable)Value;
+        }
+        private object get_48_SfTextBoxExt_AutoCompleteMode(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.AutoCompleteMode;
+        }
+        private void set_48_SfTextBoxExt_AutoCompleteMode(object instance, object Value)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            that.AutoCompleteMode = (global::Syncfusion.UI.Xaml.Controls.Input.AutoCompleteMode)Value;
+        }
+        private object get_49_SfTextBoxExt_AllowPointerEvents(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.AllowPointerEvents;
+        }
+        private void set_49_SfTextBoxExt_AllowPointerEvents(object instance, object Value)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            that.AllowPointerEvents = (global::System.Boolean)Value;
+        }
+        private object get_50_SfTextBoxExt_AutoCompleteItemTemplate(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.AutoCompleteItemTemplate;
+        }
+        private void set_50_SfTextBoxExt_AutoCompleteItemTemplate(object instance, object Value)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            that.AutoCompleteItemTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_51_SfTextBoxExt_AutoCompleteItemTemplateSelector(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.AutoCompleteItemTemplateSelector;
+        }
+        private void set_51_SfTextBoxExt_AutoCompleteItemTemplateSelector(object instance, object Value)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            that.AutoCompleteItemTemplateSelector = (global::Windows.UI.Xaml.Controls.DataTemplateSelector)Value;
+        }
+        private object get_52_SfTextBoxExt_AutoCompleteItemsPanel(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.AutoCompleteItemsPanel;
+        }
+        private void set_52_SfTextBoxExt_AutoCompleteItemsPanel(object instance, object Value)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            that.AutoCompleteItemsPanel = (global::Windows.UI.Xaml.Controls.ItemsPanelTemplate)Value;
+        }
+        private object get_53_SfTextBoxExt_IsSuggestionOpen(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.IsSuggestionOpen;
+        }
+        private void set_53_SfTextBoxExt_IsSuggestionOpen(object instance, object Value)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            that.IsSuggestionOpen = (global::System.Boolean)Value;
+        }
+        private object get_54_SfTextBoxExt_SuggestionBoxPosition(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.SuggestionBoxPosition;
+        }
+        private object get_55_SfTextBoxExt_SearchItemPath(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.SearchItemPath;
+        }
+        private void set_55_SfTextBoxExt_SearchItemPath(object instance, object Value)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            that.SearchItemPath = (global::System.String)Value;
+        }
+        private object get_56_SfTextBoxExt_Suggestions(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.Suggestions;
+        }
+        private object get_57_SfTextBoxExt_SuggestionIndex(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.SuggestionIndex;
+        }
+        private object get_58_SfTextBoxExt_SuggestionBoxPlacement(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.SuggestionBoxPlacement;
+        }
+        private void set_58_SfTextBoxExt_SuggestionBoxPlacement(object instance, object Value)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            that.SuggestionBoxPlacement = (global::Syncfusion.UI.Xaml.Controls.Input.SuggestionBoxPlacement)Value;
+        }
+        private object get_59_SfTextBoxExt_SuggestionMode(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.SuggestionMode;
+        }
+        private void set_59_SfTextBoxExt_SuggestionMode(object instance, object Value)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            that.SuggestionMode = (global::Syncfusion.UI.Xaml.Controls.Input.SuggestionMode)Value;
+        }
+        private object get_60_SfTextBoxExt_IgnoreCase(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.IgnoreCase;
+        }
+        private void set_60_SfTextBoxExt_IgnoreCase(object instance, object Value)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            that.IgnoreCase = (global::System.Boolean)Value;
+        }
+        private object get_61_SfTextBoxExt_MinimumPrefixCharacters(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.MinimumPrefixCharacters;
+        }
+        private void set_61_SfTextBoxExt_MinimumPrefixCharacters(object instance, object Value)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            that.MinimumPrefixCharacters = (global::System.Int32)Value;
+        }
+        private object get_62_SfTextBoxExt_PopupDelay(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.PopupDelay;
+        }
+        private void set_62_SfTextBoxExt_PopupDelay(object instance, object Value)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            that.PopupDelay = (global::System.TimeSpan)Value;
+        }
+        private object get_63_SfTextBoxExt_MaxDropDownHeight(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.MaxDropDownHeight;
+        }
+        private void set_63_SfTextBoxExt_MaxDropDownHeight(object instance, object Value)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            that.MaxDropDownHeight = (global::System.Double)Value;
+        }
+        private object get_64_SfTextBoxExt_SuggestionBoxStyle(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.SuggestionBoxStyle;
+        }
+        private void set_64_SfTextBoxExt_SuggestionBoxStyle(object instance, object Value)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            that.SuggestionBoxStyle = (global::Windows.UI.Xaml.Style)Value;
+        }
+        private object get_65_SfTextBoxExt_Delimeter(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.Delimeter;
+        }
+        private void set_65_SfTextBoxExt_Delimeter(object instance, object Value)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            that.Delimeter = (global::System.String)Value;
+        }
+        private object get_66_SfTextBoxExt_ShowSuggestionsOnFocus(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.ShowSuggestionsOnFocus;
+        }
+        private void set_66_SfTextBoxExt_ShowSuggestionsOnFocus(object instance, object Value)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            that.ShowSuggestionsOnFocus = (global::System.Boolean)Value;
+        }
+        private object get_67_SfTextBoxExt_SelectedItem(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.SelectedItem;
+        }
+        private void set_67_SfTextBoxExt_SelectedItem(object instance, object Value)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            that.SelectedItem = (global::System.Object)Value;
+        }
+        private object get_68_SfTextBoxExt_Watermark(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.Watermark;
+        }
+        private void set_68_SfTextBoxExt_Watermark(object instance, object Value)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            that.Watermark = (global::System.Object)Value;
+        }
+        private object get_69_SfTextBoxExt_WatermarkTemplate(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.WatermarkTemplate;
+        }
+        private void set_69_SfTextBoxExt_WatermarkTemplate(object instance, object Value)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            that.WatermarkTemplate = (global::Windows.UI.Xaml.DataTemplate)Value;
+        }
+        private object get_70_SfTextBoxExt_WatermarkTemplateSelector(object instance)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            return that.WatermarkTemplateSelector;
+        }
+        private void set_70_SfTextBoxExt_WatermarkTemplateSelector(object instance, object Value)
+        {
+            var that = (global::Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt)instance;
+            that.WatermarkTemplateSelector = (global::Windows.UI.Xaml.Controls.DataTemplateSelector)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
@@ -1211,6 +1660,180 @@ namespace Heist.Heist_XamlTypeInfo
                 xamlMember.SetIsDependencyProperty();
                 xamlMember.Getter = get_45_SfPdfViewerControl_PrintCommandParameter;
                 xamlMember.Setter = set_45_SfPdfViewerControl_PrintCommandParameter;
+                break;
+            case "Heist.Downloads.Im":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Heist.Downloads");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "Im", "Windows.UI.Xaml.Media.Imaging.BitmapImage");
+                xamlMember.Getter = get_46_Downloads_Im;
+                xamlMember.Setter = set_46_Downloads_Im;
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.AutoCompleteSource":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "AutoCompleteSource", "System.Collections.IEnumerable");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_47_SfTextBoxExt_AutoCompleteSource;
+                xamlMember.Setter = set_47_SfTextBoxExt_AutoCompleteSource;
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.AutoCompleteMode":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "AutoCompleteMode", "Syncfusion.UI.Xaml.Controls.Input.AutoCompleteMode");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_48_SfTextBoxExt_AutoCompleteMode;
+                xamlMember.Setter = set_48_SfTextBoxExt_AutoCompleteMode;
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.AllowPointerEvents":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "AllowPointerEvents", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_49_SfTextBoxExt_AllowPointerEvents;
+                xamlMember.Setter = set_49_SfTextBoxExt_AllowPointerEvents;
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.AutoCompleteItemTemplate":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "AutoCompleteItemTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_50_SfTextBoxExt_AutoCompleteItemTemplate;
+                xamlMember.Setter = set_50_SfTextBoxExt_AutoCompleteItemTemplate;
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.AutoCompleteItemTemplateSelector":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "AutoCompleteItemTemplateSelector", "Windows.UI.Xaml.Controls.DataTemplateSelector");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_51_SfTextBoxExt_AutoCompleteItemTemplateSelector;
+                xamlMember.Setter = set_51_SfTextBoxExt_AutoCompleteItemTemplateSelector;
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.AutoCompleteItemsPanel":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "AutoCompleteItemsPanel", "Windows.UI.Xaml.Controls.ItemsPanelTemplate");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_52_SfTextBoxExt_AutoCompleteItemsPanel;
+                xamlMember.Setter = set_52_SfTextBoxExt_AutoCompleteItemsPanel;
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.IsSuggestionOpen":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "IsSuggestionOpen", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_53_SfTextBoxExt_IsSuggestionOpen;
+                xamlMember.Setter = set_53_SfTextBoxExt_IsSuggestionOpen;
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.SuggestionBoxPosition":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "SuggestionBoxPosition", "Windows.Foundation.Point");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_54_SfTextBoxExt_SuggestionBoxPosition;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.SearchItemPath":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "SearchItemPath", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_55_SfTextBoxExt_SearchItemPath;
+                xamlMember.Setter = set_55_SfTextBoxExt_SearchItemPath;
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.Suggestions":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "Suggestions", "System.Collections.IEnumerable");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_56_SfTextBoxExt_Suggestions;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.SuggestionIndex":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "SuggestionIndex", "Int32");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_57_SfTextBoxExt_SuggestionIndex;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.SuggestionBoxPlacement":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "SuggestionBoxPlacement", "Syncfusion.UI.Xaml.Controls.Input.SuggestionBoxPlacement");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_58_SfTextBoxExt_SuggestionBoxPlacement;
+                xamlMember.Setter = set_58_SfTextBoxExt_SuggestionBoxPlacement;
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.SuggestionMode":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "SuggestionMode", "Syncfusion.UI.Xaml.Controls.Input.SuggestionMode");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_59_SfTextBoxExt_SuggestionMode;
+                xamlMember.Setter = set_59_SfTextBoxExt_SuggestionMode;
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.IgnoreCase":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "IgnoreCase", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_60_SfTextBoxExt_IgnoreCase;
+                xamlMember.Setter = set_60_SfTextBoxExt_IgnoreCase;
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.MinimumPrefixCharacters":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "MinimumPrefixCharacters", "Int32");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_61_SfTextBoxExt_MinimumPrefixCharacters;
+                xamlMember.Setter = set_61_SfTextBoxExt_MinimumPrefixCharacters;
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.PopupDelay":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "PopupDelay", "TimeSpan");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_62_SfTextBoxExt_PopupDelay;
+                xamlMember.Setter = set_62_SfTextBoxExt_PopupDelay;
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.MaxDropDownHeight":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "MaxDropDownHeight", "Double");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_63_SfTextBoxExt_MaxDropDownHeight;
+                xamlMember.Setter = set_63_SfTextBoxExt_MaxDropDownHeight;
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.SuggestionBoxStyle":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "SuggestionBoxStyle", "Windows.UI.Xaml.Style");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_64_SfTextBoxExt_SuggestionBoxStyle;
+                xamlMember.Setter = set_64_SfTextBoxExt_SuggestionBoxStyle;
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.Delimeter":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "Delimeter", "String");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_65_SfTextBoxExt_Delimeter;
+                xamlMember.Setter = set_65_SfTextBoxExt_Delimeter;
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.ShowSuggestionsOnFocus":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "ShowSuggestionsOnFocus", "Boolean");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_66_SfTextBoxExt_ShowSuggestionsOnFocus;
+                xamlMember.Setter = set_66_SfTextBoxExt_ShowSuggestionsOnFocus;
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.SelectedItem":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "SelectedItem", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_67_SfTextBoxExt_SelectedItem;
+                xamlMember.Setter = set_67_SfTextBoxExt_SelectedItem;
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.Watermark":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "Watermark", "Object");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_68_SfTextBoxExt_Watermark;
+                xamlMember.Setter = set_68_SfTextBoxExt_Watermark;
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.WatermarkTemplate":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "WatermarkTemplate", "Windows.UI.Xaml.DataTemplate");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_69_SfTextBoxExt_WatermarkTemplate;
+                xamlMember.Setter = set_69_SfTextBoxExt_WatermarkTemplate;
+                break;
+            case "Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt.WatermarkTemplateSelector":
+                userType = (global::Heist.Heist_XamlTypeInfo.XamlUserType)GetXamlTypeByName("Syncfusion.UI.Xaml.Controls.Input.SfTextBoxExt");
+                xamlMember = new global::Heist.Heist_XamlTypeInfo.XamlMember(this, "WatermarkTemplateSelector", "Windows.UI.Xaml.Controls.DataTemplateSelector");
+                xamlMember.SetIsDependencyProperty();
+                xamlMember.Getter = get_70_SfTextBoxExt_WatermarkTemplateSelector;
+                xamlMember.Setter = set_70_SfTextBoxExt_WatermarkTemplateSelector;
                 break;
             }
             return xamlMember;

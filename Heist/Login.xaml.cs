@@ -36,28 +36,38 @@ namespace Heist
         {
             LoadingBar.Visibility = Visibility.Visible;
             LoadingBar.IsIndeterminate = true;
-            items = await Table.Where(User
-                            => User.username == UserName.Text).ToCollectionAsync();
-            if (items.Count!=0)
+            try
             {
-                if (Password.Password == items[0].password)
+                items = await Table.Where(User
+                                => User.username == UserName.Text).ToCollectionAsync();
+                if (items.Count != 0)
                 {
-                    MessageDialog msgbox = new MessageDialog("Welcome " + UserName.Text);
+                    if (Password.Password == items[0].password)
+                    {
+                        MessageDialog msgbox = new MessageDialog("Welcome " + UserName.Text);
+                        await msgbox.ShowAsync();
+                        StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                        StorageFile sampleFile =
+                            await folder.CreateFileAsync("sample.txt", CreationCollisionOption.ReplaceExisting);
+                        await Windows.Storage.FileIO.WriteTextAsync(sampleFile, UserName.Text);
+                        Frame.Navigate(typeof(Downloads));
+                    }
+                }
+                else
+                {
+                    LoadingBar.Visibility = Visibility.Collapsed;
+                    MessageDialog msgbox = new MessageDialog("Password or username incorrect");
                     await msgbox.ShowAsync();
-                    StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
-                    StorageFile sampleFile =
-                        await folder.CreateFileAsync("sample.txt", CreationCollisionOption.ReplaceExisting);
-                    await Windows.Storage.FileIO.WriteTextAsync(sampleFile, UserName.Text);
-                    Frame.Navigate(typeof(Downloads));
                 }
             }
-            else
+            catch(Exception)
             {
                 LoadingBar.Visibility = Visibility.Collapsed;
-                MessageDialog msgbox = new MessageDialog("Password or username incorrect");
+                MessageDialog msgbox = new MessageDialog("Sorry Can't connect");
                 await msgbox.ShowAsync();
             }
-        }
+         }
+            
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
