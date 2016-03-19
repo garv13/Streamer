@@ -153,7 +153,7 @@ namespace Heist
                 else
                 {
                     LoadingBar.Visibility = Visibility.Collapsed;
-                    await (new MessageDialog("Nothing Purchased")).ShowAsync();
+                    await (new MessageDialog("Nothing Downloaded")).ShowAsync();
                 }
             }
             catch(Exception)
