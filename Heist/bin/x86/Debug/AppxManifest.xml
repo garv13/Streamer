@@ -7,7 +7,7 @@
 
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
-  <Identity Name="c22991bf-6444-4925-8034-1a15e9166c18" Publisher="CN=garvj" Version="1.0.1.0" ProcessorArchitecture="x86" />
+  <Identity Name="c22991bf-6444-4925-8034-1a15e9166c18" Publisher="CN=garvj" Version="1.0.2.0" ProcessorArchitecture="x86" />
   <mp:PhoneIdentity PhoneProductId="c22991bf-6444-4925-8034-1a15e9166c18" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Heist</DisplayName>
