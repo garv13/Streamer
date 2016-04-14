@@ -29,6 +29,7 @@
       <RootProperty Name="OpenPaneLength" />
       <RootProperty Name="Pane" />
       <RootProperty Name="Content" />
+      <RootProperty Name="Background" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
       <RootProperty Name="Children" />
@@ -40,6 +41,7 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Background" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="BorderBrush" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="VerticalAlignment" />
@@ -101,8 +103,8 @@
       <RootProperty Name="TextLineBounds" />
       <RootProperty Name="TextAlignment" />
       <RootProperty Name="Margin" />
-      <RootProperty Name="Width" />
       <RootProperty Name="Visibility" />
+      <RootProperty Name="Width" />
       <RootProperty Name="Style" />
     </RootType>
     <RootType FullName="Heist.About" />
@@ -123,11 +125,7 @@
       <RootProperty Name="Margin" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Data.Binding" />
-    <RootType FullName="Windows.UI.Xaml.Controls.ProgressBar">
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Visibility" />
-    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ProgressRing" />
     <RootType FullName="Windows.UI.Xaml.Controls.GridView">
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
@@ -145,6 +143,11 @@
       <RootProperty Name="ViewMode" />
     </RootType>
     <RootType FullName="Heist.Downloads" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ProgressBar">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Visibility" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
       <RootProperty Name="PlaceholderText" />
       <RootProperty Name="InputScope" />

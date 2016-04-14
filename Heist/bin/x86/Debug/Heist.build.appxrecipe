@@ -369,6 +369,9 @@
     <AppxPackagedFile Include="C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\ebookstreamer_me.crt">
+      <PackagePath>ebookstreamer_me.crt</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\Assets\search-icon-hi.png">
       <PackagePath>Assets\search-icon-hi.png</PackagePath>
     </AppxPackagedFile>

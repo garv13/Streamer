@@ -43,7 +43,7 @@ namespace Heist
 
         async void lol()
         {
-            LoadingBar.IsIndeterminate = true;
+            LoadingBar.IsActive = true;
             await load();
             LoadingBar.Visibility = Visibility.Collapsed;
         }
@@ -153,7 +153,8 @@ namespace Heist
                 else
                 {
                     LoadingBar.Visibility = Visibility.Collapsed;
-                    await (new MessageDialog("Nothing Downloaded")).ShowAsync();
+                    ErrorBox.Text = "No Books Downloaded";
+                    ErrorBox.Visibility = Visibility.Visible;
                 }
             }
             catch(Exception)
@@ -165,7 +166,7 @@ namespace Heist
 
         private async void Grid_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            LoadingBar.IsIndeterminate = true;
+            LoadingBar.IsActive = true;
             LoadingBar.Visibility = Visibility.Visible;
             Grid g = new Grid();
             g = sender as Grid;

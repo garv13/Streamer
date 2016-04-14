@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text.RegularExpressions;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -27,50 +29,96 @@ namespace Heist
         public SignUp()
         {
             this.InitializeComponent();
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
+        }
+
+        private IMobileServiceTable<User> Table = App.MobileService.GetTable<User>();
+        private MobileServiceCollection<User, User> items;
+        string error = "";
+
+        private void OnBackRequested(object sender, BackRequestedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+
+            if (rootFrame.CanGoBack)
+            {
+                e.Handled = true;
+                rootFrame.GoBack();
+            }
+            else
+            {
+                Frame.Navigate(typeof(Login));
+            }
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             LoadingBar.Visibility = Visibility.Visible;
             LoadingBar.IsIndeterminate = true;
-            try
+            User a = new User();
+            int i = 1;
+            error = "";
+            if (!Regex.Match(Name.Text, @"^[a-zA-Z\s\.]+$").Success)
             {
-                User a = new User();
-                int i = 1;
+                i = 0;
+                error = error + "*Enter a valid name  ";
+            }
+            if (!(Mobile.Text.All(char.IsDigit) && Mobile.Text.Length == 10))
+            {
+                error = error + "*Enter valid Mobile Number  ";
+                i = 0;
+            }
 
-                if (!(Name.Text.All(char.IsLetter) && Name.Text.Length != 0))
+            if (!Regex.Match(Email.Text, @"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$").Success)
+            {
+                error = error + "*Enter valid Email Id  ";
+                i = 0;
+            }
+
+            if (!(UserName.Text.All(char.IsLetterOrDigit) && UserName.Text.Length != 0))
+            {
+
+                error = error + "*Username can have only alphanumeric values  ";
+                i = 0;
+            }
+            else
+            {
+                //username exist check
+                items = await Table.Where(User
+                              => User.username == UserName.Text).ToCollectionAsync();
+                if (items.Count != 0)
                 {
+                    error = error + "*Username already exist  ";
                     i = 0;
                 }
+            }
 
-                if (!(Mobile.Text.All(char.IsDigit) && Mobile.Text.Length == 10))
+            if ((Password.Password.Length < 8))
+            {
+                i = 0;
+                error = error + "*Password should be minimum of length 8  ";
+            }
+            else
+            {
+                if (Password.Password != ConfirmPassword.Password)
                 {
                     i = 0;
+                    error = error + "*Password didn't matched  ";
                 }
+            }
 
-                if (!Regex.Match(Email.Text, @"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$").Success)
-                    i = 0;
+            if (i == 0)
+            {
+                MistakeBox.Text = error;
+                MistakeBox.Visibility = Visibility.Visible;
+                LoadingBar.Visibility = Visibility.Collapsed;
+            }
 
-
-                if (!(UserName.Text.All(char.IsLetterOrDigit) && UserName.Text.Length != 0))
+            else
                 {
-                    i = 0;
-                }
 
-                if (Password.Password.Length < 8)
-                {
-                    MessageDialog msgbox = new MessageDialog("Password length must be 8");
-                    await msgbox.ShowAsync();
-                }
-
-                if (i == 0)
-                {
-                    MessageDialog msgbox = new MessageDialog("Enter Correct Information");
-                    await msgbox.ShowAsync();
-                }
-
-                else
-                {
+                try {
                     a.name = Name.Text;
                     a.phone = Mobile.Text;
                     a.email = Email.Text;
@@ -79,25 +127,18 @@ namespace Heist
                     a.wallet = 0;
                     a.purchases = "";
                     await App.MobileService.GetTable<User>().InsertAsync(a);
-
-                    MessageDialog msgbox = new MessageDialog("Register Successful");
+                    MessageDialog msgbox = new MessageDialog("Register Successful:):)");
                     await msgbox.ShowAsync();
                     LoadingBar.Visibility = Visibility.Collapsed;
                     Frame.Navigate(typeof(Login));
-
+                }
+                catch (Exception)
+                {
+                    MessageDialog msgbox = new MessageDialog("Something is not right Please try again later:(:(");
+                    await msgbox.ShowAsync();
+                    LoadingBar.Visibility = Visibility.Collapsed;
                 }
             }
-            catch(Exception)
-            {
-                MessageDialog msgbox = new MessageDialog("Something is not right");
-                await msgbox.ShowAsync();
-                LoadingBar.Visibility = Visibility.Collapsed;
-            }
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(Login));
         }
     }
 }

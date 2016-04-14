@@ -507,4 +507,4 @@ C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\obj\x86\Debug\M
 C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\obj\x86\Debug\Syncfusion.SfInput.UWP.pri.xml
 C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\obj\x86\Debug\Syncfusion.SfShared.UWP.pri.xml
 C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\obj\x86\Debug\Microsoft.WindowsAzure.Mobile.Ext.pri.xml
-C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\obj\x86\Debug\Heist.csprojResolveAssemblyReference.cache
+C:\Users\garvj\Documents\Visual Studio 2015\Projects\Heist\Heist\obj\x86\Debug\Heist.csprojResolveAssemblyReference.cache
