@@ -42,7 +42,7 @@ namespace Heist
         private async void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             LoadingBar.Visibility = Visibility.Visible;
-            LoadingBar.IsIndeterminate = true;
+            LoadingBar.IsActive = true;
             try {
                 StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
                 StorageFile sampleFile = await folder.GetFileAsync("sample.txt");
@@ -95,7 +95,7 @@ namespace Heist
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             LoadingBar.Visibility = Visibility.Visible;
-            LoadingBar.IsIndeterminate = true;
+            LoadingBar.IsActive = true;
             try
             {
                 items2 = await Table2.Where(User
@@ -125,6 +125,12 @@ namespace Heist
         private void MenuButton6_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(Login));
+        }
+
+        private void TextBlock_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Funds.Visibility = Visibility.Visible;
+            MoneyAdd.Visibility = Visibility.Visible;
         }
     }
 }

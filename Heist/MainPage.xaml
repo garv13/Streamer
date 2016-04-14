@@ -50,14 +50,14 @@
 
         <SplitView.Content>
 
-            <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Grid Background="#292929">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.06*"/>
                     <RowDefinition Height="0.94*"/>
                 </Grid.RowDefinitions>
                 <ProgressBar x:Name="Loading" Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Collapsed"/>
-                <Border Background="Black" Grid.Row="0">
-                    <TextBlock FontSize="36" Foreground="White"  Text="   Wallet"  />
+                <Border Background="#292929" Grid.Row="0">
+                    <TextBlock FontSize="36" Foreground="#CCCCCC"  Text="   Wallet"  />
                 </Border>
                 <Grid Grid.Row="1" Margin="5,0,0,0">
                     <Grid.RowDefinitions>
@@ -68,12 +68,12 @@
                         <RowDefinition Height="0.2*"/>
                         <RowDefinition Height="0.2*"/>
                     </Grid.RowDefinitions>
-                    <ProgressBar Grid.RowSpan="6" HorizontalAlignment="Stretch" Visibility="Collapsed" VerticalAlignment="Center" x:Name="LoadingBar"/>
-                    <TextBlock Grid.Row="1" Text="Your Current balance is: " FontSize="40"/>
-                    <TextBlock Grid.Row="2" x:Name="balance" Text="" FontSize="40"/>
-                    <TextBlock Grid.Row="3" Text="Add Money: " HorizontalAlignment="Center" FontSize="38"/>
-                    <TextBox PlaceholderText="Enter amount" Grid.Row="4" x:Name="Funds" Text="" InputScope="Digits" Background="Transparent" BorderThickness="0" FontSize="40"/>
-                    <Button Grid.Row="5" Content="Add" Click="Button_Click"  HorizontalAlignment="Center" Margin="10" FontSize="40"/>
+                    <ProgressRing Grid.RowSpan="6" HorizontalAlignment="Center" Visibility="Collapsed" VerticalAlignment="Center" x:Name="LoadingBar"/>
+                    <TextBlock Grid.Row="1" Text="Your Current balance is: " FontSize="25" Margin="20,0,0,0" Foreground="#975858"/>
+                    <TextBlock Grid.Row="2" x:Name="balance" Foreground="#D9D9D9" Text="" Margin="30,0,0,0" FontSize="25"/>
+                    <TextBlock Grid.Row="3" Text="Add Money: " HorizontalAlignment="Center" Foreground="#975858" FontSize="23" Tapped="TextBlock_Tapped"/>
+                    <TextBox PlaceholderText="Enter amount" Grid.Row="4" x:Name="Funds" Text="" HorizontalAlignment="Center" VerticalAlignment="Top" InputScope="Digits" Background="#B5B5B5" BorderThickness="0" FontSize="25" Visibility="Collapsed"/>
+                    <Button x:Name="MoneyAdd" Grid.Row="5" Content="Add" Click="Button_Click" Background="Transparent" Foreground="#8CBDF3" HorizontalAlignment="Center" Margin="10" FontSize="25" Visibility="Collapsed"/>
                 </Grid>
             </Grid>
         </SplitView.Content>
