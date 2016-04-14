@@ -10,5 +10,6 @@ namespace Heist
     {
         internal static string key = "okXwKUmKGuSpeKaOLKxliUxBniJoqA92";
         internal static string web = "https://ebookstreamer.azure-mobile.net/";
+
     }
 }
