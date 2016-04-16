@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
@@ -34,6 +35,11 @@ namespace Heist
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
+            await lol();
+         }
+
+        private async Task lol()
+        {
             LoadingBar.Visibility = Visibility.Visible;
             LoadingBar.IsIndeterminate = true;
             try
@@ -60,18 +66,23 @@ namespace Heist
                     await msgbox.ShowAsync();
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
                 LoadingBar.Visibility = Visibility.Collapsed;
                 MessageDialog msgbox = new MessageDialog("Sorry Can't connect");
                 await msgbox.ShowAsync();
             }
-         }
-            
-
+        }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(SignUp));
+        }
+        private async void Password_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                await lol();
+            }
         }
     }
 }
