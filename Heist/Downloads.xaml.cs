@@ -61,46 +61,59 @@ namespace Heist
     
             try
             {
-                StorageFolder mainFol = await ApplicationData.Current.LocalFolder.CreateFolderAsync(testlol + "My Books", CreationCollisionOption.OpenIfExists);
+                List<GridClass> lg = new List<GridClass>();
+                GridClass gd = new GridClass();
 
-                if (mainFol != null)
-                {
-                    ob = new BookData();
-                    StorageFolder folder = await mainFol.CreateFolderAsync(name, CreationCollisionOption.OpenIfExists);
-                    openBook = folder;
-
-                    StorageFile sampleFile = await folder.GetFileAsync("UserName.txt");
-                    var t = await sampleFile.OpenAsync(FileAccessMode.Read);
-                    Stream na = t.AsStreamForRead();
-                    using (var streamReader = new StreamReader(na, Encoding.UTF8))
-                    {
-                        string line;
-                        line = streamReader.ReadToEnd();
-                        ob = JsonConvert.DeserializeObject<BookData>(line);
-                    }      
-                    IReadOnlyList<StorageFile> sf = await folder.GetFilesAsync();
-                    StorageFile imgFile = await folder.GetFileAsync("image.jpeg");
-                    Im = new BitmapImage(new Uri(imgFile.Path));
-                    List<GridClass> lg = new List<GridClass>();
-                    GridClass gd = new GridClass();
-
-
-                    foreach (StorageFile s in sf)
-                    {
-                         
-                        if (s.Name.CompareTo("UserName.txt") == 0)
-                            break;
-                        if (s.Name.CompareTo("image.jpeg") == 0)
-                            break;
-                        gd = new GridClass();
-                        gd.title = "Chapter No:" + s.DisplayName;
-                        gd.Image = Im;
-                        gd.authName = "";
-                        lg.Add(gd);
-                    }
+                if (name.CompareTo("about me") == 0)
+                {                  
+                    gd.Image = new BitmapImage(new Uri(this.BaseUri, "Assets/whataboutme.jpg"));
+                    gd.authName = "";
+                    gd.title = "about me";
+                    lg.Add(gd);
                     event1.Visibility = Visibility.Collapsed;
                     event2.ItemsSource = lg;
                     event2.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    StorageFolder mainFol = await ApplicationData.Current.LocalFolder.CreateFolderAsync(testlol + "My Books", CreationCollisionOption.OpenIfExists);
+
+                    if (mainFol != null)
+                    {
+                        ob = new BookData();
+                        StorageFolder folder = await mainFol.CreateFolderAsync(name, CreationCollisionOption.OpenIfExists);
+                        openBook = folder;
+
+                        StorageFile sampleFile = await folder.GetFileAsync("UserName.txt");
+                        var t = await sampleFile.OpenAsync(FileAccessMode.Read);
+                        Stream na = t.AsStreamForRead();
+                        using (var streamReader = new StreamReader(na, Encoding.UTF8))
+                        {
+                            string line;
+                            line = streamReader.ReadToEnd();
+                            ob = JsonConvert.DeserializeObject<BookData>(line);
+                        }
+                        IReadOnlyList<StorageFile> sf = await folder.GetFilesAsync();
+                        StorageFile imgFile = await folder.GetFileAsync("image.jpeg");
+                        Im = new BitmapImage(new Uri(imgFile.Path));
+
+                        foreach (StorageFile s in sf)
+                        {
+                            gd = new GridClass();
+                            if (s.Name.CompareTo("UserName.txt") == 0)
+                                break;
+                            if (s.Name.CompareTo("image.jpeg") == 0)
+                                break;
+                            gd = new GridClass();
+                            gd.title = "Chapter No:" + s.DisplayName;
+                            gd.Image = Im;
+                            gd.authName = "";
+                            lg.Add(gd);
+                        }
+                        event1.Visibility = Visibility.Collapsed;
+                        event2.ItemsSource = lg;
+                        event2.Visibility = Visibility.Visible;
+                    }
                 }
             }
             catch(Exception)
@@ -153,10 +166,14 @@ namespace Heist
                 List<GridClass> lg = new List<GridClass>();
                 GridClass gd = new GridClass();
                 StorageFolder folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync(testlol + "My Books", CreationCollisionOption.OpenIfExists);
-                IReadOnlyList<StorageFolder> sf = await folder.GetFoldersAsync();
-                gd = new GridClass();
+                IReadOnlyList<StorageFolder> sf = await folder.GetFoldersAsync();        
+                gd.Image = new BitmapImage(new Uri(this.BaseUri ,"Assets/whataboutme.jpg"));
+                gd.authName = "test me";
+                gd.title = "about me";
+                lg.Add(gd);
                 foreach (StorageFolder s in sf)
                 {
+                    gd = new GridClass();
                     ob = new BookData();
                     StorageFile sampleFile = await s.GetFileAsync("UserName.txt");
                     var t = await sampleFile.OpenAsync(FileAccessMode.Read);
@@ -225,7 +242,9 @@ namespace Heist
 
             if (str != "")
                 await retreive(t2.Text);
-            else
+            else if (t2.Text.CompareTo("about me") == 0)
+                 await printPdf("ms-appx://Assets/test.pdf");
+                 else
                 await printPdf(t2.Text.ElementAt<char>(t2.Text.Length-1).ToString()+".txt");
             LoadingBar.Visibility = Visibility.Collapsed;
         }
@@ -237,6 +256,14 @@ namespace Heist
             loc = text;
             try
             {
+                if (text.CompareTo("ms-appx://Assets/test.pdf") == 0)
+                {
+                    StorageFile stream = await StorageFile.GetFileFromApplicationUriAsync(new Uri(this.BaseUri , "Assets/lol.txt"));
+                    Stream fileStream = await stream.OpenStreamForReadAsync();
+                    pdfViewer.LoadDocument(fileStream);
+                    event2.Visibility = Visibility.Collapsed;
+                    PdfGrid.Visibility = Visibility.Visible;
+                }
               if((ob.userName.CompareTo(testlol) != 0))
                  {
                     await (new MessageDialog("Maybe this Pdf doesn't belong to you.If it does then download it again plzzz :):)")).ShowAsync();
@@ -249,6 +276,7 @@ namespace Heist
                 str.Read(buffer, 0, buffer.Length);
 
                 // Loads the PDF document.
+               
                 PdfLoadedDocument ldoc = new PdfLoadedDocument(buffer);
                 TitlBox.Text = "Chapter " + text.ElementAt<char>(0).ToString();
                 pdfViewer.LoadDocument(ldoc);
@@ -257,7 +285,7 @@ namespace Heist
                 Appbar.Visibility = Visibility.Visible;
                
             }
-            catch(Exception)
+            catch(Exception e)
             {
                 await (new MessageDialog("Can't open Pdf")).ShowAsync();
             }
@@ -267,6 +295,7 @@ namespace Heist
         {
             try
             {
+
                 if ((ob.userName.CompareTo(testlol) != 0))
                 {
                     await (new MessageDialog("Maybe this Pdf doesn't belong to you.If it does then download it again plzzz :):)")).ShowAsync();
