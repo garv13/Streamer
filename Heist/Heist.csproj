@@ -109,6 +109,7 @@
     <Compile Include="Auth.cs" />
     <Compile Include="Author.cs" />
     <Compile Include="Book.cs" />
+    <Compile Include="BookData.cs" />
     <Compile Include="BookView.cs" />
     <Compile Include="Chapter.cs" />
     <Compile Include="ChapterView.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OfflineCheck.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Purchased.cs" />
     <Compile Include="Purchased.xaml.cs">

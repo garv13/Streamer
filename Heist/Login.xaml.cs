@@ -1,9 +1,11 @@
 ﻿using Microsoft.WindowsAzure.MobileServices;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Storage;
@@ -34,6 +36,7 @@ namespace Heist
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
+            OfflineCheck oc = new OfflineCheck();
             LoadingBar.Visibility = Visibility.Visible;
             LoadingBar.IsIndeterminate = true;
             try
@@ -44,12 +47,21 @@ namespace Heist
                 {
                     if (Password.Password == items[0].password)
                     {
+                        oc.userName = UserName.Text;
+                        oc.password = Password.Password;
+                        LoadingBar.Visibility = Visibility.Collapsed;
                         MessageDialog msgbox = new MessageDialog("Welcome " + UserName.Text);
                         await msgbox.ShowAsync();
                         StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
                         StorageFile sampleFile =
                             await folder.CreateFileAsync("sample.txt", CreationCollisionOption.ReplaceExisting);
                         await Windows.Storage.FileIO.WriteTextAsync(sampleFile, UserName.Text);
+
+                        StorageFile notNet =
+                            await folder.CreateFileAsync("check.txt", CreationCollisionOption.ReplaceExisting);
+                        string sn = JsonConvert.SerializeObject(oc);
+                        await Windows.Storage.FileIO.WriteTextAsync(notNet, sn);
+
                         Frame.Navigate(typeof(Downloads));
                     }
                 }
@@ -62,9 +74,35 @@ namespace Heist
             }
             catch(Exception)
             {
-                LoadingBar.Visibility = Visibility.Collapsed;
-                MessageDialog msgbox = new MessageDialog("Sorry Can't connect");
-                await msgbox.ShowAsync();
+                try
+                {
+                    OfflineCheck o;
+                    StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                    StorageFile sampleFile = await folder.GetFileAsync("check.txt");
+                    var t = await sampleFile.OpenAsync(FileAccessMode.Read);
+                    Stream na = t.AsStreamForRead();
+                    using (var streamReader = new StreamReader(na, Encoding.UTF8))
+                    {
+                        string line;
+                        line = streamReader.ReadToEnd();
+                        o = JsonConvert.DeserializeObject<OfflineCheck>(line);
+                        if((UserName.Text.CompareTo(o.userName)==0) && (Password.Password.CompareTo(o.password)==0))
+                         {
+                            LoadingBar.Visibility = Visibility.Collapsed;
+                            MessageDialog msgbo = new MessageDialog("Welcome " + UserName.Text);
+                            await msgbo.ShowAsync();
+                            msgbo = new MessageDialog("You are not connected online hence you could only read the downloaded books..");
+                            await msgbo.ShowAsync();
+                            Frame.Navigate(typeof(Downloads));
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    LoadingBar.Visibility = Visibility.Collapsed;
+                    MessageDialog msgbox = new MessageDialog("Sorry Can't connect");
+                    await msgbox.ShowAsync();
+                }
             }
          }
             

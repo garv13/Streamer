@@ -1,4 +1,5 @@
 ﻿using Microsoft.WindowsAzure.MobileServices;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,6 +8,7 @@ using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Graphics.Imaging;
 using Windows.Storage;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
@@ -15,6 +17,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -26,13 +29,14 @@ namespace Heist
     /// </summary>
     public sealed partial class Purchaseddetail : Page
     {
-        private IMobileServiceTable<User> Table2 = App.MobileService.GetTable<User>();
-        private MobileServiceCollection<User, User> items2;
+        private IMobileServiceTable<Book> Table2 = App.MobileService.GetTable<Book>();
+        private MobileServiceCollection<Book, Book> items2;
         private PurchasedView rec;
         private IMobileServiceTable<Chapter> Table = App.MobileService.GetTable<Chapter>();
         private MobileServiceCollection<Chapter, Chapter> items;
         string testlol;
         private List<ChapterView> list;
+        public byte[] imgBuffer; 
         public Purchaseddetail()
         {
             this.InitializeComponent();
@@ -41,6 +45,10 @@ namespace Heist
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
+
+            StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            StorageFile sampleFile = await folder.GetFileAsync("sample.txt");
+            testlol = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
             LoadingBar.Visibility = Visibility.Visible;
             LoadingBar.IsIndeterminate = true;
 
@@ -108,8 +116,37 @@ namespace Heist
 
         private async void Buy_Click(object sender, RoutedEventArgs e)
         {
+            string sn = "";
             LoadingBar.Visibility = Visibility.Visible;
             LoadingBar.IsIndeterminate = true;
+
+            items2 = await Table2.Where(Book
+                            => Book.Id == rec.sel.Id).ToCollectionAsync();
+            BookData b = new BookData();
+            foreach (Book lol in items2)
+            {
+                b.Title = lol.Title;
+                b.Author = lol.Author;
+                b.userName = testlol;
+
+                try
+                {
+                    HttpClient client = new HttpClient(); // Create HttpClient
+                    imgBuffer = await client.GetByteArrayAsync(lol.ImageUri2); // Download file
+
+                    sn = JsonConvert.SerializeObject(b);
+                  
+                }
+                catch (Exception)
+                {
+                    LoadingBar.Visibility = Visibility.Collapsed;
+                    await (new MessageDialog("Something bad happened :(:(")).ShowAsync();
+                    break;
+                }              
+            }
+
+         
+
 
             try
             {
@@ -136,7 +173,7 @@ namespace Heist
                 str.Read(pd, 0, pd.Length);
                 try
                 {
-                    StorageFolder mainFol = await ApplicationData.Current.LocalFolder.CreateFolderAsync("My Books", CreationCollisionOption.OpenIfExists);
+                    StorageFolder mainFol = await ApplicationData.Current.LocalFolder.CreateFolderAsync(testlol + "My Books", CreationCollisionOption.OpenIfExists);
                     if (mainFol != null)
                     {
                         StorageFolder folder = await mainFol.CreateFolderAsync(titl, CreationCollisionOption.OpenIfExists);
@@ -148,6 +185,13 @@ namespace Heist
                                 str.Seek(0, SeekOrigin.Begin);
                                 await str.CopyToAsync(fileStream);
                             }
+                            StorageFile useFile =
+                           await folder.CreateFileAsync("UserName.txt", CreationCollisionOption.ReplaceExisting);
+                           await Windows.Storage.FileIO.WriteTextAsync(useFile, sn);                                                                               
+                            StorageFile imgFile =
+                         await folder.CreateFileAsync("image.jpeg", CreationCollisionOption.ReplaceExisting);
+                            using (Stream stream = await imgFile.OpenStreamForWriteAsync())
+                                stream.Write(imgBuffer, 0, imgBuffer.Length); // Save
                         }
                     }
                     LoadingBar.Visibility = Visibility.Collapsed;
@@ -190,7 +234,6 @@ namespace Heist
         {
             Frame.Navigate(typeof(Store));
         }
-
 
         private void MenuButton5_Click(object sender, RoutedEventArgs e)
         {

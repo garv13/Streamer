@@ -112,11 +112,21 @@
                     </GridView>
 
                     <Grid x:Name="PdfGrid" Visibility="Collapsed">
+                        <ProgressRing x:Name="LoadingBarPdf" Visibility="Collapsed"/>
+                        <MediaElement x:Name="mediaElement"/>
                         <syncfusion:SfPdfViewerControl Name="pdfViewer" PageView="SinglePageView" ViewMode="OnePage"></syncfusion:SfPdfViewerControl>
                     </Grid>
                 </Grid>
             </Grid>
         </SplitView.Content>
     </SplitView>
+
+    <Page.BottomAppBar>
+        <AppBar x:Name="Appbar" IsOpen="true" Visibility="Collapsed" IsSticky="True">
+            <StackPanel Orientation="Horizontal">
+                <AppBarButton Name="PlayPdf" Icon="Play" Label="Listen Pdf" Click="PlayPdf_Click"/>
+            </StackPanel>
+        </AppBar>
+    </Page.BottomAppBar>
 
 </Page>

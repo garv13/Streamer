@@ -55,7 +55,6 @@ namespace Heist
 
                 StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
                 StorageFile sampleFile = await folder.GetFileAsync("sample.txt");
-                StoreListing st;
                 testlol = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
 
                 items = await Table.Where(User

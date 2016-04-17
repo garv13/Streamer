@@ -20,6 +20,10 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Media.Imaging;
+using System.Text;
+using Newtonsoft.Json;
+using Syncfusion.Pdf;
+using Windows.Media.SpeechSynthesis;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -35,43 +39,63 @@ namespace Heist
             this.InitializeComponent();
             lol();
         }
-        private IMobileServiceTable<Book> Table2 = App.MobileService.GetTable<Book>();
-        private MobileServiceCollection<Book, Book> items2;
+        //private IMobileServiceTable<Book> Table2 = App.MobileService.GetTable<Book>();
+        //private MobileServiceCollection<Book, Book> items2;
         public BitmapImage Im { get; set; }
-
+        string testlol;
+        BookData ob = new BookData();
         StorageFolder openBook = null;
 
         async void lol()
         {
             LoadingBar.IsActive = true;
+            StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            StorageFile sampleFile = await folder.GetFileAsync("sample.txt");
+            testlol = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
             await load();
             LoadingBar.Visibility = Visibility.Collapsed;
+
         }
         async Task retreive(string name)
         {
+    
             try
             {
-                StorageFolder mainFol = await ApplicationData.Current.LocalFolder.CreateFolderAsync("My Books", CreationCollisionOption.OpenIfExists);
+                StorageFolder mainFol = await ApplicationData.Current.LocalFolder.CreateFolderAsync(testlol + "My Books", CreationCollisionOption.OpenIfExists);
 
                 if (mainFol != null)
                 {
+                    ob = new BookData();
                     StorageFolder folder = await mainFol.CreateFolderAsync(name, CreationCollisionOption.OpenIfExists);
                     openBook = folder;
+
+                    StorageFile sampleFile = await folder.GetFileAsync("UserName.txt");
+                    var t = await sampleFile.OpenAsync(FileAccessMode.Read);
+                    Stream na = t.AsStreamForRead();
+                    using (var streamReader = new StreamReader(na, Encoding.UTF8))
+                    {
+                        string line;
+                        line = streamReader.ReadToEnd();
+                        ob = JsonConvert.DeserializeObject<BookData>(line);
+                    }      
+                    IReadOnlyList<StorageFile> sf = await folder.GetFilesAsync();
+                    StorageFile imgFile = await folder.GetFileAsync("image.jpeg");
+                    Im = new BitmapImage(new Uri(imgFile.Path));
                     List<GridClass> lg = new List<GridClass>();
                     GridClass gd = new GridClass();
-                    IReadOnlyList<StorageFile> sf = await folder.GetFilesAsync();
 
-                    items2 = await Table2.Where(Book
-                                => Book.Title == folder.Name).ToCollectionAsync();
-                    foreach (Book lol in items2)
-                        Im = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri(lol.ImageUri2));
 
                     foreach (StorageFile s in sf)
                     {
+                         
+                        if (s.Name.CompareTo("UserName.txt") == 0)
+                            break;
+                        if (s.Name.CompareTo("image.jpeg") == 0)
+                            break;
                         gd = new GridClass();
                         gd.title = "Chapter No:" + s.DisplayName;
                         gd.Image = Im;
-                        gd.authName = null;
+                        gd.authName = "";
                         lg.Add(gd);
                     }
                     event1.Visibility = Visibility.Collapsed;
@@ -128,21 +152,30 @@ namespace Heist
             {
                 List<GridClass> lg = new List<GridClass>();
                 GridClass gd = new GridClass();
-                StorageFolder folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("My Books", CreationCollisionOption.OpenIfExists);
+                StorageFolder folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync(testlol + "My Books", CreationCollisionOption.OpenIfExists);
                 IReadOnlyList<StorageFolder> sf = await folder.GetFoldersAsync();
-
+                gd = new GridClass();
                 foreach (StorageFolder s in sf)
                 {
-                    gd = new GridClass();
-                    items2 = await Table2.Where(Book
-                                 => Book.Title == s.Name).ToCollectionAsync();
-                    foreach (Book lol in items2)
+                    ob = new BookData();
+                    StorageFile sampleFile = await s.GetFileAsync("UserName.txt");
+                    var t = await sampleFile.OpenAsync(FileAccessMode.Read);
+                    Stream na = t.AsStreamForRead();
+                    using (var streamReader = new StreamReader(na, Encoding.UTF8))
                     {
-                        gd.Image = new BitmapImage(new Uri(lol.ImageUri2));
-                        gd.title = s.Name;
-                        gd.authName = lol.Author;
-                        lg.Add(gd);
+                        string line;
+                        line = streamReader.ReadToEnd();
+                        ob = JsonConvert.DeserializeObject<BookData>(line);
                     }
+
+                    IReadOnlyList<StorageFile> fi = await s.GetFilesAsync();
+                    StorageFile imgFile = await s.GetFileAsync("image.jpeg");
+                    Im = new BitmapImage(new Uri(imgFile.Path));
+                    gd = new GridClass();
+                    gd.title = ob.Title;
+                    gd.Image = Im;
+                    gd.authName = ob.Author;
+                    lg.Add(gd);
                 }
 
                 if (lg.Count != 0)
@@ -197,10 +230,18 @@ namespace Heist
             LoadingBar.Visibility = Visibility.Collapsed;
         }
 
+        string loc = null;
+
         private async Task printPdf(string text)
         {
+            loc = text;
             try
             {
+              if((ob.userName.CompareTo(testlol) != 0))
+                 {
+                    await (new MessageDialog("Maybe this Pdf doesn't belong to you.If it does then download it again plzzz :):)")).ShowAsync();
+                    Frame.Navigate(typeof(Downloads));
+                 }
                 StorageFile file = await openBook.GetFileAsync(text);
                 var l = await file.OpenAsync(FileAccessMode.Read);
                 Stream str = l.AsStreamForRead();
@@ -213,11 +254,65 @@ namespace Heist
                 pdfViewer.LoadDocument(ldoc);
                 event2.Visibility = Visibility.Collapsed;
                 PdfGrid.Visibility = Visibility.Visible;
+                Appbar.Visibility = Visibility.Visible;
+               
             }
             catch(Exception)
             {
                 await (new MessageDialog("Can't open Pdf")).ShowAsync();
             }
+        }
+
+        async Task tts(string text)
+        {
+            try
+            {
+                if ((ob.userName.CompareTo(testlol) != 0))
+                {
+                    await (new MessageDialog("Maybe this Pdf doesn't belong to you.If it does then download it again plzzz :):)")).ShowAsync();
+                    Frame.Navigate(typeof(Downloads));
+                }
+                StorageFile file = await openBook.GetFileAsync(text);
+                var l = await file.OpenAsync(FileAccessMode.Read);
+                Stream str = l.AsStreamForRead();
+                byte[] buffer = new byte[str.Length];
+                str.Read(buffer, 0, buffer.Length);
+
+                // Loads the PDF document.
+                PdfLoadedDocument ldoc = new PdfLoadedDocument(buffer);
+                // Loading Page collections
+                PdfLoadedPageCollection loadedPages = ldoc.Pages;
+
+                string s = "";
+
+                // Extract text from PDF document pages
+                foreach (PdfLoadedPage lpage in loadedPages)
+                {
+                    s += lpage.ExtractText();
+                }
+
+                s = s.Replace("\r", "");
+                s = s.Replace("\n", "");
+                SpeechSynthesizer synt = new SpeechSynthesizer();
+                SpeechSynthesisStream syntStream = await synt.SynthesizeTextToStreamAsync(s);
+                mediaElement.DefaultPlaybackRate = 0.85;
+                mediaElement.SetSource(syntStream, syntStream.ContentType);
+                mediaElement.Play();
+
+            }
+            catch(Exception)
+            {
+                LoadingBarPdf.Visibility = Visibility.Collapsed;
+                await (new MessageDialog("Can't read Pdf")).ShowAsync();
+            }
+        }
+
+        private async void PlayPdf_Click(object sender, RoutedEventArgs e)
+        {
+            LoadingBarPdf.IsActive = true;
+            LoadingBarPdf.Visibility = Visibility.Visible;
+            await tts(loc);
+            LoadingBarPdf.Visibility = Visibility.Collapsed;
         }
     }
 }
