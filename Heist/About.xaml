@@ -44,7 +44,7 @@
 
         <SplitView.Content>
 
-            <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" ScrollViewer.VerticalScrollMode="Auto" 
+            <Grid Background="#292929" ScrollViewer.VerticalScrollMode="Auto" 
                   ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollMode="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="0.06*"/>

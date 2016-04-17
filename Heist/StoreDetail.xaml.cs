@@ -51,6 +51,7 @@ namespace Heist
             Cover.Source = rec.Image;
             FullCost.Text = rec.Price;
             Author.Text = rec.Author;
+            //  DescBlock.Text = // Add description of the book
             FullCost.Text = "Full Book Price: " + rec.Price;
 
             try
@@ -71,7 +72,7 @@ namespace Heist
                     {
                         temp = new ChapterView();
                         temp.Id = lol.Id;
-                        temp.Title = "Chapter No: " + (lol.sno + 1).ToString();
+                        temp.Title = "Chapter: " + (lol.sno + 1).ToString();
                         temp.Price = "Price: " + lol.price.ToString();
                         list.Add(temp);
                     }
