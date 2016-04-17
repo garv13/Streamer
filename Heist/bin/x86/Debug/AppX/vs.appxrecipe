@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-04-17T16:40:32.689</Modified>
+      <Modified>2016-04-17T17:31:13.342</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\bin\x86\Debug\Heist.exe">
       <PackagePath>entrypoint\Heist.exe</PackagePath>
-      <Modified>2016-04-17T16:40:31.678</Modified>
+      <Modified>2016-04-17T17:31:11.047</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\garvj\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -546,7 +546,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\bin\x86\Debug\Heist.xr.xml">
       <PackagePath>Heist.xr.xml</PackagePath>
-      <Modified>2016-04-17T16:40:31.358</Modified>
+      <Modified>2016-04-17T17:31:10.655</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -582,11 +582,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-04-17T16:40:32.090</Modified>
+      <Modified>2016-04-17T17:31:12.524</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\bin\x86\Debug\Core\Heist.exe">
       <PackagePath>Heist.exe</PackagePath>
-      <Modified>2016-04-17T16:40:32.683</Modified>
+      <Modified>2016-04-17T17:31:13.335</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

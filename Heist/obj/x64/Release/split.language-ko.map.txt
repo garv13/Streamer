@@ -1,6 +1,0 @@
-﻿[ResourceMetadata]
-"ResourceId"			"split.language-ko"
-"ResourceDimensions"		"language-ko-kr"
-
-[Files]
-"C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\obj\x64\Release\split.language-ko.pri"			"resources.pri"

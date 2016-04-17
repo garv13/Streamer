@@ -20,7 +20,7 @@
             <TextBlock Grid.Row="0" Text="Streamer" FontFamily="Garamond" Foreground="#FFF7F7" Margin="0,15,0,0" HorizontalAlignment="Center" FontSize="35"/>
             <ProgressBar x:ConnectionId='1' HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Collapsed" x:Name="LoadingBar" Grid.Row="2"/>
             <TextBox x:ConnectionId='2' x:Name="UserName" PlaceholderText="Enter UserName" InputScope="AlphanumericFullWidth" Width="300" Height="50" Opacity="50" Foreground="White" Grid.Row="1" Background="Transparent" BorderBrush="#F24A4A" BorderThickness="0,0,0,5"/>
-            <PasswordBox x:ConnectionId='3' x:Name="Password" PlaceholderText="Enter Password" Width="300" Height="50" Opacity="50" Foreground="White" Background="Transparent" Grid.Row="2" BorderBrush="#F24A4A" BorderThickness="0,0,0,5"/>
+            <PasswordBox x:ConnectionId='3'                            x:Name="Password" PlaceholderText="Enter Password" Width="300" Height="50" Opacity="50" Foreground="White" Background="Transparent" Grid.Row="2" BorderBrush="#F24A4A" BorderThickness="0,0,0,5"/>
             <Button x:ConnectionId='4' Content="Login" Grid.Row="3" Height="50" Width="100"                      FontFamily="Lucida Calligraphy" Background="Transparent" HorizontalAlignment="Center" BorderBrush="#191919" Foreground="#EC4AF2" FontSize="23"/>
             <Button x:ConnectionId='5' Content="Sign Up" Grid.Row="4" Height="50" Width="150"                        FontFamily="Lucida Calligraphy" Background="Transparent" HorizontalAlignment="Center" BorderBrush="#191919" VerticalAlignment="Top" Foreground="red" FontSize="23   "/>
 

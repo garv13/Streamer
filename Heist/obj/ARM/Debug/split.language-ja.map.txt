@@ -1,6 +1,0 @@
-﻿[ResourceMetadata]
-"ResourceId"			"split.language-ja"
-"ResourceDimensions"		"language-ja-jp"
-
-[Files]
-"C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\obj\ARM\Debug\split.language-ja.pri"			"resources.pri"

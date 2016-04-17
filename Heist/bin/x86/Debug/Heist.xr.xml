@@ -199,6 +199,7 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="VerticalAlignment" />
+      <RootEvent Name="KeyDown" />
     </RootType>
     <RootType FullName="Heist.Login" />
     <RootType FullName="Windows.UI.Xaml.Controls.Border">
