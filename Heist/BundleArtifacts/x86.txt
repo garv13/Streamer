@@ -1,2 +1,0 @@
-MainPackage=C:\Users\garvj\documents\visual studio 2015\Projects\Heist\Heist\bin\x86\Release\Heist_1.0.3.0_x86.appx
-SymbolPackage=C:\Users\garvj\Desktop\streamer\Heist_1.0.3.0_Test\Heist_1.0.3.0_x86.appxsym

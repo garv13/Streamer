@@ -7,23 +7,44 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="#2b2f33">
-        <Image Source="/Assets/loginImg.jpg" Stretch="UniformToFill" Opacity="50"/>
-        <Grid>
+    <Grid RequestedTheme="Dark">
+        <Grid.Background>
+            <ImageBrush ImageSource="Assets/39b18410-339f-0133-4763-0a2ca390b4472.jpg"  Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.3*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition Width="0.4*"/>
+        </Grid.ColumnDefinitions>
+        <ProgressBar x:Name="LoadingBar" Grid.RowSpan="3" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Collapsed"/>
+
+        <Grid Grid.Column="1" Grid.Row="1"  BorderThickness="2,2,2,6" BorderBrush="#FFC9C9C9">
+            <Grid.Background>
+                <SolidColorBrush Color="White" Opacity="0.7"/>
+            </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition Height="0.33*"/>
                 <RowDefinition Height="0.1*"/>
                 <RowDefinition Height="0.1*"/>
-                <RowDefinition Height="0.1*"/>
-                <RowDefinition Height="0.33*"/>
-            </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Text="Streamer" FontFamily="Garamond" Foreground="#FFF7F7" Margin="0,15,0,0" HorizontalAlignment="Center" FontSize="35"/>
-            <ProgressBar HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Collapsed" x:Name="LoadingBar" Grid.Row="2"/>
-            <TextBox x:Name="UserName" PlaceholderText="Enter UserName" InputScope="AlphanumericFullWidth" Width="300" Height="50" Opacity="50" Foreground="White" Grid.Row="1" Background="Transparent" BorderBrush="#F24A4A" BorderThickness="0,0,0,5"/>
-            <PasswordBox KeyDown="Password_KeyDown" x:Name="Password" PlaceholderText="Enter Password" Width="300" Height="50" Opacity="50" Foreground="White" Background="Transparent" Grid.Row="2" BorderBrush="#F24A4A" BorderThickness="0,0,0,5"/>
-            <Button Content="Login" Grid.Row="3" Height="50" Width="100" Click="Button_Click" FontFamily="Lucida Calligraphy" Background="Transparent" HorizontalAlignment="Center" BorderBrush="#191919" Foreground="#EC4AF2" FontSize="23"/>
-            <Button Content="Sign Up" Grid.Row="4" Height="50" Width="150" Click="Button_Click_1" FontFamily="Lucida Calligraphy" Background="Transparent" HorizontalAlignment="Center" BorderBrush="#191919" VerticalAlignment="Top" Foreground="red" FontSize="23   "/>
+                <RowDefinition Height="0.01*"/>
 
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.01*"/>
+
+                <RowDefinition Height="0.1*"/>
+
+            </Grid.RowDefinitions>
+            <TextBlock TextAlignment="Center" Foreground="Black"  Text="E-Book Streamer Author" FontSize="24" FontFamily="Yu Gothic UI" />
+            <TextBox  x:Name="UserName" PlaceholderText="Enter UserName" Margin="10,0" InputScope="AlphanumericFullWidth"  Opacity="50" Foreground="Black" Grid.Row="1" Background="Transparent" BorderBrush="#FF933729" BorderThickness="0,0,0,5" Padding="10,10,6,5" >
+            </TextBox>
+            <PasswordBox KeyDown="Password_KeyDown" x:Name="Password" PlaceholderText="Enter Password" Margin="10,0"  Opacity="50" Foreground="Black" Background="Transparent" Grid.Row="2" BorderBrush="#FF933729" BorderThickness="0,0,0,5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="10,10,6,0"/>
+            <Button  Grid.Row="4" Content="LOG IN" Foreground="White" HorizontalAlignment="Stretch" Margin="10,0" VerticalAlignment="Stretch"  Background="#FF933729" Click="Button_Click" />
+            <Button Grid.Row="6"  Content="SIGN UP" Foreground="White"  HorizontalAlignment="Stretch" Margin="10,0" VerticalAlignment="Stretch" Click="Button_Click_1"  Background="#FF933729"/>
         </Grid>
     </Grid>
 </Page>

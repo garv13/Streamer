@@ -96,6 +96,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\39b18410-339f-0133-4763-0a2ca390b4472.jpg" />
     <Content Include="Assets\whataboutme.jpg" />
     <Content Include="ebookstreamer_me.crt" />
     <Content Include="Assets\lol.txt" />

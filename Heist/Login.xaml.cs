@@ -124,5 +124,10 @@ namespace Heist
         {
             Frame.Navigate(typeof(SignUp));
         }
+
+        private void Button_Click_2(System.Object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
