@@ -143,8 +143,8 @@
                                 <RowDefinition Height="0.1*"/>
                                 <RowDefinition Height="0.7*"/>
                             </Grid.RowDefinitions>
-                            <TextBlock Text="Description" FontSize="22" Margin="0,5,0,0" HorizontalAlignment="Center"/>
-                        <TextBlock x:Name="DescBlock" Grid.Row="1" TextWrapping="WrapWholeWords" FontSize="18" Margin="5,5,5,5" Text="{Binding}"/>
+                            <TextBlock Text="Description" FontSize="22" Margin="0,5,0,0" HorizontalAlignment="Center" Foreground="White"/>
+                            <TextBlock x:Name="DescBlock" Grid.Row="1" Foreground="White" TextWrapping="WrapWholeWords" FontSize="18" Margin="5,5,5,5" Text="{Binding}"/>
                         </Grid>
                     </Grid>
                 </Grid>
