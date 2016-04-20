@@ -79,7 +79,8 @@
                     </Grid.ColumnDefinitions>
                     <ProgressBar Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="LoadingBar" Grid.RowSpan="2"/>
 
-                    <GridView         
+                    <GridView  
+                       
                      Grid.Row="1"
                     Grid.ColumnSpan="2"
                         HorizontalAlignment="Stretch"

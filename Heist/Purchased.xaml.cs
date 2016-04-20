@@ -47,6 +47,7 @@ namespace Heist
 
         private async void Purchased_Loaded(object sender, RoutedEventArgs e)
         {
+            
             LoadingBar.Visibility = Visibility.Visible;
             LoadingBar.IsIndeterminate = true;
             try

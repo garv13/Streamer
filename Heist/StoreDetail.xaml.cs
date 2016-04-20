@@ -51,7 +51,7 @@ namespace Heist
             Cover.Source = rec.Image;
             FullCost.Text = rec.Price;
             Author.Text = rec.Author;
-            //  DescBlock.Text = // Add description of the book
+            DescBlock.Text = rec.desc;
             FullCost.Text = "Full Book Price: " + rec.Price;
 
             try

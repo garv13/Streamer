@@ -57,6 +57,7 @@ namespace Heist
                     temp.Image = new Windows.UI.Xaml.Media.Imaging.BitmapImage(new Uri(lol.ImageUri2));
                     temp.Id = lol.Id;
                     temp.Price = lol.Price.ToString();
+                    temp.desc = lol.Description;
                     StoreList.Add(temp);
                 }
                 Box.AutoCompleteSource = BookNames;
