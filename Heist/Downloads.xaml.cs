@@ -263,6 +263,8 @@ namespace Heist
                     pdfViewer.LoadDocument(fileStream);
                     event2.Visibility = Visibility.Collapsed;
                     PdfGrid.Visibility = Visibility.Visible;
+                    Appbar.Visibility = Visibility.Visible;
+                    return;
                 }
               if((ob.userName.CompareTo(testlol) != 0))
                  {
@@ -285,28 +287,39 @@ namespace Heist
                 Appbar.Visibility = Visibility.Visible;
                
             }
-            catch(Exception e)
+            catch(Exception)
             {
+                LoadingBar.Visibility = Visibility.Collapsed;
                 await (new MessageDialog("Can't open Pdf")).ShowAsync();
             }
         }
 
         async Task tts(string text)
         {
+            byte[] buffer;
             try
             {
+                if (text.CompareTo("ms-appx://Assets/test.pdf") == 0)
+                {
+                    StorageFile stream = await StorageFile.GetFileFromApplicationUriAsync(new Uri(this.BaseUri, "Assets/lol.txt"));
+                    Stream fileStream = await stream.OpenStreamForReadAsync();
+                    buffer = new byte[fileStream.Length];
+                    fileStream.Read(buffer, 0, buffer.Length);
+                    goto p;
+                }
 
                 if ((ob.userName.CompareTo(testlol) != 0))
                 {
                     await (new MessageDialog("Maybe this Pdf doesn't belong to you.If it does then download it again plzzz :):)")).ShowAsync();
                     Frame.Navigate(typeof(Downloads));
                 }
+
                 StorageFile file = await openBook.GetFileAsync(text);
                 var l = await file.OpenAsync(FileAccessMode.Read);
                 Stream str = l.AsStreamForRead();
-                byte[] buffer = new byte[str.Length];
+                buffer = new byte[str.Length];
                 str.Read(buffer, 0, buffer.Length);
-
+                p:;
                 // Loads the PDF document.
                 PdfLoadedDocument ldoc = new PdfLoadedDocument(buffer);
                 // Loading Page collections
@@ -327,6 +340,7 @@ namespace Heist
                 mediaElement.DefaultPlaybackRate = 0.85;
                 mediaElement.SetSource(syntStream, syntStream.ContentType);
                 mediaElement.Play();
+                LoadingBarPdf.Visibility = Visibility.Collapsed;
 
             }
             catch(Exception)
@@ -339,9 +353,9 @@ namespace Heist
         private async void PlayPdf_Click(object sender, RoutedEventArgs e)
         {
             LoadingBarPdf.IsActive = true;
-            LoadingBarPdf.Visibility = Visibility.Visible;
+            LoadingBarPdf.Visibility = Visibility.Visible;     
             await tts(loc);
-            LoadingBarPdf.Visibility = Visibility.Collapsed;
+
         }
     }
 }

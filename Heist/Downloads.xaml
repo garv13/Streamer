@@ -116,9 +116,9 @@
                     </GridView>
 
                     <Grid x:Name="PdfGrid" Visibility="Collapsed">
-                        <ProgressRing x:Name="LoadingBarPdf" Visibility="Collapsed"/>
-                        <MediaElement x:Name="mediaElement"/>
                         <syncfusion:SfPdfViewerControl Name="pdfViewer" PageView="SinglePageView" ViewMode="OnePage"></syncfusion:SfPdfViewerControl>
+                        <MediaElement x:Name="mediaElement"/>
+                        <ProgressRing x:Name="LoadingBarPdf" Visibility="Collapsed" Height="40" Width="40" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                     </Grid>
                 </Grid>
             </Grid>

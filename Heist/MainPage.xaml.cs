@@ -111,7 +111,10 @@ namespace Heist
 
                 a.wallet += int.Parse(Funds.Text);
                 await Table2.UpdateAsync(a);
+                MessageDialog msgbox1 = new MessageDialog("Money Added!!");
                 LoadingBar.Visibility = Visibility.Collapsed;
+                await msgbox1.ShowAsync();
+                Frame.Navigate(typeof(MainPage));
             }
             catch(Exception)
             {

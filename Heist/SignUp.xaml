@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="#393939">
+    <Grid Background="White" Opacity="0.7">
 
         <Grid>
             <Grid.RowDefinitions>
@@ -25,23 +25,29 @@
                 <ColumnDefinition Width="0.55*"/>
                 <ColumnDefinition Width="0.25*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" HorizontalAlignment="Left" Grid.Row="1" FontFamily="Lato" Foreground="White" TextWrapping="Wrap" Text="Full Name" Margin="10,0,0,0" FontSize="22" VerticalAlignment="Center"/>
-            <TextBlock Grid.Column="0" HorizontalAlignment="Left" Grid.Row="2" FontFamily="Lato" Foreground="White" TextWrapping="Wrap" Text="Mobile No." Margin="10,0,0,0" FontSize="22" VerticalAlignment="Center"/>
-            <TextBlock Grid.Column="0" HorizontalAlignment="Left" FontFamily="Lato" Grid.Row="4" Foreground="white" TextWrapping="Wrap" Text="User Name" Margin="10,0,0,0" FontSize="22" VerticalAlignment="Center"/>
-            <TextBlock Grid.Column="0" HorizontalAlignment="Left" Grid.Row="5" FontFamily="Lato" Foreground="white" TextWrapping="Wrap" Text="Password" Margin="10,0,0,0" FontSize="22" VerticalAlignment="Center"/>
-            <TextBlock Grid.Column="0" HorizontalAlignment="Left" FontFamily="Lato" Grid.Row="3" Foreground="White" TextWrapping="Wrap" Text="E-Mail" Margin="10,0,0,0" FontSize="22" VerticalAlignment="Center"/>
-            <TextBlock Grid.Column="0" HorizontalAlignment="Left" FontFamily="Lato" Grid.Row="6" Foreground="white" TextWrapping="Wrap" Text="Confirm Password" Margin="10,0,0,0" FontSize="22" VerticalAlignment="Center"/>
-            <TextBlock x:Name="MistakeBox" Margin="10,0,0,0" TextWrapping="WrapWholeWords" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="left" Grid.Row="7" Foreground="#BCEBC9" FontSize="15" VerticalAlignment="Center" Visibility="Collapsed"/>
+            <TextBlock Grid.Column="0" HorizontalAlignment="Left" Grid.Row="1" FontFamily="Lato" Foreground="Black" TextWrapping="Wrap" Text="Full Name" Margin="20,0,0,0" FontSize="22" VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="0" HorizontalAlignment="Left" Grid.Row="2" FontFamily="Lato" Foreground="Black" TextWrapping="Wrap" Text="Mobile No." Margin="20,0,0,0" FontSize="22" VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="0" HorizontalAlignment="Left" FontFamily="Lato" Grid.Row="4" Foreground="Black" TextWrapping="Wrap" Text="User Name" Margin="20,0,0,0" FontSize="22" VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="0" HorizontalAlignment="Left" Grid.Row="5" FontFamily="Lato" Foreground="Black" TextWrapping="Wrap" Text="Password" Margin="20,0,0,0" FontSize="22" VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="0" HorizontalAlignment="Left" FontFamily="Lato" Grid.Row="3" Foreground="Black" TextWrapping="Wrap" Text="E-Mail" Margin="20,0,0,0" FontSize="22" VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="0" HorizontalAlignment="Left" FontFamily="Lato" Grid.Row="6" Foreground="Black" TextWrapping="Wrap" Text="Confirm Password" Margin="20,0,0,0" FontSize="22" VerticalAlignment="Center"/>
+            <TextBlock x:Name="MistakeBox" Margin="15,0,0,0" TextWrapping="WrapWholeWords" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="left" Grid.Row="7" Foreground="Red" FontSize="15" VerticalAlignment="Center" Visibility="Collapsed"/>
 
             <ProgressBar Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Collapsed" x:Name="LoadingBar"/>
 
-            <TextBox x:Name="Name" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" Foreground="White" TextWrapping="Wrap" PlaceholderText="Enter Name" Background="Transparent" BorderBrush="#857878" BorderThickness="0,0,0,5" FontSize="20" VerticalAlignment="Center"/>
-            <TextBox x:Name="Mobile" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Foreground="White" TextWrapping="Wrap" PlaceholderText="Enter Mobile" InputScope="TelephoneNumber" Background="Transparent" BorderBrush="#857878" BorderThickness="0,0,0,5" FontSize="20" VerticalAlignment="Center"/>
-            <TextBox x:Name="UserName" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="4" Foreground="White" TextWrapping="Wrap" PlaceholderText="Enter User Name" Background="Transparent" BorderBrush="#857878" BorderThickness="0,0,0,5" FontSize="20" VerticalAlignment="Center"/>
-            <PasswordBox x:Name="Password" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="5" Foreground="White" PlaceholderText="Enter Password" Background="Transparent" BorderBrush="#857878" BorderThickness="0,0,0,5" FontSize="20" VerticalAlignment="Center"/>
-            <TextBox x:Name="Email" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="3" Foreground="White" TextWrapping="Wrap" PlaceholderText="Enter Email" InputScope="EmailNameOrAddress" Background="Transparent" BorderBrush="#857878" BorderThickness="0,0,0,5" FontSize="20" VerticalAlignment="Center"/>
-            <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontFamily="Constantia" HorizontalAlignment="Center" Foreground="#C9C9C9" TextWrapping="Wrap" Text="Sign UP" FontSize="40" VerticalAlignment="Center"/>
-            <Button Grid.Row="7" Grid.Column="2" HorizontalAlignment="Right" Content="Register" Foreground="#BCEBC9" Margin="0,0,10,0" Background="Transparent" FontSize="30" Click="Button_Click"/>
+            <TextBox x:Name="Name" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="1" Foreground="Black" TextWrapping="Wrap" PlaceholderText="Enter Name" Background="Transparent" BorderBrush="#857878" BorderThickness="0,0,0,5" FontSize="20" VerticalAlignment="Center"/>
+            <TextBox x:Name="Mobile" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" Foreground="Black" TextWrapping="Wrap" PlaceholderText="Enter Mobile" InputScope="TelephoneNumber" Background="Transparent" BorderBrush="#857878" BorderThickness="0,0,0,5" FontSize="20" VerticalAlignment="Center"/>
+            <TextBox x:Name="UserName" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="4" Foreground="Black" TextWrapping="Wrap" PlaceholderText="Enter User Name" Background="Transparent" BorderBrush="#857878" BorderThickness="0,0,0,5" FontSize="20" VerticalAlignment="Center"/>
+            <PasswordBox x:Name="Password" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="5" Foreground="Black" PlaceholderText="Enter Password" Background="Transparent" BorderBrush="#857878" BorderThickness="0,0,0,5" FontSize="20" VerticalAlignment="Center"/>
+            <TextBox x:Name="Email" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="3" Foreground="Black" TextWrapping="Wrap" PlaceholderText="Enter Email" InputScope="EmailNameOrAddress" Background="Transparent" BorderBrush="#857878" BorderThickness="0,0,0,5" FontSize="20" VerticalAlignment="Center"/>
+            <TextBlock Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontFamily="Constantia" HorizontalAlignment="Center" Foreground="Black" TextWrapping="Wrap" Text="Sign UP" FontSize="40" VerticalAlignment="Center"/>
+            <Button Grid.Row="7" Grid.Column="2" Foreground="Black" HorizontalAlignment="Right" Margin="0,0,10,0" Background="Transparent" Click="Button_Click">
+                <Button.Content>
+                    <Border CornerRadius="5" Height="35" Width="95" BorderBrush="#C52A17" Margin="0" BorderThickness="4,4,4,4">
+                        <TextBlock Text="Register" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </Button.Content>
+            </Button>
             <PasswordBox x:Name="ConfirmPassword" Grid.Column="1" HorizontalAlignment="Left" Grid.Row="6" Foreground="White" PlaceholderText="Re-Enter Password" Background="Transparent" BorderBrush="#857878" BorderThickness="0,0,0,5" FontSize="20" VerticalAlignment="Center"/>
 
         </Grid>

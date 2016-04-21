@@ -62,6 +62,13 @@ namespace Heist
                               => User.username == testlol).ToCollectionAsync();
                 test = items[0].purchases;
                 string[] test2 = test.Split(',');
+                if(test.Length == 0)
+                {
+                    noPurchase.Text = "You have not purchased anything";
+                    noPurchase.Visibility = Visibility.Visible;
+                    LoadingBar.Visibility = Visibility.Collapsed;
+                    goto ex;
+                }
                 for (int i = 0; i < test2.Length; i++)
                 {
                     string test3 = test2[i];
@@ -85,6 +92,7 @@ namespace Heist
                 LoadingBar.Visibility = Visibility.Collapsed;
 
                 StoreListView.ItemsSource = StoreList;
+                ex:;
             }
             catch(Exception)
             {
