@@ -12,6 +12,7 @@ using Windows.Networking;
 using Windows.Networking.Sockets;
 using Windows.Security.Cryptography.Certificates;
 using Windows.Storage.Streams;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -72,8 +73,9 @@ namespace Heist
             Frame.Navigate(typeof(About));
         }
 
-        private void MenuButton6_Click(object sender, RoutedEventArgs e)
+        private async void MenuButton6_Click(object sender, RoutedEventArgs e)
         {
+            await (new MessageDialog("You are successfully loged out :):)")).ShowAsync();
             Frame.Navigate(typeof(Login));
         }
     }

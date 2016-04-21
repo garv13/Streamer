@@ -126,8 +126,9 @@ namespace Heist
             Frame.Navigate(typeof(About));
         }
 
-        private void MenuButton6_Click(object sender, RoutedEventArgs e)
+        private async void MenuButton6_Click(object sender, RoutedEventArgs e)
         {
+            await (new MessageDialog("You are successfully loged out :):)")).ShowAsync();
             Frame.Navigate(typeof(Login));
         }
         private async void Button_Click(object sender, RoutedEventArgs e)

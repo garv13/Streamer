@@ -106,8 +106,9 @@ namespace Heist
             Frame.Navigate(typeof(About));
         }
 
-        private void MenuButton6_Click(object sender, RoutedEventArgs e)
+        private async void MenuButton6_Click(object sender, RoutedEventArgs e)
         {
+            await (new MessageDialog("You are successfully loged out :):)")).ShowAsync();
             Frame.Navigate(typeof(Login));
         }
 
@@ -122,7 +123,7 @@ namespace Heist
             try
             {
                 items = await Table.Where(Book
-                        => Book.Title.Contains(Box.Text)).ToCollectionAsync();
+                        => Book.Title.Contains(Box.Text) && Book.IsReady == true).ToCollectionAsync();
                 foreach (Book lol in items)
                 {
                     temp = new StoreListing();
