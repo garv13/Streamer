@@ -144,17 +144,20 @@ namespace Heist
                     break;
                 }              
             }
-
-         
-
-
             try
             {
                 var test = sender as Button;
                 var test2 = test.Parent as Grid;
                 var test3 = test2.Children[2] as TextBlock;
                 var test4 = test2.Children[0] as TextBlock;
-                string nam = test4.Text.ElementAt<char>((test4.Text.Length) - 1).ToString();
+                string ab = test4.Text.Substring((test4.Text.Length) - 2);              
+                string nam = "";
+                foreach (char c in ab)
+                {
+                    if (char.IsDigit(c))
+                        nam = nam + c.ToString();         
+                }
+                
                 string titl = Title.Text;
                 Uri url = new Uri("https://www.ebookstreamer.me/downloads");
                 HttpClient httpClient = new HttpClient();

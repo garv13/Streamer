@@ -244,9 +244,18 @@ namespace Heist
             if (str != "")
                 await retreive(t2.Text);
             else if (t2.Text.CompareTo("about me") == 0)
-                 await printPdf("ms-appx://Assets/test.pdf");
-                 else
-                await printPdf(t2.Text.ElementAt<char>(t2.Text.Length-1).ToString()+".txt");
+                await printPdf("ms-appx://Assets/test.pdf");
+            else
+            {
+                string ab = t2.Text.Substring((t2.Text.Length) - 2);
+                string nam = "";
+                foreach (char c in ab)
+                {
+                    if (char.IsDigit(c))
+                        nam = nam + c.ToString();
+                }
+                await printPdf(nam + ".txt");
+            }
             LoadingBar.Visibility = Visibility.Collapsed;
         }
 
