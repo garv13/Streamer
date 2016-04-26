@@ -23,7 +23,7 @@ namespace Heist
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Purchased : Page
+    public sealed partial class CreateCollection : Page
     {
         private IMobileServiceTable<User> Table = App.MobileService.GetTable<User>();
         private MobileServiceCollection<User, User> items;
@@ -35,17 +35,16 @@ namespace Heist
         List<string> lis;
 
         private List<StoreListing> StoreList;
-        
 
-        public Purchased()
+        public CreateCollection()
         {
             this.InitializeComponent();
             li = new List<StoreListing>();
             lis = new List<string>();
-            Loaded += Purchased_Loaded;
+            Loaded += CreateCollection_Loaded;
         }
 
-        private async void Purchased_Loaded(object sender, RoutedEventArgs e)
+        private async void CreateCollection_Loaded(object sender, RoutedEventArgs e)
         {
             
             LoadingBar.Visibility = Visibility.Visible;
@@ -62,7 +61,7 @@ namespace Heist
                               => User.username == testlol).ToCollectionAsync();
                 test = items[0].purchases;
                 string[] test2 = test.Split(',');
-                if(test.Length == 0)
+                if (test.Length == 0)
                 {
                     noPurchase.Text = "You have not purchased anything";
                     noPurchase.Visibility = Visibility.Visible;
@@ -94,7 +93,7 @@ namespace Heist
                 StoreListView.ItemsSource = StoreList;
                 ex:;
             }
-            catch(Exception)
+            catch (Exception)
             {
                 LoadingBar.Visibility = Visibility.Collapsed;
                 await (new MessageDialog("Can't Update Now")).ShowAsync();
@@ -108,7 +107,7 @@ namespace Heist
             p.purchases = test;
             p.sel = sent;
             //sent.Price = 50.ToString();
-            Frame.Navigate(typeof(Purchaseddetail), p);
+            Frame.Navigate(typeof(CreateDetail), p);
         }
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
         {
@@ -149,6 +148,20 @@ namespace Heist
         {
             await (new MessageDialog("You are successfully loged out :):)")).ShowAsync();
             Frame.Navigate(typeof(Login));
+        }
+        private async void NextBar_Click(object sender, RoutedEventArgs e)
+        {
+            if (App.mc.Count != 0)
+            {
+                await (new MessageDialog("Please review books once")).ShowAsync();
+                Frame.Navigate(typeof(CollectionSort));
+            }
+            else
+                await (new MessageDialog("Select atleast one chapter")).ShowAsync();
+        }
+        private void BackBar_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MyCollection));
         }
     }
 }

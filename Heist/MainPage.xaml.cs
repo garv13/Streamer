@@ -86,7 +86,10 @@ namespace Heist
             Frame.Navigate(typeof(Store));
         }
 
-
+        private void MenuButton7_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MyCollection));
+        }
         private void MenuButton5_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(About));

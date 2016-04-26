@@ -1,16 +1,17 @@
-﻿using Microsoft.WindowsAzure.MobileServices;
+﻿using Newtonsoft.Json;
+using Syncfusion.Pdf;
 using Syncfusion.Pdf.Parsing;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Drawing;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
 using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Media.SpeechSynthesis;
 using Windows.Storage;
-using Windows.System;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -18,12 +19,8 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Media.Imaging;
-using System.Text;
-using Newtonsoft.Json;
-using Syncfusion.Pdf;
-using Windows.Media.SpeechSynthesis;
+using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -32,18 +29,19 @@ namespace Heist
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Downloads : Page
+    public sealed partial class MyCollection : Page
     {
-        public Downloads()
+        public MyCollection()
         {
+            App.mc.Clear();
             this.InitializeComponent();
             lol();
         }
-        //private IMobileServiceTable<Book> Table2 = App.MobileService.GetTable<Book>();
-        //private MobileServiceCollection<Book, Book> items2;
+
+
         public BitmapImage Im { get; set; }
         string testlol;
-        BookData ob = new BookData();
+        MeriCollection ob = new MeriCollection();
         StorageFolder openBook = null;
 
         async void lol()
@@ -58,14 +56,14 @@ namespace Heist
         }
         async Task retreive(string name)
         {
-    
+
             try
             {
                 List<GridClass> lg = new List<GridClass>();
                 GridClass gd = new GridClass();
 
                 if (name.CompareTo("about me") == 0)
-                {                  
+                {
                     gd.Image = new BitmapImage(new Uri(this.BaseUri, "Assets/whataboutme.jpg"));
                     gd.authName = "";
                     gd.title = "about me";
@@ -76,11 +74,11 @@ namespace Heist
                 }
                 else
                 {
-                    StorageFolder mainFol = await ApplicationData.Current.LocalFolder.CreateFolderAsync(testlol + "My Books", CreationCollisionOption.OpenIfExists);
+                    StorageFolder mainFol = await ApplicationData.Current.LocalFolder.CreateFolderAsync(testlol + "My Collections", CreationCollisionOption.OpenIfExists);
 
                     if (mainFol != null)
                     {
-                        ob = new BookData();
+                        ob = new MeriCollection();
                         StorageFolder folder = await mainFol.CreateFolderAsync(name, CreationCollisionOption.OpenIfExists);
                         openBook = folder;
 
@@ -91,12 +89,9 @@ namespace Heist
                         {
                             string line;
                             line = streamReader.ReadToEnd();
-                            ob = JsonConvert.DeserializeObject<BookData>(line);
+                            ob = JsonConvert.DeserializeObject<MeriCollection>(line);
                         }
                         IReadOnlyList<StorageFile> sf = await folder.GetFilesAsync();
-                        StorageFile imgFile = await folder.GetFileAsync("image.jpeg");
-                        Im = new BitmapImage(new Uri(imgFile.Path));
-
                         foreach (StorageFile s in sf)
                         {
                             gd = new GridClass();
@@ -106,7 +101,6 @@ namespace Heist
                                 break;
                             gd = new GridClass();
                             gd.title = "Chapter No:" + s.DisplayName;
-                            gd.Image = Im;
                             gd.authName = "";
                             lg.Add(gd);
                         }
@@ -116,7 +110,7 @@ namespace Heist
                     }
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
                 await (new MessageDialog("ahhmm Something not so good Happened :(:(")).ShowAsync();
             }
@@ -153,13 +147,10 @@ namespace Heist
             Frame.Navigate(typeof(About));
         }
 
-        private void MenuButton7_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(MyCollection));
-        }
+
         private async void MenuButton6_Click(object sender, RoutedEventArgs e)
         {
-            await(new MessageDialog("You are successfully loged out :):)")).ShowAsync();
+            await (new MessageDialog("You are successfully loged out :):)")).ShowAsync();
             Frame.Navigate(typeof(Login));
         }
 
@@ -169,16 +160,16 @@ namespace Heist
             {
                 List<GridClass> lg = new List<GridClass>();
                 GridClass gd = new GridClass();
-                StorageFolder folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync(testlol + "My Books", CreationCollisionOption.OpenIfExists);
-                IReadOnlyList<StorageFolder> sf = await folder.GetFoldersAsync();        
-                gd.Image = new BitmapImage(new Uri(this.BaseUri ,"Assets/whataboutme.jpg"));
+                StorageFolder folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync(testlol + "My Collections", CreationCollisionOption.OpenIfExists);
+                IReadOnlyList<StorageFolder> sf = await folder.GetFoldersAsync();
+                gd.Image = new BitmapImage(new Uri(this.BaseUri, "Assets/whataboutme.jpg"));
                 gd.authName = "test me";
                 gd.title = "about me";
                 lg.Add(gd);
                 foreach (StorageFolder s in sf)
                 {
                     gd = new GridClass();
-                    ob = new BookData();
+                    ob = new MeriCollection();
                     StorageFile sampleFile = await s.GetFileAsync("UserName.txt");
                     var t = await sampleFile.OpenAsync(FileAccessMode.Read);
                     Stream na = t.AsStreamForRead();
@@ -186,16 +177,13 @@ namespace Heist
                     {
                         string line;
                         line = streamReader.ReadToEnd();
-                        ob = JsonConvert.DeserializeObject<BookData>(line);
+                        ob = JsonConvert.DeserializeObject<MeriCollection>(line);
                     }
 
                     IReadOnlyList<StorageFile> fi = await s.GetFilesAsync();
-                    StorageFile imgFile = await s.GetFileAsync("image.jpeg");
-                    Im = new BitmapImage(new Uri(imgFile.Path));
                     gd = new GridClass();
-                    gd.title = ob.Title;
-                    gd.Image = Im;
-                    gd.authName = ob.Author;
+                    gd.title = ob.BookName;
+                    gd.authName = ob.UserName;
                     lg.Add(gd);
                 }
 
@@ -207,11 +195,11 @@ namespace Heist
                 else
                 {
                     LoadingBar.Visibility = Visibility.Collapsed;
-                    ErrorBox.Text = "No Books Downloaded";
+                    ErrorBox.Text = "No Collections created";
                     ErrorBox.Visibility = Visibility.Visible;
                 }
             }
-            catch(Exception)
+            catch (Exception)
             {
                 LoadingBar.Visibility = Visibility.Collapsed;
                 await (new MessageDialog("Oops Something Bad Happened :(:(")).ShowAsync();
@@ -241,7 +229,7 @@ namespace Heist
             }
             TextBlock t = auth as TextBlock;
             TextBlock t2 = titl as TextBlock;
-            
+
             string str = t.Text;
 
             if (str != "")
@@ -271,19 +259,21 @@ namespace Heist
             {
                 if (text.CompareTo("ms-appx://Assets/test.pdf") == 0)
                 {
-                    StorageFile stream = await StorageFile.GetFileFromApplicationUriAsync(new Uri(this.BaseUri , "Assets/lol.txt"));
+                    StorageFile stream = await StorageFile.GetFileFromApplicationUriAsync(new Uri(this.BaseUri, "Assets/lol.txt"));
                     Stream fileStream = await stream.OpenStreamForReadAsync();
                     pdfViewer.LoadDocument(fileStream);
                     event2.Visibility = Visibility.Collapsed;
                     PdfGrid.Visibility = Visibility.Visible;
+                    CreateColl.Visibility = Visibility.Collapsed;
+                    PlayPdf.Visibility = Visibility.Visible;
                     Appbar.Visibility = Visibility.Visible;
                     return;
                 }
-              if((ob.userName.CompareTo(testlol) != 0))
-                 {
+                if ((ob.UserName.CompareTo(testlol) != 0))
+                {
                     await (new MessageDialog("Maybe this Pdf doesn't belong to you.If it does then download it again plzzz :):)")).ShowAsync();
                     Frame.Navigate(typeof(Downloads));
-                 }
+                }
                 StorageFile file = await openBook.GetFileAsync(text);
                 var l = await file.OpenAsync(FileAccessMode.Read);
                 Stream str = l.AsStreamForRead();
@@ -291,16 +281,20 @@ namespace Heist
                 str.Read(buffer, 0, buffer.Length);
 
                 // Loads the PDF document.
-               
+
                 PdfLoadedDocument ldoc = new PdfLoadedDocument(buffer);
                 TitlBox.Text = "Chapter " + text.ElementAt<char>(0).ToString();
                 pdfViewer.LoadDocument(ldoc);
                 event2.Visibility = Visibility.Collapsed;
                 PdfGrid.Visibility = Visibility.Visible;
+                CreateColl.Visibility = Visibility.Collapsed;
+                PlayPdf.Visibility = Visibility.Visible;
                 Appbar.Visibility = Visibility.Visible;
-               
+              
+
+
             }
-            catch(Exception)
+            catch (Exception)
             {
                 LoadingBar.Visibility = Visibility.Collapsed;
                 await (new MessageDialog("Can't open Pdf")).ShowAsync();
@@ -321,7 +315,7 @@ namespace Heist
                     goto p;
                 }
 
-                if ((ob.userName.CompareTo(testlol) != 0))
+                if ((ob.UserName.CompareTo(testlol) != 0))
                 {
                     await (new MessageDialog("Maybe this Pdf doesn't belong to you.If it does then download it again plzzz :):)")).ShowAsync();
                     Frame.Navigate(typeof(Downloads));
@@ -356,7 +350,7 @@ namespace Heist
                 LoadingBarPdf.Visibility = Visibility.Collapsed;
 
             }
-            catch(Exception)
+            catch (Exception)
             {
                 LoadingBarPdf.Visibility = Visibility.Collapsed;
                 await (new MessageDialog("Can't read Pdf")).ShowAsync();
@@ -366,9 +360,19 @@ namespace Heist
         private async void PlayPdf_Click(object sender, RoutedEventArgs e)
         {
             LoadingBarPdf.IsActive = true;
-            LoadingBarPdf.Visibility = Visibility.Visible;     
+            LoadingBarPdf.Visibility = Visibility.Visible;
             await tts(loc);
 
+        }
+
+
+    private void MenuButton7_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MyCollection));
+        }
+        private void CreateColl_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(CreateCollection));
         }
     }
 }

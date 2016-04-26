@@ -29,16 +29,19 @@ namespace Heist
         /// </summary>
         public App()
         {
+
             Microsoft.ApplicationInsights.WindowsAppInitializer.InitializeAsync(
                 Microsoft.ApplicationInsights.WindowsCollectors.Metadata |
                 Microsoft.ApplicationInsights.WindowsCollectors.Session);
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }
+        public static List<MeriCollection> mc = new List<MeriCollection>();
         public static MobileServiceClient MobileService = new MobileServiceClient(
     Auth.web,
     Auth.key
 );
+
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
         /// will be used such as when the application is launched to open a specific file.

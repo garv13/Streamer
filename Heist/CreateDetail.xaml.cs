@@ -8,8 +8,8 @@ using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using Windows.Graphics.Imaging;
 using Windows.Storage;
+using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -17,7 +17,6 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
@@ -27,7 +26,7 @@ namespace Heist
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Purchaseddetail : Page
+    public sealed partial class CreateDetail : Page
     {
         private IMobileServiceTable<Book> Table2 = App.MobileService.GetTable<Book>();
         private MobileServiceCollection<Book, Book> items2;
@@ -36,12 +35,20 @@ namespace Heist
         private MobileServiceCollection<Chapter, Chapter> items;
         string testlol;
         private List<ChapterView> list;
-        public byte[] imgBuffer; 
-        public Purchaseddetail()
+        public byte[] imgBuffer;
+        public CreateDetail()
         {
             this.InitializeComponent();
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            SystemNavigationManager.GetForCurrentView().BackRequested += OnBackRequested;
         }
 
+        private void OnBackRequested(object sender, BackRequestedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+                Frame.Navigate(typeof(CreateCollection));
+            
+        }
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -68,7 +75,8 @@ namespace Heist
                     {
                         if (test4[1] != "full")
                             chaps.Add(test4[1]);
-                        else {
+                        else
+                        {
                             items = await Table.Where(Chapter
                 => Chapter.bookid == rec.sel.Id).ToCollectionAsync();
                             foreach (Chapter lol2 in items)
@@ -106,8 +114,8 @@ namespace Heist
                     await (new MessageDialog("Can't get data now please try again later")).ShowAsync();
                 }
             }
-            
-            catch(Exception)
+
+            catch (Exception)
             {
                 LoadingBar.Visibility = Visibility.Collapsed;
                 await (new MessageDialog("Can't get data now please try again later")).ShowAsync();
@@ -116,33 +124,25 @@ namespace Heist
 
         private async void Buy_Click(object sender, RoutedEventArgs e)
         {
-            string sn = "";
+            MeriCollection ob = new MeriCollection();
             LoadingBar.Visibility = Visibility.Visible;
             LoadingBar.IsIndeterminate = true;
-
-            items2 = await Table2.Where(Book
-                            => Book.Id == rec.sel.Id).ToCollectionAsync();
-            BookData b = new BookData();
-            foreach (Book lol in items2)
+            try
             {
-                b.Title = lol.Title;
-                b.Author = lol.Author;
-                b.userName = testlol;
-
-                try
+                items2 = await Table2.Where(Book
+                                => Book.Id == rec.sel.Id).ToCollectionAsync();
+                ob.BookId = rec.sel.Id;
+                ob.UserName = testlol;
+                foreach (Book lol in items2)
                 {
-                    HttpClient client = new HttpClient(); // Create HttpClient
-                    imgBuffer = await client.GetByteArrayAsync(lol.ImageUri2); // Download file
-
-                    sn = JsonConvert.SerializeObject(b);
-                  
+                    ob.BookName = lol.Title;
                 }
-                catch (Exception)
-                {
-                    LoadingBar.Visibility = Visibility.Collapsed;
-                    await (new MessageDialog("Something bad happened :(:(")).ShowAsync();
-                    break;
-                }              
+            }
+            catch (Exception)
+            {
+                LoadingBar.Visibility = Visibility.Collapsed;
+                await (new MessageDialog("Something bad happened :(:(")).ShowAsync();
+                return;
             }
             try
             {
@@ -150,69 +150,27 @@ namespace Heist
                 var test2 = test.Parent as Grid;
                 var test3 = test2.Children[2] as TextBlock;
                 var test4 = test2.Children[0] as TextBlock;
-                string ab = test4.Text.Substring((test4.Text.Length) - 2);              
+                string ab = test4.Text.Substring((test4.Text.Length) - 2);
                 string nam = "";
                 foreach (char c in ab)
                 {
                     if (char.IsDigit(c))
-                        nam = nam + c.ToString();         
+                        nam = nam + c.ToString();
                 }
-                
-                string titl = Title.Text;
-                Uri url = new Uri("https://www.ebookstreamer.me/downloads");
-                HttpClient httpClient = new HttpClient();
-                var myClientHandler = new HttpClientHandler();
-                //myClientHandler.ClientCertificateOptions = ClientCertificateOption.Automatic;
-                HttpResponseMessage httpResponse = new HttpResponseMessage();
-                var content = new FormUrlEncodedContent(new[]
-                 {
-                new KeyValuePair<string, string>("id", test3.Text)
-            });
-                httpResponse = await httpClient.PostAsync(url, content);
-                httpResponse.EnsureSuccessStatusCode();
-                Stream str = await httpResponse.Content.ReadAsStreamAsync();
 
-                byte[] pd = new byte[str.Length];
-                str.Read(pd, 0, pd.Length);
-                try
-                {
-                    StorageFolder mainFol = await ApplicationData.Current.LocalFolder.CreateFolderAsync(testlol + "My Books", CreationCollisionOption.OpenIfExists);
-                    if (mainFol != null)
-                    {
-                        StorageFolder folder = await mainFol.CreateFolderAsync(titl, CreationCollisionOption.OpenIfExists);
-                        if (folder != null)
-                        {
-                            StorageFile file = await folder.CreateFileAsync(nam + ".txt", CreationCollisionOption.ReplaceExisting);
-                            using (var fileStream = await file.OpenStreamForWriteAsync())
-                            {
-                                str.Seek(0, SeekOrigin.Begin);
-                                await str.CopyToAsync(fileStream);
-                            }
-                            StorageFile useFile =
-                           await folder.CreateFileAsync("UserName.txt", CreationCollisionOption.ReplaceExisting);
-                           await Windows.Storage.FileIO.WriteTextAsync(useFile, sn);                                                                               
-                            StorageFile imgFile =
-                         await folder.CreateFileAsync("image.jpeg", CreationCollisionOption.ReplaceExisting);
-                            using (Stream stream = await imgFile.OpenStreamForWriteAsync())
-                                stream.Write(imgBuffer, 0, imgBuffer.Length); // Save
-                        }
-                    }
-                    LoadingBar.Visibility = Visibility.Collapsed;
-                    await (new MessageDialog("Download Successful")).ShowAsync();
-                    Frame.Navigate(typeof(Downloads));
-                }
-                catch (Exception)
-                {
-                    LoadingBar.Visibility = Visibility.Collapsed;
-                    await (new MessageDialog("Can't download now please try after sometime")).ShowAsync();
-                }
+                ob.ChapterNo = nam;
+                ob.ChapterId = test3.Text;
+                App.mc.Add(ob);
+                LoadingBar.Visibility = Visibility.Collapsed;
+                await (new MessageDialog("Added Successful")).ShowAsync();
             }
-            catch(Exception)
+            catch (Exception)
             {
                 LoadingBar.Visibility = Visibility.Collapsed;
-                await (new MessageDialog("Something bad happened :(:(")).ShowAsync();
+                await (new MessageDialog("Can't Add now please try after sometime")).ShowAsync();
             }
         }
+        
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
         {
             MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
@@ -230,7 +188,7 @@ namespace Heist
 
         private void MenuButton3_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(Purchased)); 
+            Frame.Navigate(typeof(Purchased));
         }
 
         private void MenuButton4_Click(object sender, RoutedEventArgs e)
@@ -251,6 +209,22 @@ namespace Heist
         private void MenuButton7_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MyCollection));
+        }
+
+        private async void NextBar_Click(object sender, RoutedEventArgs e)
+        {
+            if (App.mc.Count != 0)
+            {
+                await (new MessageDialog("Please review books once")).ShowAsync();
+                Frame.Navigate(typeof(CollectionSort));
+            }
+            else
+                await (new MessageDialog("Select atleast one chapter")).ShowAsync();
+        }
+
+        private void BackBar_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(CreateCollection));
         }
     }
 }

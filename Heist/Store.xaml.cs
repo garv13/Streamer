@@ -112,6 +112,10 @@ namespace Heist
             Frame.Navigate(typeof(Login));
         }
 
+        private void MenuButton7_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MyCollection));
+        }
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             StoreListView.Visibility = Visibility.Collapsed;
