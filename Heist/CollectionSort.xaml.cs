@@ -36,6 +36,19 @@ namespace Heist
             StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
             StorageFile sampleFile = await folder.GetFileAsync("sample.txt");
             testlol = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
+            List<CollSort> myList = new List<CollSort>();
+            foreach (MeriCollection d in App.mc)
+            {
+                CollSort c = new CollSort();
+                c.BookId = d.BookId;
+                c.BookName = d.BookName;
+                c.ChapterId = d.ChapterId;
+                c.ChapterNo = d.ChapterNo;
+                c.UserName = d.UserName;
+                c.sel = false;
+                myList.Add(c);
+            }
+            View.ItemsSource = myList;
         }
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
         {
@@ -80,6 +93,7 @@ namespace Heist
         private async void NextBar_Click(object sender, RoutedEventArgs e)
         {
             LoadingBar.Visibility = Visibility.Visible;
+            
             LoadingBar.IsActive = true;
             string sn = "";
             MeriCollection l = new MeriCollection();
@@ -139,6 +153,16 @@ namespace Heist
             LoadingBar.Visibility = Visibility.Collapsed;
             await (new MessageDialog("Your collection was not made")).ShowAsync();
             Frame.Navigate(typeof(MyCollection));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

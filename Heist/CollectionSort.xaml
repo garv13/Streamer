@@ -14,7 +14,16 @@
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate x:Key="Standard3100x260ItemTemplate" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
-               <!--create you template-->
+                <Grid Height="50">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.2*"/>
+                        <ColumnDefinition Width="0.2*"/>
+                        <ColumnDefinition Width="0.2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{Binding BookName}" FontSize="16" Foreground="White"  Padding="10" Margin="10" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch"/>
+                    <TextBlock Text="{Binding ChapterNo}" FontSize="16" Foreground="White"  Padding="10" Margin="10" VerticalAlignment="Stretch" Grid.Column="1"  HorizontalAlignment="Stretch"/>
+                    <RadioButton IsChecked="{Binding sel}" x:Name="radioButton" Grid.Column="2" Padding="10" Margin="10" Content="Select" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" GroupName="lol"/>
+                </Grid>
             </DataTemplate>
         </ResourceDictionary>
     </Page.Resources>
@@ -53,8 +62,47 @@
         </SplitView.Pane>
         <SplitView.Content>
             <Grid Background="#292929">
-                <TextBox x:Name="CollName" PlaceholderText="Enter collection name" Foreground="White" Height="35" Width="200" HorizontalAlignment="Left" Margin="20,20,0,0"/>
-                <ProgressRing x:Name="LoadingBar" Visibility="Collapsed" Height="40" Width="40" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="0.2*"/>
+
+                    <RowDefinition Height="0.2*"/>
+       
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.1*"/>
+                    <ColumnDefinition Width="0.1*"/>
+                    <ColumnDefinition Width="0.9*"/>
+                    <ColumnDefinition Width="0.1*"/>
+
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="2" x:Name="CollName" PlaceholderText="Enter collection name" Foreground="White" Height="35" Width="200" HorizontalAlignment="Left" Margin="20,20,0,0"/>
+                <Button Click="Button_Click" Grid.Column="1" Grid.Row="1" Content="up" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18" Margin="20"/>
+                <Button Click="Button_Click_1" Grid.Column="1" Grid.Row="2" Content="down" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18" Margin="20"/>
+
+                <ListView  
+                       
+                     Grid.Row="1"
+          Grid.Column="2"
+                    Grid.RowSpan="2"
+                        HorizontalAlignment="Stretch"
+                        x:Name="View"
+                        VerticalAlignment="Stretch"
+                        ItemsSource="{Binding}"                      
+                    ItemTemplate="{StaticResource Standard3100x260ItemTemplate}"
+                        SelectionMode="None"          
+                        IsSwipeEnabled="false"
+                        IsItemClickEnabled="True"
+                      
+                        ScrollViewer.HorizontalScrollMode="Auto"
+                        ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                        ScrollViewer.VerticalScrollMode="Auto"
+                        ScrollViewer.VerticalScrollBarVisibility="Auto"
+                        Visibility="Visible"
+                      />
+                <ProgressRing Grid.ColumnSpan="4" Grid.RowSpan="4" x:Name="LoadingBar" Visibility="Collapsed" Height="40" Width="40" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
             </Grid>
         </SplitView.Content>
     </SplitView>

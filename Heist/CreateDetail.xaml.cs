@@ -126,6 +126,7 @@ namespace Heist
         {
             MeriCollection ob = new MeriCollection();
             LoadingBar.Visibility = Visibility.Visible;
+         
             LoadingBar.IsIndeterminate = true;
             try
             {
