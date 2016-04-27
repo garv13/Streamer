@@ -117,11 +117,15 @@
     <Compile Include="BookView.cs" />
     <Compile Include="Chapter.cs" />
     <Compile Include="ChapterView.cs" />
+    <Compile Include="CollDetail.xaml.cs">
+      <DependentUpon>CollDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Collections.cs" />
     <Compile Include="CollectionSort.xaml.cs">
       <DependentUpon>CollectionSort.xaml</DependentUpon>
     </Compile>
     <Compile Include="CollSort.cs" />
+    <Compile Include="CollView.cs" />
     <Compile Include="CreateCollection.xaml.cs">
       <DependentUpon>CreateCollection.xaml</DependentUpon>
     </Compile>
@@ -190,6 +194,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CollDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

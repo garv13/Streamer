@@ -9,6 +9,7 @@ namespace Heist
     class Collections
     {
         public string Id { get; set; }
+        public string Name { get; set; }
         public string books { get; set; }
         public int like { get; set; }
         public int downloads { get; set; }

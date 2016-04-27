@@ -27,7 +27,14 @@ namespace Heist
     {
         private IMobileServiceTable<Book> Table = App.MobileService.GetTable<Book>();
         private MobileServiceCollection<Book, Book> items;
+
+        private IMobileServiceTable<Collections> Table2 = App.MobileService.GetTable<Collections>();
+        private MobileServiceCollection<Collections, Collections> items2;
+
+
         private List<string> BookNames;
+        private List<string> CollNames;
+
         private List<StoreListing> StoreList;
         public Store()
         {
@@ -40,15 +47,25 @@ namespace Heist
             Box.Visibility = Visibility.Collapsed;
             SearchButton.Visibility = Visibility.Collapsed;
             StoreListView.Visibility = Visibility.Collapsed;
+
+            Box2.Visibility = Visibility.Collapsed;
+            SearchButton2.Visibility = Visibility.Collapsed;
+            StoreListView2.Visibility = Visibility.Collapsed;
+
+
             BookNames = new List<string>();
+            CollNames = new List<string>();
+
             StoreList = new List<StoreListing>();
+
+
             LoadingBar.IsIndeterminate = true;
             StoreListing temp;
             try
             {
                 items = await Table.Where(Book
                         => Book.IsReady == true).ToCollectionAsync();
-                foreach(Book lol in items)
+                foreach (Book lol in items)
                 {
                     temp = new StoreListing();
                     BookNames.Add(lol.Title);
@@ -60,13 +77,32 @@ namespace Heist
                     temp.desc = lol.Description;
                     StoreList.Add(temp);
                 }
+
+                items2 = await Table2.ToCollectionAsync();
+                foreach (Collections lol2 in items2)
+                {
+                    // temp = new StoreListing();
+                    CollNames.Add(lol2.Name);
+                }
+
+
                 Box.AutoCompleteSource = BookNames;
+                Box2.AutoCompleteSource = CollNames;
+
                 StoreListView.ItemsSource = StoreList;
+                StoreListView2.ItemsSource = items2;
+
+
                 Box.Visibility = Visibility.Visible;
                 StoreListView.Visibility = Visibility.Visible;
                 SearchButton.Visibility = Visibility.Visible;
                 LoadingBar.Visibility = Visibility.Collapsed;
-                
+
+                Box2.Visibility = Visibility.Visible;
+                StoreListView2.Visibility = Visibility.Visible;
+                SearchButton2.Visibility = Visibility.Visible;
+                LoadingBar2.Visibility = Visibility.Collapsed;
+
             }
             catch (Exception)
             {
@@ -138,7 +174,7 @@ namespace Heist
                     temp.Price = lol.Price.ToString();
                     StoreList.Add(temp);
                 }
-                
+
                 StoreListView.ItemsSource = StoreList;
                 Box.Visibility = Visibility.Visible;
                 StoreListView.Visibility = Visibility.Visible;
@@ -154,12 +190,48 @@ namespace Heist
             }
         }
 
-        
+
         private void StoreListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             StoreListing sent = e.ClickedItem as StoreListing;
             //sent.Price = 50.ToString();
             Frame.Navigate(typeof(StoreDetail), sent);
+        }
+
+        private async void SearchButton2_Click(object sender, RoutedEventArgs e)
+        {
+            StoreListView2.Visibility = Visibility.Collapsed;
+            SearchButton2.Visibility = Visibility.Collapsed;
+            LoadingBar2.Visibility = Visibility.Visible;
+
+            LoadingBar.IsIndeterminate = true;
+           
+            try
+            {
+                items2 = await Table2.Where(Collections
+                        => Collections.Name.Contains(Box2.Text)).ToCollectionAsync();
+
+
+                StoreListView2.ItemsSource = items2;
+                Box2.Visibility = Visibility.Visible;
+                StoreListView2.Visibility = Visibility.Visible;
+                SearchButton2.Visibility = Visibility.Visible;
+                LoadingBar2.Visibility = Visibility.Collapsed;
+                //write code to navigate to detail page of collection
+            }
+            catch (Exception)
+            {
+                MessageDialog msgbox = new MessageDialog("Something is not right at this time");
+                await msgbox.ShowAsync();
+                LoadingBar2.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void StoreListView2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Collections sent = e.ClickedItem as Collections;
+            //sent.Price = 50.ToString();
+            Frame.Navigate(typeof(CollDetail), sent);
         }
     }
 }

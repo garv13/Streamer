@@ -30,12 +30,13 @@ namespace Heist
         }
         string testlol = "";
         string selected = "";
+        string name="";
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
             StorageFile sampleFile = await folder.GetFileAsync("sample.txt");
             testlol = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
-          
+            name = e.Parameter as string;
         }
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
@@ -78,9 +79,21 @@ namespace Heist
             Frame.Navigate(typeof(MyCollection));
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            Collections myList = new Collections();
+            myList.CreatedBy = testlol;
+            myList.downloads = 0;
+            myList.like = 0;
+            myList.books = "";
+            myList.Name = name;
+            foreach (MeriCollection lol in App.mc)
+            {
+                myList.books += lol.BookId + "." + lol.ChapterId+",";
+            }
+            myList.books=myList.books.Substring(0, myList.books.Length - 1);
+            await App.MobileService.GetTable<Collections>().InsertAsync(myList);
+            Frame.Navigate(typeof(MyCollection));
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)

@@ -102,8 +102,20 @@ namespace Heist
 
         private async void NextBar_Click(object sender, RoutedEventArgs e)
         {
+            int i = 0;
             LoadingBar.Visibility = Visibility.Visible;
-            
+            App.mc.Clear();
+            foreach (CollSort d in myList)
+            {
+                MeriCollection c = new MeriCollection();
+                c.BookId = d.BookId;
+                c.BookName = d.BookName;
+                c.ChapterId = d.ChapterId;
+                c.ChapterNo = d.ChapterNo;
+                c.UserName = d.UserName;
+                App.mc.Insert(i, c);
+                i++;
+            }
             LoadingBar.IsActive = true;
             string sn = "";
             MeriCollection l = new MeriCollection();
@@ -150,7 +162,7 @@ namespace Heist
                 }
                 LoadingBar.Visibility = Visibility.Collapsed;
                 await (new MessageDialog("Your collection was made!!")).ShowAsync();
-                Frame.Navigate(typeof(ShareColl));
+                Frame.Navigate(typeof(ShareColl), CollName.Text);
             }
             catch(Exception)
             {
