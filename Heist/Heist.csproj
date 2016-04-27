@@ -151,6 +151,9 @@
     <Compile Include="Purchaseddetail.xaml.cs">
       <DependentUpon>Purchaseddetail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ShareColl.xaml.cs">
+      <DependentUpon>ShareColl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SignUp.xaml.cs">
       <DependentUpon>SignUp.xaml</DependentUpon>
     </Compile>
@@ -223,6 +226,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Purchaseddetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShareColl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

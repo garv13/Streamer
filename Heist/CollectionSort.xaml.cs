@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -31,12 +32,14 @@ namespace Heist
             this.InitializeComponent();       
         }
         string testlol = "";
+        string selected = "";
+        ObservableCollection<CollSort> myList;
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
             StorageFile sampleFile = await folder.GetFileAsync("sample.txt");
             testlol = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
-            List<CollSort> myList = new List<CollSort>();
+            myList = new ObservableCollection<CollSort>();
             foreach (MeriCollection d in App.mc)
             {
                 CollSort c = new CollSort();
@@ -46,10 +49,17 @@ namespace Heist
                 c.ChapterNo = d.ChapterNo;
                 c.UserName = d.UserName;
                 c.sel = false;
-                myList.Add(c);
+                myList.Insert(0, c);
             }
             View.ItemsSource = myList;
+            myList.CollectionChanged += MyList_CollectionChanged;
         }
+
+        private void MyList_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            View.ItemsSource = myList;
+        }
+
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
         {
             MySplitView.IsPaneOpen = !MySplitView.IsPaneOpen;
@@ -140,7 +150,7 @@ namespace Heist
                 }
                 LoadingBar.Visibility = Visibility.Collapsed;
                 await (new MessageDialog("Your collection was made!!")).ShowAsync();
-                Frame.Navigate(typeof(MyCollection));
+                Frame.Navigate(typeof(ShareColl));
             }
             catch(Exception)
             {
@@ -157,12 +167,62 @@ namespace Heist
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            bool hell = false;
+            CollSort temp = new CollSort();
+            foreach (CollSort l in myList)
+            {
+                if (l.BookId == selected)
+                {
+                    temp = l;
+                    hell = true;
+                    break;
+                }
+            }
+            if(hell)
+            {
+                int i = myList.IndexOf(temp);
+                if (i != 0)
+                {
+                    myList.Remove(temp);
+                    i--;
+                    myList.Insert(i, temp);
+                }
+                    View.DataContext = myList;
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            bool hell = false;
+            CollSort temp = new CollSort();
+            foreach (CollSort l in myList)
+            {
+                if (l.BookId == selected)
+                {
+                    temp = l;
+                    hell = true;
+                    break;
+                }
+            }
+            if (hell)
+            {
+                int i = myList.IndexOf(temp);
+                if (i != myList.Count-1)
+                {
+                    myList.Remove(temp);
+                    i++;
+                    myList.Insert(i, temp);
+                }
+                View.DataContext = myList;
+            }
+        }
 
+        private void radioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            var test = sender as RadioButton;
+            var test2 = test.Parent as Grid;
+            var test3 = test2.Children[0] as TextBlock;
+            selected = test3.Text;
         }
     }
 }
