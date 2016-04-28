@@ -1,11 +1,15 @@
 ﻿using Microsoft.WindowsAzure.MobileServices;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -38,16 +42,20 @@ namespace Heist
         List<string> bookName;
         List<string> Chap;
         List<string> ChapName;
-
+        string testlol = "";
         List<CollView> CollList;
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
+            StorageFolder folder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            StorageFile sampleFile = await folder.GetFileAsync("sample.txt");
+            testlol = await Windows.Storage.FileIO.ReadTextAsync(sampleFile);
+
             CollList = new List<CollView>();
-             book = new List<string>();
+            book = new List<string>();
             Chap = new List<string>();
 
-             bookName = new List<string>();
-             ChapName = new List<string>();
+            bookName = new List<string>();
+            ChapName = new List<string>();
             LoadingBar.IsIndeterminate = true;
             LoadingBar.Visibility = Visibility.Visible;
             rec = new Collections();
@@ -86,8 +94,6 @@ namespace Heist
             StoreListView.ItemsSource = CollList;
             LoadingBar.Visibility = Visibility.Collapsed;
         }
-
-
 
         private void HamburgerButton_Click(object sender, RoutedEventArgs e)
         {
@@ -130,9 +136,66 @@ namespace Heist
             Frame.Navigate(typeof(Login));
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
+            LoadingBar.IsEnabled = true;
+            LoadingBar.Visibility = Visibility.Visible;
+            App.mc.Clear();
+           
+            string sn = "";
+            MeriCollection l = new MeriCollection();
+            l.BookName = rec.Name;
+            l.UserName = testlol;
+            sn = JsonConvert.SerializeObject(l);
+            try
+            {
+                StorageFolder mainFol = await ApplicationData.Current.LocalFolder.CreateFolderAsync(testlol + "My Collections", CreationCollisionOption.OpenIfExists);
+                if (mainFol != null)
+                {
+                    StorageFolder folder = await mainFol.CreateFolderAsync(rec.Name, CreationCollisionOption.OpenIfExists);
+                    if (folder != null)
+                    {
+                        Uri url = new Uri("https://www.ebookstreamer.me/downloads");
+                        HttpClient httpClient = new HttpClient();
+                        var myClientHandler = new HttpClientHandler();
 
+
+                        foreach (string s in Chap)
+                        {
+                            HttpResponseMessage httpResponse = new HttpResponseMessage();
+                            var content = new FormUrlEncodedContent(new[]
+                             {
+                                  new KeyValuePair<string, string>("id", s)
+                             });
+                            httpResponse = await httpClient.PostAsync(url, content);
+                            httpResponse.EnsureSuccessStatusCode();
+                            Stream str = await httpResponse.Content.ReadAsStreamAsync();
+                            byte[] pd = new byte[str.Length];
+                            str.Read(pd, 0, pd.Length);
+                            items = await Table.Where(Chapter
+                                  => Chapter.Id == s).ToCollectionAsync();
+                            StorageFile file = await folder.CreateFileAsync((items[0].sno + 1).ToString() + ".txt", CreationCollisionOption.ReplaceExisting);
+                            using (var fileStream = await file.OpenStreamForWriteAsync())
+                            {
+                                str.Seek(0, SeekOrigin.Begin);
+                                await str.CopyToAsync(fileStream);
+                            }
+                        }
+                        StorageFile useFile =
+                      await folder.CreateFileAsync("UserName.txt", CreationCollisionOption.ReplaceExisting);
+                        await Windows.Storage.FileIO.WriteTextAsync(useFile, sn);
+                    }
+                }
+                LoadingBar.Visibility = Visibility.Collapsed;
+                await (new MessageDialog("Your collection was made!!")).ShowAsync();
+                Frame.Navigate(typeof(MyCollection));
+            }
+            catch (Exception)
+            {
+                LoadingBar.Visibility = Visibility.Collapsed;
+                await (new MessageDialog("Your collection was not made:(:(")).ShowAsync();
+                Frame.Navigate(typeof(MyCollection));
+            }
         }
     }
 }

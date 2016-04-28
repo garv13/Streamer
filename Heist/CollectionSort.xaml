@@ -21,9 +21,9 @@
                         <ColumnDefinition Width="0.2*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Text="{Binding BookId}" Visibility="Collapsed" FontSize="16" Foreground="White"  Padding="10" Margin="10" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch"/>
-                    <TextBlock Text="{Binding BookName}" FontSize="16" Foreground="White"  Padding="10" Margin="10" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch"/>
-                    <TextBlock Text="{Binding ChapterNo}" FontSize="16" Foreground="White"  Padding="10" Margin="10" VerticalAlignment="Stretch" Grid.Column="1"  HorizontalAlignment="Stretch"/>
-                    <RadioButton IsChecked="{Binding sel}" Checked="radioButton_Checked" x:Name="radioButton" Grid.Column="2" Padding="10" Margin="10" Content="Select" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" GroupName="lol"/>
+                    <TextBlock Text="{Binding BookName}" FontSize="26" Foreground="White"  Padding="10" Margin="10" VerticalAlignment="Stretch"  HorizontalAlignment="Stretch"/>
+                    <TextBlock Text="{Binding ChapterNo}" FontSize="26" Foreground="White"  Padding="10" Margin="10" VerticalAlignment="Stretch" Grid.Column="1"  HorizontalAlignment="Stretch"/>
+                    <RadioButton IsChecked="{Binding sel}" FontSize="20" Checked="radioButton_Checked" x:Name="radioButton" Grid.Column="2" Padding="10" Margin="10" Content="Select" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" GroupName="lol"/>
                 </Grid>
             </DataTemplate>
         </ResourceDictionary>
@@ -67,10 +67,7 @@
                     <RowDefinition Height="0.2*"/>
                     <RowDefinition Height="0.2*"/>
                     <RowDefinition Height="0.2*"/>
-
                     <RowDefinition Height="0.2*"/>
-       
-
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.1*"/>
@@ -80,9 +77,10 @@
 
                 </Grid.ColumnDefinitions>
                 <TextBox Grid.Column="2" x:Name="CollName" PlaceholderText="Enter collection name" Foreground="White" Height="35" Width="200" HorizontalAlignment="Left" Margin="20,20,0,0"/>
-                <Button Click="Button_Click" Grid.Column="1" Grid.Row="1" Content="up" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18" Margin="20"/>
-                <Button Click="Button_Click_1" Grid.Column="1" Grid.Row="2" Content="down" Foreground="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18" Margin="20"/>
+                <Image Source="/Assets/white-arrowUp.png" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Tapped="Image_Tapped"/>
 
+                <Image Source="/Assets/white-arrowDown.png" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Tapped="Image_Tapped_1"/>
+                
                 <ListView  
                        
                      Grid.Row="1"

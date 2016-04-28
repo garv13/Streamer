@@ -177,33 +177,15 @@ namespace Heist
             Frame.Navigate(typeof(MyCollection));
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void radioButton_Checked(object sender, RoutedEventArgs e)
         {
-            bool hell = false;
-            CollSort temp = new CollSort();
-            foreach (CollSort l in myList)
-            {
-                if (l.BookId == selected)
-                {
-                    temp = l;
-                    hell = true;
-                    break;
-                }
-            }
-            if(hell)
-            {
-                int i = myList.IndexOf(temp);
-                if (i != 0)
-                {
-                    myList.Remove(temp);
-                    i--;
-                    myList.Insert(i, temp);
-                }
-                    View.DataContext = myList;
-            }
+            var test = sender as RadioButton;
+            var test2 = test.Parent as Grid;
+            var test3 = test2.Children[0] as TextBlock;
+            selected = test3.Text;
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Image_Tapped(object sender, TappedRoutedEventArgs e)
         {
             bool hell = false;
             CollSort temp = new CollSort();
@@ -219,7 +201,33 @@ namespace Heist
             if (hell)
             {
                 int i = myList.IndexOf(temp);
-                if (i != myList.Count-1)
+                if (i != 0)
+                {
+                    myList.Remove(temp);
+                    i--;
+                    myList.Insert(i, temp);
+                }
+                View.DataContext = myList;
+            }
+        }
+
+        private void Image_Tapped_1(object sender, TappedRoutedEventArgs e)
+        {
+            bool hell = false;
+            CollSort temp = new CollSort();
+            foreach (CollSort l in myList)
+            {
+                if (l.BookId == selected)
+                {
+                    temp = l;
+                    hell = true;
+                    break;
+                }
+            }
+            if (hell)
+            {
+                int i = myList.IndexOf(temp);
+                if (i != myList.Count - 1)
                 {
                     myList.Remove(temp);
                     i++;
@@ -227,14 +235,6 @@ namespace Heist
                 }
                 View.DataContext = myList;
             }
-        }
-
-        private void radioButton_Checked(object sender, RoutedEventArgs e)
-        {
-            var test = sender as RadioButton;
-            var test2 = test.Parent as Grid;
-            var test3 = test2.Children[0] as TextBlock;
-            selected = test3.Text;
         }
     }
 }
